@@ -1,16 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.RegisterFormController">
+<AnchorPane prefHeight="393.0" prefWidth="541.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.RegisterFormController">
    <children>
-      <Label fx:id="lab" layoutX="264.0" layoutY="42.0" text="hi">
-         <font>
-            <Font name="System Bold" size="39.0" />
-         </font>
-      </Label>
+      <ImageView fx:id="anp1" fitHeight="412.0" fitWidth="553.0" layoutX="-2.0" layoutY="-1.0">
+         <image>
+            <Image url="@../images/20140729_flaircleaners_28749.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="anp2" layoutX="28.0" layoutY="5.0" opacity="0.87" prefHeight="400.0" prefWidth="495.0" style="-fx-background-color: F3D7CA;">
+         <children>
+            <ImageView fitHeight="44.0" fitWidth="200.0" layoutX="148.0" layoutY="6.0">
+               <image>
+                  <Image url="@../images/470-X-104.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="45.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Id :">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtId" layoutX="52.0" layoutY="94.0" onAction="#txtIdOnAction" prefHeight="32.0" prefWidth="348.0" promptText="Input your user id">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Text layoutX="45.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name :">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtName" layoutX="52.0" layoutY="168.0" onAction="#txtNameOnAction" prefHeight="32.0" prefWidth="348.0" promptText="Input your user name">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Text layoutX="48.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password :">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtPassword" layoutX="52.0" layoutY="244.0" onAction="#txtPasswordOnAction" prefHeight="32.0" prefWidth="348.0" promptText="Input your user password">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <JFXButton fx:id="btnRegister" layoutX="190.0" layoutY="310.0" onAction="#btnRegisterOnAction" style="-fx-background-color: B7C9F2;" text="Register Now">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

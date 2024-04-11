@@ -1,14 +1,25 @@
 package lk.ijse.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
 public class LoginFormController {
 
     @FXML
-    private Button btnLogin;
+    private AnchorPane anp1;
+
+    @FXML
+    private AnchorPane anp2;
+
+    @FXML
+    private JFXButton btnLogin;
+
+    @FXML
+    private Hyperlink linkRegister;
 
     @FXML
     private TextField txtPassword;
@@ -18,6 +29,11 @@ public class LoginFormController {
 
     @FXML
     void btnLoginOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void linkRegisterOnAction(ActionEvent event) {
 
     }
 
