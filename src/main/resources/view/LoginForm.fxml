@@ -41,18 +41,18 @@
             <Image url="@../images/470-X-104.png" />
          </image>
       </ImageView>
-      <Text layoutX="14.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name :">
+      <Text layoutX="14.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User id :">
          <font>
             <Font name="System Italic" size="13.0" />
          </font>
       </Text>
-      <TextField fx:id="txtUserName" layoutX="29.0" layoutY="116.0" onAction="#txtUserNameOnAction" prefHeight="31.0" prefWidth="173.0" promptText="User Name" />
+      <TextField fx:id="txtUserName" layoutX="29.0" layoutY="116.0" prefHeight="31.0" prefWidth="173.0" promptText="User Id" />
       <Text layoutX="19.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password :">
          <font>
             <Font name="System Italic" size="13.0" />
          </font>
       </Text>
-      <TextField fx:id="txtPassword" layoutX="29.0" layoutY="201.0" onAction="#txtPasswordOnAction" prefHeight="31.0" prefWidth="173.0" promptText="Password" />
+      <TextField fx:id="txtPassword" layoutX="29.0" layoutY="201.0" prefHeight="31.0" prefWidth="173.0" promptText="Password" />
       <JFXButton fx:id="btnLogin" layoutX="116.0" layoutY="284.0" onAction="#btnLoginOnAction" prefHeight="26.0" prefWidth="94.0" style="-fx-background-color: B7C9F2;" text="Login">
          <font>
             <Font name="System Bold" size="15.0" />

@@ -27,7 +27,7 @@
                   <Font name="System Italic" size="14.0" />
                </font>
             </Text>
-            <TextField fx:id="txtId" layoutX="52.0" layoutY="94.0" onAction="#txtIdOnAction" prefHeight="32.0" prefWidth="348.0" promptText="Input your user id">
+            <TextField fx:id="txtId" layoutX="52.0" layoutY="94.0" prefHeight="32.0" prefWidth="348.0" promptText="Input your user id">
                <font>
                   <Font size="13.0" />
                </font>
@@ -37,7 +37,7 @@
                   <Font name="System Italic" size="14.0" />
                </font>
             </Text>
-            <TextField fx:id="txtName" layoutX="52.0" layoutY="168.0" onAction="#txtNameOnAction" prefHeight="32.0" prefWidth="348.0" promptText="Input your user name">
+            <TextField fx:id="txtName" layoutX="52.0" layoutY="168.0" prefHeight="32.0" prefWidth="348.0" promptText="Input your user name">
                <font>
                   <Font size="13.0" />
                </font>
@@ -47,7 +47,7 @@
                   <Font name="System Italic" size="14.0" />
                </font>
             </Text>
-            <TextField fx:id="txtPassword" layoutX="52.0" layoutY="244.0" onAction="#txtPasswordOnAction" prefHeight="32.0" prefWidth="348.0" promptText="Input your user password">
+            <TextField fx:id="txtPassword" layoutX="52.0" layoutY="244.0" prefHeight="32.0" prefWidth="348.0" promptText="Input your user password">
                <font>
                   <Font size="13.0" />
                </font>
