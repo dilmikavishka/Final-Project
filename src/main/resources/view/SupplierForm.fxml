@@ -1,14 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.controller.SupplierFormController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane fx:id="anpSupplierManage" prefHeight="494.0" prefWidth="693.0" style="-fx-background-color: C6EBC5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SupplierFormController">
+   <children>
+      <Label layoutX="275.0" layoutY="14.0" text="Supplier Manage">
+         <font>
+            <Font name="Calibri Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="63.0" layoutY="56.0" text="Supplier Id :">
+         <font>
+            <Font name="Calibri Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="61.0" layoutY="106.0" text="Supplier tel :">
+         <font>
+            <Font name="Calibri Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="503.0" layoutY="56.0" text="Supplier Date :">
+         <font>
+            <Font name="Calibri Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="300.0" layoutY="56.0" text="Supplier Name :">
+         <font>
+            <Font name="Calibri Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="300.0" layoutY="106.0" text="Payment Id :">
+         <font>
+            <Font name="Calibri Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtSupId" layoutX="63.0" layoutY="74.0" onAction="#txtSearchOnAction" />
+      <TextField fx:id="txtSupTel" layoutX="63.0" layoutY="124.0" />
+      <TextField fx:id="txtPayId" layoutX="299.0" layoutY="124.0" />
+      <TextField fx:id="txtSupDate" layoutX="503.0" layoutY="74.0" />
+      <TextField fx:id="txtSupName" layoutX="299.0" layoutY="74.0" />
+      <TableView fx:id="tblSupplier" layoutX="10.0" layoutY="155.0" prefHeight="330.0" prefWidth="579.0">
+        <columns>
+          <TableColumn fx:id="colSupId" prefWidth="75.0" text="Supplier Id" />
+          <TableColumn fx:id="colSupName" prefWidth="136.7999496459961" text="Supplier Name" />
+            <TableColumn fx:id="colSupDate" prefWidth="146.4000244140625" text="Supplier Date" />
+            <TableColumn fx:id="colSupTel" prefWidth="131.20001220703125" text="Supplier Tel" />
+            <TableColumn fx:id="colPayId" prefWidth="88.80001831054688" text="Payment Id" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="btnBack" layoutX="599.0" layoutY="458.0" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: DD5746;" text="Back">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="17.0" fitWidth="21.0">
+               <image>
+                  <Image url="@../images/icons8-back-50.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnSave" layoutX="599.0" layoutY="381.0" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Save">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="17.0" fitWidth="21.0">
+               <image>
+                  <Image url="@../images/icons8-add-bookmark-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnDelete" layoutX="599.0" layoutY="339.0" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Delete">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="17.0" fitWidth="21.0">
+               <image>
+                  <Image url="@../images/icons8-delete-24.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnUpdate" layoutX="599.0" layoutY="303.0" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Update">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="17.0" fitWidth="21.0">
+               <image>
+                  <Image url="@../images/icons8-update-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnClear" layoutX="599.0" layoutY="266.0" onAction="#btnClearOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Clear">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="17.0" fitWidth="21.0">
+               <image>
+                  <Image url="@../images/icons8-clear-50.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+   </children>
 </AnchorPane>

@@ -1,14 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.controller.PaymentFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="apnPayment" prefHeight="494.0" prefWidth="693.0" style="-fx-background-color: C6EBC5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PaymentFormController">
+   <children>
+      <Label layoutX="272.0" layoutY="14.0" text="Payment Manage">
+         <font>
+            <Font name="Calibri Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="54.0" text="Payment Id :">
+         <font>
+            <Font name="Calibri Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="109.0" text="Amount  :">
+         <font>
+            <Font name="Calibri Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="434.0" layoutY="109.0" text="Type  :">
+         <font>
+            <Font name="Calibri Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtPaymentID" layoutX="58.0" layoutY="72.0" onAction="#txtPaymentSarchOnAction" />
+      <TextField fx:id="txtPaymentDate" layoutX="434.0" layoutY="72.0" />
+      <TextField fx:id="txtAmount" layoutX="59.0" layoutY="127.0" />
+      <TableView fx:id="tblPayment" layoutX="14.0" layoutY="157.0" prefHeight="331.0" prefWidth="554.0">
+        <columns>
+          <TableColumn fx:id="colPaymentId" prefWidth="81.60000801086426" text="Payment Id" />
+          <TableColumn fx:id="colPaymentDate" prefWidth="194.39995574951172" text="Paymeny Date" />
+            <TableColumn fx:id="colAmount" prefWidth="142.4000244140625" text="Amount" />
+            <TableColumn fx:id="colType" prefWidth="136.00003051757812" text="Type" />
+        </columns>
+      </TableView>
+      <Label layoutX="434.0" layoutY="54.0" text="Payment Date  :">
+         <font>
+            <Font name="Calibri Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnClear" layoutX="598.0" layoutY="268.0" onAction="#btnClearOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Clear">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="17.0" fitWidth="21.0">
+               <image>
+                  <Image url="@../images/icons8-clear-50.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnUpdate" layoutX="598.0" layoutY="310.0" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Update">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="17.0" fitWidth="21.0">
+               <image>
+                  <Image url="@../images/icons8-update-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnDelete" layoutX="598.0" layoutY="352.0" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Delete">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="17.0" fitWidth="21.0">
+               <image>
+                  <Image url="@../images/icons8-delete-24.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnSave" layoutX="598.0" layoutY="392.0" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Save">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="17.0" fitWidth="21.0">
+               <image>
+                  <Image url="@../images/icons8-add-bookmark-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnBack" layoutX="598.0" layoutY="457.0" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: DD5746;" text="Back">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="17.0" fitWidth="21.0">
+               <image>
+                  <Image url="@../images/icons8-back-50.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <ChoiceBox fx:id="choiseType" layoutX="433.0" layoutY="127.0" prefWidth="150.0" />
+   </children>
 </AnchorPane>

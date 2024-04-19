@@ -64,7 +64,7 @@ public class LoginFormController {
             String dbPw = resultSet.getString("password");
 
             if(pw.equals(dbPw)) {
-                navigateToTheDashboard();
+                navigateToTheMain();
             } else {
                 new Alert(Alert.AlertType.ERROR, "sorry! password is incorrect!").show();
             }
@@ -74,15 +74,15 @@ public class LoginFormController {
         }
     }
 
-    private void navigateToTheDashboard() throws IOException {
-        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/DashBordForm.fxml"));
+    private void navigateToTheMain() throws IOException {
+        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/MainForm.fxml"));
 
         Scene scene = new Scene(rootNode);
 
-        Stage stage = (Stage) this.anp1.getScene().getWindow();
+        Stage stage = (Stage) anp1.getScene().getWindow();
         stage.setScene(scene);
         stage.centerOnScreen();
-        stage.setTitle("Dashboard Form");
+        stage.setTitle("main Form");
     }
 
     @FXML

@@ -4,24 +4,24 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 public class DashBordFormController {
 
     @FXML
-    private ImageView apnDash;
+    private AnchorPane anpDashbord;
 
     @FXML
     private JFXButton btnBack;
 
     @FXML
-    private Label lbCustomerCount;
+    private Label lblCusCount;
 
     @FXML
-    private Label lbEmployeeCount;
+    private Label lblEmpCount;
 
     @FXML
-    private Label lbOrdersCount;
+    private Label lblOrderCount;
 
     @FXML
     void btnBackOnAction(ActionEvent event) {

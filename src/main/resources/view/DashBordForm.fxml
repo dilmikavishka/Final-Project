@@ -2,104 +2,101 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="402.0" prefWidth="381.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashBordFormController">
+<AnchorPane fx:id="anpDashbord" prefHeight="494.0" prefWidth="693.0" style="-fx-background-color: C6EBC5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashBordFormController">
    <children>
-      <ImageView fx:id="apnDash" fitHeight="402.0" fitWidth="381.0" layoutX="-3.0" opacity="0.53">
-         <image>
-            <Image url="@../images/pile-of-cloth-buttons-button-PO9oZL9-600.jpg" />
-         </image>
-      </ImageView>
-      <AnchorPane layoutX="23.0" layoutY="14.0" prefHeight="82.0" prefWidth="200.0" style="-fx-background-color: AFD198;">
-         <effect>
-            <DropShadow />
-         </effect>
+      <Label layoutX="306.0" layoutY="21.0" text="DashBord">
+         <font>
+            <Font name="Calibri Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="40.0" layoutY="72.0" prefHeight="149.0" prefWidth="250.0" style="-fx-background-color: DEAC80;">
          <children>
-            <Label layoutX="34.0" layoutY="2.0" text="Customer count :">
+            <Label layoutX="23.0" layoutY="14.0" text="Customer Count :">
                <font>
-                  <Font name="Calibri Bold Italic" size="20.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <Label fx:id="lbCustomerCount" layoutX="94.0" layoutY="29.0" text="0">
+            <Label fx:id="lblCusCount" layoutX="162.0" layoutY="59.0" text="0">
                <font>
-                  <Font name="Calibri Bold Italic" size="20.0" />
+                  <Font size="20.0" />
                </font>
             </Label>
-            <ImageView fitHeight="37.0" fitWidth="34.0" layoutX="17.0" layoutY="34.0">
+            <ImageView fitHeight="64.0" fitWidth="66.0" layoutX="23.0" layoutY="57.0">
                <image>
                   <Image url="@../images/icons8-customer-survey-50.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="240.0" layoutY="15.0" prefHeight="161.0" prefWidth="134.0" style="-fx-background-color: AFD198;">
-         <effect>
-            <DropShadow />
-         </effect>
+      <AnchorPane layoutX="40.0" layoutY="253.0" prefHeight="149.0" prefWidth="250.0" style="-fx-background-color: DEAC80;">
          <children>
-            <Label layoutX="26.0" layoutY="14.0" text="Employee">
+            <Label layoutX="11.0" layoutY="14.0" text="Order Count :">
                <font>
-                  <Font name="Calibri Bold Italic" size="20.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <Label layoutX="38.0" layoutY="37.0" text="count :">
+            <Label fx:id="lblOrderCount" layoutX="152.0" layoutY="67.0" text="0">
                <font>
-                  <Font name="Calibri Bold Italic" size="20.0" />
+                  <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="lbEmployeeCount" layoutX="57.0" layoutY="80.0" text="0">
-               <font>
-                  <Font name="Calibri Bold Italic" size="20.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="37.0" fitWidth="34.0" layoutX="45.0" layoutY="111.0">
-               <image>
-                  <Image url="@../images/icons8-profile-50.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="14.0" layoutY="123.0" prefHeight="82.0" prefWidth="200.0" style="-fx-background-color: AFD198;">
-         <effect>
-            <DropShadow />
-         </effect>
-         <children>
-            <Label layoutX="34.0" layoutY="2.0" text="The amount of">
-               <font>
-                  <Font name="Calibri Bold Italic" size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="47.0" layoutY="25.0" text="Ordes recived :">
-               <font>
-                  <Font name="Calibri Bold Italic" size="20.0" />
-               </font>
-            </Label>
-            <Label fx:id="lbOrdersCount" layoutX="95.0" layoutY="48.0" text="0">
-               <font>
-                  <Font name="Calibri Bold Italic" size="20.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="37.0" fitWidth="34.0" layoutX="7.0" layoutY="30.0">
+            <ImageView fitHeight="64.0" fitWidth="66.0" layoutX="14.0" layoutY="58.0">
                <image>
                   <Image url="@../images/icons8-order-completed-50.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <JFXButton fx:id="btnBack" layoutX="297.0" layoutY="357.0" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: B7C9F2;" text="Back">
+      <AnchorPane layoutX="333.0" layoutY="72.0" prefHeight="149.0" prefWidth="250.0" style="-fx-background-color: DEAC80;">
+         <children>
+            <Label layoutX="26.0" layoutY="11.0" text="Employee Count :">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblEmpCount" layoutX="165.0" layoutY="59.0" text="0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="64.0" fitWidth="66.0" layoutX="26.0" layoutY="59.0">
+               <image>
+                  <Image url="@../images/icons8-profile-50.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="btnBack" layoutX="596.0" layoutY="453.0" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: DD5746;" text="Back">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
+         <graphic>
+            <ImageView fitHeight="17.0" fitWidth="21.0">
+               <image>
+                  <Image url="@../images/icons8-back-50.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </JFXButton>
-      <ImageView fitHeight="17.0" fitWidth="21.0" layoutX="297.0" layoutY="362.0">
+      <ImageView fitHeight="129.0" fitWidth="205.0" layoutX="473.0" layoutY="230.0">
          <image>
-            <Image url="@../images/icons8-back-50.png" />
+            <Image url="@../images/productsfirst.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="117.0" fitWidth="189.0" layoutX="495.0" layoutY="322.0">
+         <image>
+            <Image url="@../images/home2%20(1).jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="129.0" fitWidth="205.0" layoutX="308.0" layoutY="274.0">
+         <image>
+            <Image url="@../images/slider2.jpg" />
          </image>
       </ImageView>
    </children>
