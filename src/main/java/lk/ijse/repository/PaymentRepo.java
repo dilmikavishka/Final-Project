@@ -11,7 +11,7 @@ import java.util.List;
 
 public class PaymentRepo {
     public static boolean save(Payment payment) throws SQLException {
-        String sql = "INSERT INTO Payment VALUES (?,?,?,?,'ACTIVE')";
+        String sql = "INSERT INTO payment VALUES (?,?,?,?,'ACTIVE')";
         PreparedStatement pstm = DbConnection.getInstance().
                 getConnection().
                 prepareStatement(sql);
@@ -39,7 +39,7 @@ public class PaymentRepo {
     }
 
     public static boolean delete(String id) throws SQLException {
-        String sql = "UPDATE Payment SET status = 'DELETE' WHERE paymentId = ?";
+        String sql = "UPDATE payment SET status = 'DELETE' WHERE paymentId = ?";
         PreparedStatement pstm = DbConnection.getInstance().
                 getConnection().
                 prepareStatement(sql);
@@ -50,7 +50,7 @@ public class PaymentRepo {
     }
 
     public static Payment searchById(String id) throws SQLException {
-        String sql = "SELECT * FROM  Payment WHERE paymentId = ? ";
+        String sql = "SELECT * FROM  payment WHERE paymentId = ? ";
         PreparedStatement pstm = DbConnection.getInstance().
                 getConnection().
                 prepareStatement(sql);
@@ -72,7 +72,7 @@ public class PaymentRepo {
     }
 
     public static List<Payment> getAll() throws SQLException {
-        String sql = "SELECT * FROM  Payment WHERE status = 'ACTIVE' ";
+        String sql = "SELECT * FROM  payment WHERE status = 'ACTIVE' ";
         PreparedStatement pstm = DbConnection.getInstance().
                 getConnection().
                 prepareStatement(sql);
@@ -90,6 +90,23 @@ public class PaymentRepo {
             Payment payment = new Payment(payId,date,amount,type);
 
             payList.add(payment);
+        }
+        return payList;
+    }
+
+    public static List<String> getIds() throws SQLException {
+        String sql = "SELECT paymentId FROM payment";
+        PreparedStatement pstm = DbConnection.getInstance().
+                getConnection().
+                prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        List<String> payList = new ArrayList<>();
+
+        while (resultSet.next()){
+            String id = resultSet.getString(1);
+            payList.add(id);
         }
         return payList;
     }

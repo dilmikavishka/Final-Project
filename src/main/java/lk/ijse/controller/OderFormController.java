@@ -17,9 +17,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.model.Customer;
 import lk.ijse.model.Order;
+import lk.ijse.model.Payment;
 import lk.ijse.model.Tm.OrderTm;
 import lk.ijse.repository.CustomerRepo;
 import lk.ijse.repository.OrderRepo;
+import lk.ijse.repository.PaymentRepo;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -76,6 +78,20 @@ public class OderFormController {
         setCellValueFactory();
         loadAllOrders();
         getCustmoreIds();
+        getPayIds();
+    }
+
+    private void getPayIds() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+        try {
+            List<String> payList = PaymentRepo.getIds();
+            for (String id : payList){
+                obList.add(id);
+            }
+            comPayId.setItems(obList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void getCustmoreIds() {
@@ -217,7 +233,13 @@ public class OderFormController {
 
     @FXML
     void comPayIdOnAction(ActionEvent event) {
+        String id = comPayId.getValue();
 
+        try {
+            Payment payment = PaymentRepo.searchById(id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
     @FXML
     void txtSearchOnAction(ActionEvent event) throws SQLException {

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -9,7 +10,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane fx:id="anpSupplierManage" prefHeight="494.0" prefWidth="693.0" style="-fx-background-color: C6EBC5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SupplierFormController">
    <children>
@@ -44,10 +44,9 @@
          </font>
       </Label>
       <TextField fx:id="txtSupId" layoutX="63.0" layoutY="74.0" onAction="#txtSearchOnAction" />
-      <TextField fx:id="txtSupTel" layoutX="63.0" layoutY="124.0" />
-      <TextField fx:id="txtPayId" layoutX="299.0" layoutY="124.0" />
-      <TextField fx:id="txtSupDate" layoutX="503.0" layoutY="74.0" />
       <TextField fx:id="txtSupName" layoutX="299.0" layoutY="74.0" />
+      <TextField fx:id="txtSupDate" layoutX="503.0" layoutY="74.0" />
+      <TextField fx:id="txtSupTel" layoutX="63.0" layoutY="124.0" />
       <TableView fx:id="tblSupplier" layoutX="10.0" layoutY="155.0" prefHeight="330.0" prefWidth="579.0">
         <columns>
           <TableColumn fx:id="colSupId" prefWidth="75.0" text="Supplier Id" />
@@ -117,5 +116,6 @@
             </ImageView>
          </graphic>
       </JFXButton>
+      <JFXComboBox fx:id="comPayId" layoutX="299.0" layoutY="124.0" onAction="#comPayIdOnAction" prefHeight="26.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

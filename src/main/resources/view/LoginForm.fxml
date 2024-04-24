@@ -53,7 +53,7 @@
          </font>
       </Text>
       <TextField fx:id="txtPassword" layoutX="29.0" layoutY="278.0" prefHeight="31.0" prefWidth="258.0" promptText="Password" />
-      <JFXButton fx:id="btnLogin" layoutX="118.0" layoutY="399.0" onAction="#btnLoginOnAction" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: B7C9F2;" text="Login">
+      <JFXButton fx:id="btnLogin" layoutX="118.0" layoutY="399.0" onAction="#btnLoginOnAction" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: B7C9F2; -fx-background-radius: 10 10 10 10;" text="Login">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

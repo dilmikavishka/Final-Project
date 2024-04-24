@@ -43,10 +43,12 @@
          </font>
       </Label>
       <TextField fx:id="txtEmployeeId" layoutX="78.0" layoutY="63.0" onAction="#txtSearchOnAction" />
-      <TextField fx:id="txtAddress" layoutX="81.0" layoutY="120.0" />
-      <TextField fx:id="txtSalary" layoutX="78.0" layoutY="173.0" />
-      <TextField fx:id="txtTel" layoutX="473.0" layoutY="120.0" />
       <TextField fx:id="txtEmpName" layoutX="473.0" layoutY="63.0" />
+      <TextField fx:id="txtAddress" layoutX="81.0" layoutY="120.0" />
+      <TextField fx:id="txtTel" layoutX="473.0" layoutY="120.0" />
+      <TextField fx:id="txtSalary" layoutX="78.0" layoutY="173.0" />
+
+
       <TableView fx:id="tblEmployeeManage" layoutX="13.0" layoutY="202.0" prefHeight="285.0" prefWidth="587.0">
         <columns>
           <TableColumn fx:id="colEmpId" prefWidth="75.0" text="Employee Id" />

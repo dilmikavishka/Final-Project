@@ -1,4 +1,4 @@
-package lk.ijse.model;
+package lk.ijse.model.Tm;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,8 +7,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Machine {
-    private String MaId;
+public class EmployeeTm {
+    private String id;
     private String name;
-    private String description;
+    private String address;
+    private String tel;
+    private double salary;
+
+
 }

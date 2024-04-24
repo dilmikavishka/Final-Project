@@ -20,9 +20,6 @@ public class Order {
     public void setoId(String oId) {
         this.oId = oId;
     }
-
-
-
     public void setDate(String date) {
         this.date = date;
     }

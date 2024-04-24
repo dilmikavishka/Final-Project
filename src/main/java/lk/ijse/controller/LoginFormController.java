@@ -1,5 +1,6 @@
 package lk.ijse.controller;
 
+import javafx.animation.TranslateTransition;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -38,6 +39,7 @@ public class LoginFormController {
 
     @FXML
     private TextField txtUserName;
+
 
     @FXML
     void btnLoginOnAction(ActionEvent event) throws IOException {
