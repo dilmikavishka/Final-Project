@@ -1,8 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PlaceOrderFormController">
-
+<AnchorPane fx:id="anpPlaceOrder" prefHeight="494.0" prefWidth="693.0" style="-fx-background-color: C6EBC5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PlaceOrderFormController">
+   <children>
+      <Label layoutX="294.0" layoutY="14.0" text="Place Orders">
+         <font>
+            <Font name="Calibri Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="53.0" layoutY="49.0" text="Order Id :">
+         <font>
+            <Font name="Calibri Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="467.0" layoutY="49.0" text="Order Date :">
+         <font>
+            <Font name="Calibri Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblOrderId" layoutX="117.0" layoutY="49.0" text="Label" />
+      <Label fx:id="lblOrderDate" layoutX="547.0" layoutY="49.0" text="Label" />
+      <Label layoutX="467.0" layoutY="93.0" text="Customer Name :">
+         <font>
+            <Font name="Calibri Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="53.0" layoutY="93.0" text="Customer Id :">
+         <font>
+            <Font name="Calibri Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="comCustomerId" layoutX="145.0" layoutY="88.0" prefHeight="26.0" prefWidth="137.0" />
+      <Label fx:id="lblCustomerName" layoutX="575.0" layoutY="93.0" text="Label" />
+      <Label layoutX="53.0" layoutY="134.0" text="Code :">
+         <font>
+            <Font name="Calibri Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="comCode" layoutX="50.0" layoutY="150.0" prefHeight="26.0" prefWidth="137.0" />
+      <Label layoutX="265.0" layoutY="134.0" text="Description :">
+         <font>
+            <Font name="Calibri Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDescription" layoutX="280.0" layoutY="154.0" text="Label" />
+      <Label layoutX="399.0" layoutY="134.0" text="Unit Price :">
+         <font>
+            <Font name="Calibri Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblUnitPrice" layoutX="417.0" layoutY="154.0" text="Label" />
+      <Label layoutX="506.0" layoutY="134.0" text="Qty On Hand :">
+         <font>
+            <Font name="Calibri Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblQtyOnHand" layoutX="533.0" layoutY="154.0" text="Label" />
+      <Label layoutX="628.0" layoutY="134.0" text="Qty  :">
+         <font>
+            <Font name="Calibri Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblPlaceOrder" layoutX="12.0" layoutY="226.0" prefHeight="224.0" prefWidth="670.0">
+        <columns>
+          <TableColumn fx:id="colCode" prefWidth="75.0" text="code" />
+          <TableColumn fx:id="colDescription" prefWidth="159.99999237060547" text="Description" />
+            <TableColumn fx:id="colQty" prefWidth="108.800048828125" text="Qty" />
+            <TableColumn fx:id="colUnitPrice" prefWidth="88.79998779296875" text="Unit Price" />
+            <TableColumn fx:id="colTotal" prefWidth="112.80001831054688" text="Total" />
+            <TableColumn fx:id="colAction" prefWidth="116.79998779296875" text="Action" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="btnBack" layoutX="475.0" layoutY="458.0" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: DD5746;" text="Back">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="17.0" fitWidth="21.0">
+               <image>
+                  <Image url="@../images/icons8-back-50.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnPlaceOrder" layoutX="574.0" layoutY="457.0" onAction="#btnPlaceOrderOnAction" prefHeight="26.0" prefWidth="114.0" style="-fx-background-color: B7C9F2;" text="Place Order">
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="17.0">
+               <image>
+                  <Image url="@../images/icons8-add-properties-100.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <Label layoutX="29.0" layoutY="459.0" text="Net Total :">
+         <font>
+            <Font name="Calibri Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblNetTotal" layoutX="105.0" layoutY="459.0" text="Label" />
+      <TextField fx:id="txtQty" layoutX="612.0" layoutY="149.0" onAction="#txtQtyOnAction" prefHeight="26.0" prefWidth="64.0" />
+      <JFXButton fx:id="btnNewCustomer" layoutX="313.0" layoutY="89.0" onAction="#btnNewCustomerOnAction" prefHeight="26.0" prefWidth="72.0" style="-fx-background-color: FFB534;" text="New">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="17.0" fitWidth="21.0">
+               <image>
+                  <Image url="@../images/icons8-new-contact-48.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnAddToCart" layoutX="568.0" layoutY="184.0" onAction="#btnAddToCartOnAction" prefHeight="26.0" prefWidth="114.0" style="-fx-background-color: C21292;" text="Add To Cart">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="17.0" fitWidth="21.0">
+               <image>
+                  <Image url="@../images/icons8-add-to-cart-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+   </children>
 </AnchorPane>

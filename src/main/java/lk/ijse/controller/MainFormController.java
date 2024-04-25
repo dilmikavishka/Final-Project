@@ -43,6 +43,10 @@ public class MainFormController {
     @FXML
     private JFXButton btnSupplier;
 
+    @FXML
+    private JFXButton btnPlaceOrder;
+
+
     public void initialize() throws IOException {
         loadDashboardForm();
     }
@@ -128,5 +132,17 @@ public class MainFormController {
         anpMain.getChildren().clear();
         anpMain.getChildren().add(supplierPane);
     }
+
+
+    @FXML
+    void btnPlaceOrderOnAction(ActionEvent event) throws IOException {
+        AnchorPane supplierPane = FXMLLoader.load(this.getClass().getResource("/view/PlaceOrderForm.fxml"));
+
+
+        anpMain.getChildren().clear();
+        anpMain.getChildren().add(supplierPane);
+
+    }
+
 
 }

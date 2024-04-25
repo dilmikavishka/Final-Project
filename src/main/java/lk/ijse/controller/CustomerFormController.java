@@ -103,19 +103,11 @@ public class CustomerFormController {
 
     @FXML
     void btnBackOnAction(ActionEvent event) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/MainForm.fxml"));
-        Stage stage = (Stage) anpCustomerManage.getScene().getWindow();
+        AnchorPane dashboardPane = FXMLLoader.load(this.getClass().getResource("/view/DashBordForm.fxml"));
 
-        stage.setScene(new Scene(anchorPane));
-        stage.setTitle("Main Form");
-        stage.centerOnScreen();
 
-        AnchorPane anchorPane2 = FXMLLoader.load(getClass().getResource("/view/DashBordForm.fxml"));
-        Stage stage2 = (Stage) anpCustomerManage.getScene().getWindow();
-
-        stage2.setScene(new Scene(anchorPane));
-        stage2.setTitle("Dashboard Form");
-        stage2.centerOnScreen();
+        anpCustomerManage.getChildren().clear();
+        anpCustomerManage.getChildren().add(dashboardPane);
     }
 
     @FXML
