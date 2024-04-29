@@ -33,11 +33,6 @@
             <Font name="Calibri Bold Italic" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="467.0" layoutY="107.0" text="Payment Id :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
       <TextField fx:id="txtOrderId" layoutX="76.0" layoutY="73.0" onAction="#txtSearchOnAction" />
       <TextField fx:id="txtOrderDate" layoutX="468.0" layoutY="73.0" />
       <JFXButton fx:id="btnSave" layoutX="599.0" layoutY="404.0" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Save">
@@ -88,12 +83,11 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <TableView fx:id="tblOrderManage" layoutX="7.0" layoutY="166.0" prefHeight="320.0" prefWidth="582.0">
+      <TableView fx:id="tblOrderManage" layoutX="7.0" layoutY="166.0" prefHeight="320.0" prefWidth="537.0">
         <columns>
-          <TableColumn fx:id="colOrderId" prefWidth="96.80001974105835" text="Order Id" />
-          <TableColumn fx:id="colOrderDate" prefWidth="203.99999237060547" text="Order Date" />
-            <TableColumn fx:id="colCustomerId" prefWidth="142.39996337890625" text="Customer Id" />
-            <TableColumn fx:id="colPaymentId" prefWidth="139.19998168945312" text="Payment Id" />
+          <TableColumn fx:id="colOrderId" prefWidth="115.99997091293335" text="Order Id" />
+          <TableColumn fx:id="colOrderDate" prefWidth="212.80004119873047" text="Order Date" />
+            <TableColumn fx:id="colCustomerId" prefWidth="209.60000610351562" text="Customer Id" />
         </columns>
       </TableView>
       <JFXButton fx:id="btnBack" layoutX="605.0" layoutY="460.0" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="77.0" style="-fx-background-color: DD5746;" text="Back">
@@ -109,6 +103,5 @@
          </graphic>
       </JFXButton>
       <JFXComboBox fx:id="comCustId" layoutX="76.0" layoutY="130.0" onAction="#comCustIdOnAction" prefHeight="18.0" prefWidth="150.0" />
-      <JFXComboBox fx:id="comPayId" layoutX="467.0" layoutY="130.0" onAction="#comPayIdOnAction" prefHeight="18.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

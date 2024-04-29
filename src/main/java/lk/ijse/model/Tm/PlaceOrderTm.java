@@ -8,9 +8,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class MachineTm {
-    private String MaId;
-    private String name;
+public class PlaceOrderTm {
+    private String baId;
     private String description;
-    private JFXButton btnSave;
+    private int  qty;
+    private double unitPrice;
+    private double total;
+    private JFXButton btnRemove;
 }

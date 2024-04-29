@@ -4,6 +4,7 @@ import lk.ijse.db.DbConnection;
 import lk.ijse.model.Employee;
 import lk.ijse.model.Material;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -61,8 +62,8 @@ public class MaterialRepo {
         if (resultSet.next()){
             String matId = resultSet.getString(1);
             String name = resultSet.getString(2);
-            String date = resultSet.getString(3);
-            double qty = Double.parseDouble(resultSet.getString(4));
+            Date date = Date.valueOf(resultSet.getString(3));
+            int qty = Integer.parseInt(resultSet.getString(4));
             String supId = resultSet.getString(5);
 
             Material material = new Material(matId,name,date,qty,supId);
@@ -84,8 +85,8 @@ public class MaterialRepo {
         while(resultSet.next()){
             String id = resultSet.getString(1);
             String name = resultSet.getString(2);
-            String date = resultSet.getString(3);
-            double matQty = Double.parseDouble(resultSet.getString(4));
+            Date date = Date.valueOf(resultSet.getString(3));
+            int matQty = Integer.parseInt(resultSet.getString(4));
             String supId = resultSet.getString(5);
 
 

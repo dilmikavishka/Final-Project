@@ -101,5 +101,22 @@ public class EmployeeRepo {
         }
         return null;
     }
+
+    public static List<String> getIds() throws SQLException {
+        String sql = "SELECT employeeId FROM employee";
+        PreparedStatement pstm = DbConnection.getInstance().
+                getConnection().
+                prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        List<String> employeeList = new ArrayList<>();
+
+        while (resultSet.next()){
+            String id = resultSet.getString(1);
+            employeeList.add(id);
+        }
+        return employeeList;
+    }
 }
 

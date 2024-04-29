@@ -20,6 +20,9 @@ public class MainFormController {
     private AnchorPane anpMain;
 
     @FXML
+    private JFXButton btnBatch;
+
+    @FXML
     private JFXButton btnCustomer;
 
     @FXML
@@ -57,6 +60,16 @@ public class MainFormController {
 
         anpMain.getChildren().clear();
         anpMain.getChildren().add(dashboardPane);
+    }
+
+    @FXML
+    void btnBatchOnAction(ActionEvent event) throws IOException {
+        AnchorPane batchPane = FXMLLoader.load(this.getClass().getResource("/view/BatchForm.fxml"));
+
+
+        anpMain.getChildren().clear();
+        anpMain.getChildren().add(batchPane);
+
     }
 
     @FXML

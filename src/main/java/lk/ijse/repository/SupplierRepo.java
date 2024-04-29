@@ -3,10 +3,8 @@ package lk.ijse.repository;
 import lk.ijse.db.DbConnection;
 import lk.ijse.model.Order;
 import lk.ijse.model.Supplier;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +37,7 @@ public class SupplierRepo {
         while (resultSet.next()){
             String SupId = resultSet.getString(1);
             String name = resultSet.getString(2);
-            String date = resultSet.getString(3);
+            Date date = Date.valueOf(resultSet.getString(3));
             String tel = resultSet.getString(4);
             String payId = resultSet.getString(5);
 
@@ -76,7 +74,7 @@ public class SupplierRepo {
         if (resultSet.next()){
             String SupId = resultSet.getString(1);
             String name = resultSet.getString(2);
-            String date = resultSet.getString(3);
+            Date date = Date.valueOf(resultSet.getString(3));
             String tel = resultSet.getString(4);
             String payId = resultSet.getString(5);
 

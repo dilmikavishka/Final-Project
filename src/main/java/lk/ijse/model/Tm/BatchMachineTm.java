@@ -9,11 +9,8 @@ import java.sql.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class PaymentTm {
-    private String paymentId;
-    private Date paymentDate;
-    private double  amount;
-    private String type;
-    private String oId;
-
+public class BatchMachineTm {
+    private String MaId;
+    private String BaId;
+    private Date date;
 }

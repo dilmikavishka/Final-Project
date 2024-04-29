@@ -28,44 +28,44 @@
             <Font name="Calibri Bold Italic" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblOrderId" layoutX="117.0" layoutY="49.0" text="Label" />
-      <Label fx:id="lblOrderDate" layoutX="547.0" layoutY="49.0" text="Label" />
-      <Label layoutX="467.0" layoutY="93.0" text="Customer Name :">
+      <Label fx:id="lblOrderId" layoutX="117.0" layoutY="49.0" />
+      <Label fx:id="lblOrderDate" layoutX="547.0" layoutY="49.0" />
+      <Label layoutX="39.0" layoutY="93.0" text="Customer Name :">
          <font>
             <Font name="Calibri Bold Italic" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="53.0" layoutY="93.0" text="Customer Id :">
+      <Label layoutX="464.0" layoutY="93.0" text="Customer Id :">
          <font>
             <Font name="Calibri Bold Italic" size="14.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="comCustomerId" layoutX="145.0" layoutY="88.0" prefHeight="26.0" prefWidth="137.0" />
-      <Label fx:id="lblCustomerName" layoutX="575.0" layoutY="93.0" text="Label" />
-      <Label layoutX="53.0" layoutY="134.0" text="Code :">
+      <JFXComboBox fx:id="comCustomerName" layoutX="145.0" layoutY="88.0" onAction="#comCustomerNameOnAction" prefHeight="26.0" prefWidth="137.0" />
+      <Label fx:id="lblCustomerId" layoutX="575.0" layoutY="93.0" />
+      <Label layoutX="53.0" layoutY="134.0" text="Batch Id :">
          <font>
             <Font name="Calibri Bold Italic" size="14.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="comCode" layoutX="50.0" layoutY="150.0" prefHeight="26.0" prefWidth="137.0" />
+      <JFXComboBox fx:id="comBatchId" layoutX="50.0" layoutY="150.0" onAction="#comBatchIdOnAction" prefHeight="26.0" prefWidth="137.0" />
       <Label layoutX="265.0" layoutY="134.0" text="Description :">
          <font>
             <Font name="Calibri Bold Italic" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblDescription" layoutX="280.0" layoutY="154.0" text="Label" />
+      <Label fx:id="lblDescription" layoutX="280.0" layoutY="154.0" />
       <Label layoutX="399.0" layoutY="134.0" text="Unit Price :">
          <font>
             <Font name="Calibri Bold Italic" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblUnitPrice" layoutX="417.0" layoutY="154.0" text="Label" />
+      <Label fx:id="lblUnitPrice" layoutX="417.0" layoutY="154.0" />
       <Label layoutX="506.0" layoutY="134.0" text="Qty On Hand :">
          <font>
             <Font name="Calibri Bold Italic" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblQtyOnHand" layoutX="533.0" layoutY="154.0" text="Label" />
+      <Label fx:id="lblQtyOnHand" layoutX="533.0" layoutY="154.0" />
       <Label layoutX="628.0" layoutY="134.0" text="Qty  :">
          <font>
             <Font name="Calibri Bold Italic" size="14.0" />
@@ -73,7 +73,7 @@
       </Label>
       <TableView fx:id="tblPlaceOrder" layoutX="12.0" layoutY="226.0" prefHeight="224.0" prefWidth="670.0">
         <columns>
-          <TableColumn fx:id="colCode" prefWidth="75.0" text="code" />
+          <TableColumn fx:id="colCode" prefWidth="75.0" text="Batch Id" />
           <TableColumn fx:id="colDescription" prefWidth="159.99999237060547" text="Description" />
             <TableColumn fx:id="colQty" prefWidth="108.800048828125" text="Qty" />
             <TableColumn fx:id="colUnitPrice" prefWidth="88.79998779296875" text="Unit Price" />
@@ -107,7 +107,7 @@
             <Font name="Calibri Bold Italic" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblNetTotal" layoutX="105.0" layoutY="459.0" text="Label" />
+      <Label fx:id="lblNetTotal" layoutX="105.0" layoutY="459.0" />
       <TextField fx:id="txtQty" layoutX="612.0" layoutY="149.0" onAction="#txtQtyOnAction" prefHeight="26.0" prefWidth="64.0" />
       <JFXButton fx:id="btnNewCustomer" layoutX="313.0" layoutY="89.0" onAction="#btnNewCustomerOnAction" prefHeight="26.0" prefWidth="72.0" style="-fx-background-color: FFB534;" text="New">
          <font>

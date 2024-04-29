@@ -95,10 +95,10 @@ public class CustomerFormController {
     }
 
     private void setCellValueFactory() {
-        this.colCustomerId.setCellValueFactory(new PropertyValueFactory("id"));
-        this.colCustomerName.setCellValueFactory(new PropertyValueFactory("name"));
-        this.colCustomerAddress.setCellValueFactory(new PropertyValueFactory("address"));
-        this.colCustomerTel.setCellValueFactory(new PropertyValueFactory("tel"));
+        this.colCustomerId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        this.colCustomerName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        this.colCustomerAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        this.colCustomerTel.setCellValueFactory(new PropertyValueFactory<>("tel"));
     }
 
     @FXML

@@ -3,6 +3,7 @@ package lk.ijse.repository;
 import lk.ijse.db.DbConnection;
 import lk.ijse.model.Payment;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +12,7 @@ import java.util.List;
 
 public class PaymentRepo {
     public static boolean save(Payment payment) throws SQLException {
-        String sql = "INSERT INTO payment VALUES (?,?,?,?,'ACTIVE')";
+        String sql = "INSERT INTO payment VALUES (?,?,?,?,?,'ACTIVE')";
         PreparedStatement pstm = DbConnection.getInstance().
                 getConnection().
                 prepareStatement(sql);
@@ -20,12 +21,13 @@ public class PaymentRepo {
         pstm.setObject(2,payment.getPaymentDate());
         pstm.setObject(3,payment.getAmount());
         pstm.setObject(4,payment.getType());
+        pstm.setObject(5,payment.getOId());
 
         return pstm.executeUpdate() > 0;
     }
 
     public static boolean update(Payment payment) throws SQLException {
-        String sql = "UPDATE payment SET paymentDate = ?,amount = ?,type = ?, WHERE paymentId = ?";
+        String sql = "UPDATE payment SET paymentDate = ?,amount = ?,type = ?,orderId = ?, WHERE paymentId = ?";
         PreparedStatement pstm = DbConnection.getInstance().
                 getConnection().
                 prepareStatement(sql);
@@ -33,7 +35,8 @@ public class PaymentRepo {
         pstm.setObject(1,payment.getPaymentDate());
         pstm.setObject(2,payment.getAmount());
         pstm.setObject(3,payment.getType());
-        pstm.setObject(4,payment.getPaymentId());
+        pstm.setObject(4,payment.getOId());
+        pstm.setObject(5,payment.getPaymentId());
 
         return pstm.executeUpdate() > 0;
     }
@@ -61,11 +64,12 @@ public class PaymentRepo {
 
         if (resultSet.next()){
             String payId = resultSet.getString(1);
-            String date = resultSet.getString(2);
+            Date date = Date.valueOf(resultSet.getString(2));
             double amount = Double.parseDouble(resultSet.getString(3));
             String type = resultSet.getString(4);
+            String oId = resultSet.getString(5);
 
-            Payment payment = new Payment(payId,date,amount,type);
+            Payment payment = new Payment(payId,date,amount,type,oId);
             return payment;
         }
         return null;
@@ -83,11 +87,12 @@ public class PaymentRepo {
 
         while(resultSet.next()){
             String payId = resultSet.getString(1);
-            String date = resultSet.getString(2);
+            Date date = Date.valueOf(resultSet.getString(2));
             double amount = Double.parseDouble(resultSet.getString(3));
             String type = resultSet.getString(4);
+            String oId = resultSet.getString(5);
 
-            Payment payment = new Payment(payId,date,amount,type);
+            Payment payment = new Payment(payId,date,amount,type,oId);
 
             payList.add(payment);
         }
@@ -102,12 +107,13 @@ public class PaymentRepo {
 
         ResultSet resultSet = pstm.executeQuery();
 
-        List<String> payList = new ArrayList<>();
+        List<String> orderList = new ArrayList<>();
 
         while (resultSet.next()){
             String id = resultSet.getString(1);
-            payList.add(id);
+            orderList.add(id);
         }
-        return payList;
+        return orderList;
+
     }
 }

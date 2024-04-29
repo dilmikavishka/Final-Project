@@ -136,7 +136,8 @@ public class MachineFormController {
                 MachineTm tm = new MachineTm(
                         machine.getMaId(),
                         machine.getName(),
-                        machine.getDescription()
+                        machine.getDescription(),
+                        new JFXButton()
 
                 );
                 obList.add(tm);

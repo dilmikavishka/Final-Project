@@ -1,8 +1,11 @@
 package lk.ijse.model.Tm;
 
+import com.jfoenix.controls.JFXButton;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.sql.Date;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -10,7 +13,8 @@ import lombok.NoArgsConstructor;
 public class MatirialTm {
     private String id;
     private String name;
-    private String date;
-    private double matQty;
+    private Date date;
+    private int matQty;
     private String supId;
+    private JFXButton btnSave;
 }

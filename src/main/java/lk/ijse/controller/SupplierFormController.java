@@ -22,6 +22,7 @@ import lk.ijse.repository.SupplierRepo;
 import lk.ijse.repository.PaymentRepo;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -86,11 +87,11 @@ public class SupplierFormController {
     }
 
     private void setCellValueFactory() {
-        colSupId.setCellValueFactory(new PropertyValueFactory("SupId"));
-        colSupName.setCellValueFactory(new PropertyValueFactory("name"));
-        colSupDate.setCellValueFactory(new PropertyValueFactory("date"));
-        colSupTel.setCellValueFactory(new PropertyValueFactory("tel"));
-        colPayId.setCellValueFactory(new PropertyValueFactory("payId"));
+        colSupId.setCellValueFactory(new PropertyValueFactory<>("SupId"));
+        colSupName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colSupDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        colSupTel.setCellValueFactory(new PropertyValueFactory<>("tel"));
+        colPayId.setCellValueFactory(new PropertyValueFactory<>("payId"));
     }
 
     private void getPayIds() {
@@ -148,7 +149,7 @@ public class SupplierFormController {
     void btnSaveOnAction(ActionEvent event) {
         String SupId = txtSupId.getText();
         String name = txtSupName.getText();
-        String date = txtSupDate.getText();
+        Date date = Date.valueOf(txtSupDate.getText());
         String tel = txtSupTel.getText();
         String payId = comPayId.getValue();
 
@@ -206,7 +207,7 @@ public class SupplierFormController {
     void btnUpdateOnAction(ActionEvent event) {
         String SupId = txtSupId.getText();
         String name = txtSupName.getText();
-        String date = txtSupDate.getText();
+        Date date = Date.valueOf(txtSupDate.getText());
         String tel = txtSupTel.getText();
         String payId = comPayId.getValue();
 
@@ -234,7 +235,7 @@ public class SupplierFormController {
         if (supplier != null) {
             txtSupId.setText(supplier.getSupId());
             txtSupName.setText(supplier.getName());
-            txtSupDate.setText(supplier.getDate());
+            txtSupDate.setText(String.valueOf(supplier.getDate()));
             txtSupTel.setText(supplier.getTel());
             comPayId.setValue(supplier.getPayId());
 

@@ -18,10 +18,10 @@ public class CustomerRepo {
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement(sql);
 
-        pstm.setObject(1,customer.getId());
-        pstm.setObject(2,customer.getName());
-        pstm.setObject(3,customer.getTel());
-        pstm.setObject(4,customer.getAddress());
+        pstm.setObject(1, customer.getId());
+        pstm.setObject(2, customer.getName());
+        pstm.setObject(3, customer.getTel());
+        pstm.setObject(4, customer.getAddress());
 
         return pstm.executeUpdate() > 0;
     }
@@ -36,13 +36,13 @@ public class CustomerRepo {
 
         List<Customer> cusList = new ArrayList<>();
 
-        while (resultSet.next()){
+        while (resultSet.next()) {
             String id = resultSet.getString(1);
             String name = resultSet.getString(2);
             String tel = resultSet.getString(3);
             String address = resultSet.getString(4);
 
-            Customer customer = new Customer(id,name,address,tel);
+            Customer customer = new Customer(id, name, address, tel);
             cusList.add(customer);
         }
         return cusList;
@@ -64,10 +64,10 @@ public class CustomerRepo {
                 getConnection().
                 prepareStatement(sql);
 
-        pstm.setObject(1,customer.getName());
-        pstm.setObject(2,customer.getTel());
-        pstm.setObject(3,customer.getAddress());
-        pstm.setObject(4,customer.getId());
+        pstm.setObject(1, customer.getName());
+        pstm.setObject(2, customer.getTel());
+        pstm.setObject(3, customer.getAddress());
+        pstm.setObject(4, customer.getId());
 
         return pstm.executeUpdate() > 0;
     }
@@ -80,13 +80,13 @@ public class CustomerRepo {
         pstm.setObject(1, id);
 
         ResultSet resultSet = pstm.executeQuery();
-        if (resultSet.next()){
+        if (resultSet.next()) {
             String cus_id = resultSet.getString(1);
             String name = resultSet.getString(2);
             String tel = resultSet.getString(3);
             String address = resultSet.getString(4);
 
-            Customer customer = new Customer(cus_id,name,tel,address);
+            Customer customer = new Customer(cus_id, name, tel, address);
 
             return customer;
         }
@@ -104,11 +104,48 @@ public class CustomerRepo {
 
         List<String> cusList = new ArrayList<>();
 
-        while (resultSet.next()){
+        while (resultSet.next()) {
             String id = resultSet.getString(1);
             cusList.add(id);
         }
         return cusList;
     }
+
+    public static List<String> getNames() throws SQLException {
+        String sql = "SELECT customerName FROM customer";
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        List<String> nameList = new ArrayList<>();
+
+        ResultSet resultSet = pstm.executeQuery();
+        while (resultSet.next()) {
+            String id = resultSet.getString(1);
+            nameList.add(id);
+        }
+        return nameList;
+    }
+
+    public static Customer searchByName(String name) throws SQLException {
+        String sql = "SELECT * FROM customer WHERE customerName = ?";
+
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setObject(1, name);
+
+        ResultSet resultSet = pstm.executeQuery();
+        if (resultSet.next()) {
+            String cus_id = resultSet.getString(1);
+            String tel = resultSet.getString(3);
+            String address = resultSet.getString(4);
+
+            Customer customer = new Customer(cus_id, name, tel, address);
+
+            return customer;
+        }
+
+        return null;
+    }
 }
+
 

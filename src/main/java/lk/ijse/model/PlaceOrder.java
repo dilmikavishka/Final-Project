@@ -4,18 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
-
-
+import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Order {
-   private String oId;
-   private Date date;
-   private String cusId;
-
-
+public class PlaceOrder {
+    private Order order;
+    private List<OredrDetail> odList;
 }
-
-

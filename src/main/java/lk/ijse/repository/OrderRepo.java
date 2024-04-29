@@ -4,24 +4,20 @@ import lk.ijse.db.DbConnection;
 import lk.ijse.model.Customer;
 import lk.ijse.model.Order;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class OrderRepo {
     public static boolean save(Order order) throws SQLException {
-        String sql = "INSERT INTO orders VALUES(?,?,?,?,'ACTIVE')";
+        String sql = "INSERT INTO orders VALUES(?,?,?,'ACTIVE')";
 
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement(sql);
 
-        pstm.setObject(1,order.getoId());
-        pstm.setObject(2,order.getdate());
+        pstm.setObject(1,order.getOId());
+        pstm.setObject(2,order.getDate());
         pstm.setObject(3,order.getCusId());
-        pstm.setObject(4,order.getPayId());
 
         return pstm.executeUpdate() > 0;
     }
@@ -38,11 +34,10 @@ public class OrderRepo {
 
         while (resultSet.next()){
             String oId = resultSet.getString(1);
-            String date = resultSet.getString(2);
+            Date date = Date.valueOf(resultSet.getString(2));
             String CusId = resultSet.getString(3);
-            String PayId = resultSet.getString(4);
 
-            Order order = new Order(oId,date,CusId,PayId);
+            Order order = new Order(oId,date,CusId);
             orderList.add(order);
         }
         return orderList;
@@ -59,15 +54,14 @@ public class OrderRepo {
     }
 
     public static boolean update(Order order) throws SQLException {
-        String sql = "UPDATE orders SET orderDate = ? , customerId = ? , paymentId = ?  WHERE orderId = ?";
+        String sql = "UPDATE orders SET orderDate = ? , customerId = ?  WHERE orderId = ?";
         PreparedStatement pstm = DbConnection.getInstance().
                 getConnection().
                 prepareStatement(sql);
 
-        pstm.setObject(1,order.getdate());
+        pstm.setObject(1,order.getDate());
         pstm.setObject(2,order.getCusId());
-        pstm.setObject(3,order.getPayId());
-        pstm.setObject(4,order.getoId());
+        pstm.setObject(3,order.getOId());
 
         return pstm.executeUpdate() > 0;
     }
@@ -82,15 +76,44 @@ public class OrderRepo {
         ResultSet resultSet = pstm.executeQuery();
         if (resultSet.next()){
             String oId = resultSet.getString(1);
-            String date = resultSet.getString(2);
+            Date date = Date.valueOf(resultSet.getString(2));
             String CusId = resultSet.getString(3);
-            String PayId = resultSet.getString(4);
 
-            Order order = new Order(oId,date,CusId,PayId);
+            Order order = new Order(oId,date,CusId);
 
             return order;
         }
 
+        return null;
+    }
+
+    public static List<String> getIds() throws SQLException {
+        String sql = "SELECT orderId FROM orders";
+        PreparedStatement pstm = DbConnection.getInstance().
+                getConnection().
+                prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        List<String> orderList = new ArrayList<>();
+
+        while (resultSet.next()){
+            String id = resultSet.getString(1);
+            orderList.add(id);
+        }
+        return orderList;
+    }
+
+    public static String getCurrentId() throws SQLException {
+        String sql = "SELECT orderId FROM orders ORDER BY orderId DESC LIMIT 1";
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+        if(resultSet.next()) {
+            String orderId = resultSet.getString(1);
+            return orderId;
+        }
         return null;
     }
 }

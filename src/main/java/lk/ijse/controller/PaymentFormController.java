@@ -1,6 +1,7 @@
 package lk.ijse.controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,12 +10,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.model.Order;
 import lk.ijse.model.Payment;
 import lk.ijse.model.Tm.PaymentTm;
 import lk.ijse.repository.CustomerRepo;
+import lk.ijse.repository.OrderRepo;
 import lk.ijse.repository.PaymentRepo;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -71,12 +75,44 @@ public class PaymentFormController {
     @FXML
     private TextField txtStatus;
 
+    @FXML
+    private TableColumn<?, ?> colOrderId;
+
+    @FXML
+    private JFXComboBox<String> comOrderId;
+
+    @FXML
+    void comOrderIdOnAction(ActionEvent event) {
+        String oId = comOrderId.getValue();
+
+        try {
+            Order order = OrderRepo.searchById(oId);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
     public void initialize() {
         setCellValueFactory();
         loadAllPayments();
+        getOId();
 
         ObservableList<String> paymentTypes = FXCollections.observableArrayList("Cash","Card");
         choiseType.setItems(paymentTypes);
+    }
+
+    private void getOId() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+        try {
+            List<String> orderList = OrderRepo.getIds();
+            for (String id : orderList){
+                obList.add(id);
+            }
+            comOrderId.setItems(obList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void setCellValueFactory() {
@@ -84,6 +120,7 @@ public class PaymentFormController {
         colPaymentDate.setCellValueFactory(new PropertyValueFactory<>("paymentDate"));
         colAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
         colType.setCellValueFactory(new PropertyValueFactory<>("type"));
+        colOrderId.setCellValueFactory(new PropertyValueFactory<>("oId"));
 
 
     }
@@ -97,7 +134,8 @@ public class PaymentFormController {
                         payment.getPaymentId(),
                        payment.getPaymentDate(),
                         payment.getAmount(),
-                        payment.getType()
+                        payment.getType(),
+                        payment.getOId()
                 );
                 obList.add(tm);
             }
@@ -126,6 +164,7 @@ public class PaymentFormController {
         txtPaymentDate.setText("");
         txtAmount.setText("");
         choiseType.setValue(null);
+        comOrderId.setValue(null);
     }
 
 
@@ -146,7 +185,7 @@ public class PaymentFormController {
     @FXML
     void btnSaveOnAction(ActionEvent event) {
         String id = txtPaymentID.getText();
-        String date = txtPaymentDate.getText();
+        Date date = Date.valueOf(txtPaymentDate.getText());
         
         double amount = 0;
         if (!txtAmount.getText().isEmpty()) {
@@ -154,8 +193,10 @@ public class PaymentFormController {
         }
 
         String type =choiseType.getValue();
+        String oId = comOrderId.getValue();
 
-        Payment payment = new Payment(id,date,amount,type);
+
+        Payment payment = new Payment(id,date,amount,type,oId);
 
         try {
             boolean isSaved = PaymentRepo.save(payment);
@@ -171,7 +212,7 @@ public class PaymentFormController {
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
         String id = txtPaymentID.getText();
-        String date = txtPaymentDate.getText();
+        Date date = Date.valueOf(txtPaymentDate.getText());
 
         double amount = 0;
         if (!txtAmount.getText().isEmpty()) {
@@ -180,8 +221,9 @@ public class PaymentFormController {
 
 
         String type = choiseType.getValue();
+        String oId = comOrderId.getValue();
 
-        Payment payment = new Payment(id,date,amount,type);
+        Payment payment = new Payment(id,date,amount,type,oId);
 
         try {
             boolean isUpdate = PaymentRepo.update(payment);
@@ -201,7 +243,7 @@ public class PaymentFormController {
             Payment payment = PaymentRepo.searchById(id);
             if (payment != null){
                 txtPaymentID.setText(payment.getPaymentId());
-                txtPaymentDate.setText(payment.getPaymentDate());
+                txtPaymentDate.setText(String.valueOf(payment.getPaymentDate()));
                 txtAmount.setText(String.valueOf(payment.getAmount()));
             }
         } catch (SQLException e) {

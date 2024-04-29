@@ -22,6 +22,7 @@ import lk.ijse.model.Tm.SupplierTm;
 import lk.ijse.repository.*;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -101,11 +102,11 @@ public class MaterialFormController {
     }
 
     private void setCellValueFactory() {
-        colMatid.setCellValueFactory(new PropertyValueFactory("id"));
-        colName.setCellValueFactory(new PropertyValueFactory("name"));
-        colDate.setCellValueFactory(new PropertyValueFactory("date"));
-        colQty.setCellValueFactory(new PropertyValueFactory("matQty"));
-        colSupId.setCellValueFactory(new PropertyValueFactory("supId"));
+        colMatid.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("matQty"));
+        colSupId.setCellValueFactory(new PropertyValueFactory<>("supId"));
     }
 
     @FXML
@@ -151,10 +152,13 @@ public class MaterialFormController {
     void btnSaveOnAction(ActionEvent event) {
         String id = txtMatId.getText();
         String name = txtName.getText();
-        String date = txtDate.getText();
-        double qty = Double.parseDouble(txtMatQty.getText());
+        Date date = Date.valueOf(txtDate.getText());
+        int qty = Integer.parseInt(txtMatQty.getText());
         String supId = comSupId.getValue();
-
+        if (supId.isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Please fill in all fields.").show();
+            return;
+        }
         Material material = new Material(id,name,date,qty,supId);
 
         try {
@@ -178,7 +182,8 @@ public class MaterialFormController {
                         material.getName(),
                         material.getDate(),
                         material.getMatQty(),
-                        material.getSupId()
+                        material.getSupId(),
+                        new JFXButton()
                 );
                 obList.add(tm);
             }
@@ -193,8 +198,8 @@ public class MaterialFormController {
     void btnUpdateOnAction(ActionEvent event) {
         String id = txtMatId.getText();
         String name = txtName.getText();
-        String date = txtDate.getText();
-        double qty = Double.parseDouble(txtMatQty.getText());
+        Date date = Date.valueOf(txtDate.getText());
+        int qty = Integer.parseInt(txtMatQty.getText());
         String supId = comSupId.getValue();
 
         Material material = new Material(id,name,date,qty,supId);
@@ -229,7 +234,7 @@ public class MaterialFormController {
         if (material != null) {
             txtMatId.setText(material.getId());
             txtName.setText(material.getName());
-            txtDate.setText(material.getDate());
+            txtDate.setText(String.valueOf(material.getDate()));
             txtMatQty.setText(String.valueOf(material.getMatQty()));
             txtSupId.setText(material.getSupId());
 

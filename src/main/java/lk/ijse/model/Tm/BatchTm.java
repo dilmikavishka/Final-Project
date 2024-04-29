@@ -1,4 +1,4 @@
-package lk.ijse.model;
+package lk.ijse.model.Tm;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +9,7 @@ import java.sql.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Batch {
+public class BatchTm {
     private String BatchId;
     private String BatchColor;
     private String Des;
