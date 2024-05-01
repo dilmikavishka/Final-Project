@@ -61,7 +61,7 @@
       </Label>
       <TextField fx:id="txtBatchId" layoutX="17.0" layoutY="64.0" onAction="#txtSearchOnAction" prefHeight="26.0" prefWidth="86.0" />
       <TextField fx:id="txtBatchColor" layoutX="144.0" layoutY="64.0" prefHeight="26.0" prefWidth="94.0" />
-      <TextField fx:id="txtBatchQty" layoutX="542.0" layoutY="63.0" onAction="#txtBatchQtyOnAction" prefHeight="26.0" prefWidth="74.0" />
+      <TextField fx:id="txtBatchQty" layoutX="542.0" layoutY="63.0" prefHeight="26.0" prefWidth="74.0" />
       <TextField fx:id="txtDate" layoutX="25.0" layoutY="122.0" prefHeight="26.0" prefWidth="147.0" />
       <TextField fx:id="txtPrice" layoutX="509.0" layoutY="122.0" prefHeight="26.0" prefWidth="86.0" />
       <JFXButton fx:id="btnBack" layoutX="607.0" layoutY="463.0" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: DD5746;" text="Back">

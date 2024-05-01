@@ -108,7 +108,7 @@ public class PlaceOrderFormController {
     private void setCellValueFactory() {
         colCode.setCellValueFactory(new PropertyValueFactory<>("baId"));
         colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
-        colQty.setCellValueFactory(new PropertyValueFactory<>("hoq"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
         colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
         colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
         colAction.setCellValueFactory(new PropertyValueFactory<>("btnRemove"));
@@ -259,8 +259,9 @@ public class PlaceOrderFormController {
             PlaceOrderTm tm = obList.get(i);
 
             OredrDetail od = new OredrDetail(
-                    orderId,
+
                     tm.getBaId(),
+                    orderId,
                     tm.getQty()
             );
 
@@ -272,6 +273,7 @@ public class PlaceOrderFormController {
 
         try {
             boolean isPlaced = PlaceOrderRepo.placeOrder(po);
+            System.out.println("pppp");
             if (isPlaced){
                 new Alert(Alert.AlertType.CONFIRMATION, "Order Placed!").show();
                 obList.clear();

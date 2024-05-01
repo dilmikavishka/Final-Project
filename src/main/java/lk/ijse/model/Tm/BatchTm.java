@@ -11,7 +11,6 @@ import java.sql.Date;
 @Data
 public class BatchTm {
     private String BatchId;
-    private String BatchColor;
     private String Des;
     private int qtyOnHand;
     private Date date;

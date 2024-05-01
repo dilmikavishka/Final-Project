@@ -146,11 +146,6 @@ public class BatchFormController {
 
     }
 
-    @FXML
-    void txtBatchQtyOnAction(ActionEvent event) {
-
-    }
-
     private void loadAllMaterialDetail() {
         ObservableList<MatirialTm> obList = FXCollections.observableArrayList();
         try {
@@ -353,10 +348,7 @@ public class BatchFormController {
         String BatchColor = txtBatchColor.getText();
         String Des = choiceDescription.getValue();
 
-        int qty = 0;
-        if (!txtBatchQty.getText().isEmpty()) {
-            qty = Integer.parseInt(String.valueOf(qty));
-        }
+        int qty = Integer.parseInt(txtBatchQty.getText());
 
         Date date = Date.valueOf(txtDate.getText());
         String EmployeeId = comEmployeeId.getValue();
@@ -388,7 +380,6 @@ public class BatchFormController {
             for( Batch batch : batchList){
                 BatchTm tm = new BatchTm(
                         batch.getBatchId(),
-                        batch.getBatchColor(),
                         batch.getDes(),
                         batch.getQtyOnHand(),
                         batch.getDate(),

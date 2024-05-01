@@ -142,6 +142,7 @@ public class BatchRepo {
     private static boolean updateQty(String batId, int qty) throws SQLException {
         String sql = "UPDATE batch SET QtyOnHand = QtyOnHand - ? WHERE batchId = ?";
 
+
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
