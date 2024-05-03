@@ -1,103 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="anpDashbord" prefHeight="494.0" prefWidth="693.0" style="-fx-background-color: C6EBC5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashBordFormController">
+<AnchorPane fx:id="anpDashbord" prefHeight="658.0" prefWidth="860.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashBordFormController">
    <children>
-      <Label layoutX="306.0" layoutY="21.0" text="DashBord">
-         <font>
-            <Font name="Calibri Bold Italic" size="20.0" />
-         </font>
-      </Label>
-      <AnchorPane layoutX="40.0" layoutY="72.0" prefHeight="149.0" prefWidth="250.0" style="-fx-background-color: DEAC80;">
+      <AnchorPane cache="true" layoutX="28.0" layoutY="120.0" prefHeight="135.0" prefWidth="190.0" style="-fx-background-color: F8FFD2;">
          <children>
-            <Label layoutX="23.0" layoutY="14.0" text="Customer Count :">
+            <Label layoutX="6.0" layoutY="27.0" text="Customer Count :">
                <font>
-                  <Font name="System Bold" size="25.0" />
+                  <Font name="Bodoni MT Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="lblCusCount" layoutX="162.0" layoutY="59.0" text="0">
+            <Label fx:id="lblCusCount" layoutX="160.0" layoutY="24.0" prefHeight="30.0" prefWidth="4.0">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <ImageView fitHeight="64.0" fitWidth="66.0" layoutX="23.0" layoutY="57.0">
+            <ImageView fitHeight="64.0" fitWidth="107.0" layoutX="42.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/icons8-customer-survey-50.png" />
+                  <Image url="@../images/Customer-PNG-Clipart.png" />
                </image>
             </ImageView>
          </children>
+         <effect>
+            <InnerShadow />
+         </effect>
       </AnchorPane>
-      <AnchorPane layoutX="40.0" layoutY="253.0" prefHeight="149.0" prefWidth="250.0" style="-fx-background-color: DEAC80;">
+      <AnchorPane layoutX="647.0" layoutY="120.0" prefHeight="135.0" prefWidth="190.0" style="-fx-background-color: F8FFD2;">
          <children>
-            <Label layoutX="11.0" layoutY="14.0" text="Order Count :">
+            <Label layoutX="5.0" layoutY="28.0" text="Order Count :">
                <font>
-                  <Font name="System Bold" size="25.0" />
+                  <Font name="Bodoni MT Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="lblOrderCount" layoutX="152.0" layoutY="67.0" text="0">
+            <Label fx:id="lblOrderCount" layoutX="126.0" layoutY="25.0">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <ImageView fitHeight="64.0" fitWidth="66.0" layoutX="14.0" layoutY="58.0">
+            <ImageView fitHeight="64.0" fitWidth="123.0" layoutX="33.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/icons8-order-completed-50.png" />
+                  <Image url="@../images/Office-Girl-Using-Laptop-Transparent-PNG.png" />
                </image>
             </ImageView>
          </children>
+         <effect>
+            <InnerShadow />
+         </effect>
       </AnchorPane>
-      <AnchorPane layoutX="333.0" layoutY="72.0" prefHeight="149.0" prefWidth="250.0" style="-fx-background-color: DEAC80;">
+      <AnchorPane layoutX="335.0" layoutY="120.0" prefHeight="135.0" prefWidth="190.0" style="-fx-background-color: F8FFD2;">
          <children>
-            <Label layoutX="26.0" layoutY="11.0" text="Employee Count :">
+            <Label layoutX="5.0" layoutY="19.0" prefHeight="36.0" prefWidth="171.0" text="Employee Count :">
                <font>
-                  <Font name="System Bold" size="25.0" />
+                  <Font name="Bodoni MT Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="lblEmpCount" layoutX="165.0" layoutY="59.0" text="0">
+            <Label fx:id="lblEmpCount" layoutX="164.0" layoutY="22.0" prefHeight="30.0" prefWidth="4.0">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <ImageView fitHeight="64.0" fitWidth="66.0" layoutX="26.0" layoutY="59.0">
+            <ImageView fitHeight="72.0" fitWidth="142.0" layoutX="29.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/icons8-profile-50.png" />
+                  <Image url="@../images/pngtree-collage-of-businesspeople-posing-in-different-situations-boss-png-image_10521773.png" />
                </image>
             </ImageView>
          </children>
+         <effect>
+            <InnerShadow />
+         </effect>
       </AnchorPane>
-      <JFXButton fx:id="btnBack" layoutX="596.0" layoutY="453.0" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: DD5746;" text="Back">
+      <JFXButton fx:id="btnBack" layoutX="763.0" layoutY="609.0" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="82.0" styleClass="backButton" stylesheets="@../css/Dashboard.css" text="Logout" textFill="#101010">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
+         <effect>
+            <InnerShadow />
+         </effect>
          <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
+            <ImageView fitHeight="17.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/icons8-back-50.png" />
+                  <Image url="@../icon/icons8-back-50.png" />
                </image>
             </ImageView>
          </graphic>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
       </JFXButton>
-      <ImageView fitHeight="129.0" fitWidth="205.0" layoutX="473.0" layoutY="230.0">
-         <image>
-            <Image url="@../images/productsfirst.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="117.0" fitWidth="189.0" layoutX="495.0" layoutY="322.0">
-         <image>
-            <Image url="@../images/home2%20(1).jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="129.0" fitWidth="205.0" layoutX="308.0" layoutY="274.0">
-         <image>
-            <Image url="@../images/slider2.jpg" />
-         </image>
-      </ImageView>
+      <Label fx:id="lblWelcome" layoutX="153.0" layoutY="23.0" prefHeight="38.0" prefWidth="553.0" text="WELCOME CRESCENT BUTTON MANUFACTORY.....!">
+         <font>
+            <Font name="Bernard MT Condensed" size="30.0" />
+         </font>
+      </Label>
    </children>
+   <effect>
+      <InnerShadow />
+   </effect>
 </AnchorPane>

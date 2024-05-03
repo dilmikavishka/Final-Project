@@ -8,61 +8,89 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.QuadCurve?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anp1" prefHeight="518.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
+<AnchorPane fx:id="anp1" prefHeight="556.0" prefWidth="787.0" styleClass="background2" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
    <children>
-      <AnchorPane fx:id="anp2" layoutX="373.0" prefHeight="519.0" prefWidth="502.0" style="-fx-background-color: B0C5A4;">
+      <AnchorPane fx:id="anp2" layoutX="319.0" layoutY="14.0" prefHeight="514.0" prefWidth="458.0" style="-fx-background-color: white;">
          <children>
-            <ImageView fitHeight="226.0" fitWidth="369.0" layoutX="119.0" layoutY="14.0">
+            <ImageView fitHeight="60.0" fitWidth="298.0" layoutX="86.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/collection-of-different-multi-colored-buttons-photo.jpg" />
+                  <Image url="@../images/470-X-104.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="206.0" fitWidth="350.0" layoutX="20.0" layoutY="247.0">
-               <image>
-                  <Image url="@../images/slider2.jpg" />
-               </image>
-            </ImageView>
-            <Label layoutX="14.0" layoutY="459.0" text="A Beautiful Design Finish">
+            <QuadCurve controlX="418.800048828125" controlY="236.0" endX="-241.0" endY="229.199951171875" layoutX="241.0" layoutY="300.0" startX="-241.0" startY="-298.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="203.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User id :">
                <font>
                   <Font name="Calibri Bold" size="15.0" />
                </font>
-            </Label>
-            <Label layoutX="79.0" layoutY="478.0" text=" Using Superior Materials.">
+            </Text>
+            <TextField fx:id="txtUserName" layoutX="105.0" layoutY="110.0" prefHeight="38.0" prefWidth="258.0" promptText="User Id" style="-fx-background-radius: 10;" />
+            <Text layoutX="200.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password :">
                <font>
                   <Font name="Calibri Bold" size="15.0" />
+               </font>
+            </Text>
+            <PasswordField fx:id="txtPassword" layoutX="105.0" layoutY="196.0" prefHeight="38.0" prefWidth="258.0" promptText="Password" style="-fx-background-radius: 10;" />
+            <JFXButton fx:id="btnLogin" layoutX="191.0" layoutY="331.0" onAction="#btnLoginOnAction" prefHeight="38.0" prefWidth="106.0" style="-fx-background-radius: 10 10 10 10;" styleClass="backButton" stylesheets="@../css/Login.css" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <Text fill="WHITE" layoutX="95.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account ? ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Hyperlink fx:id="linkRegister" layoutX="234.0" layoutY="385.0" onAction="#linkRegisterOnAction" text="Register on here" />
+            <ImageView fitHeight="110.0" fitWidth="286.0" layoutX="244.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/10-106966_hello-kitty-clipart-hello-kitty-name-plate-background%20(1).png" />
+               </image>
+            </ImageView>
+            <Label layoutX="334.0" layoutY="473.0" text="Hellooo.......!">
+               <font>
+                  <Font name="System Bold" size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="340.0" layoutY="489.0" text="Crescent Button">
+               <font>
+                  <Font name="System Bold" size="10.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="73.0" fitWidth="318.0" layoutX="22.0" layoutY="14.0">
+      <ImageView fitHeight="130.0" fitWidth="267.0" layoutX="10.0" layoutY="287.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/470-X-104.png" />
+            <Image url="@../images/collection-of-different-multi-colored-buttons-photo.jpg" />
          </image>
       </ImageView>
-      <Text layoutX="29.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User id :">
+      <ImageView fitHeight="141.0" fitWidth="286.0" layoutX="80.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/slider2.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblButton1" layoutX="81.0" layoutY="51.0" text="A BEAUTIFUL  " textFill="WHITE">
          <font>
-            <Font name="System Italic" size="15.0" />
+            <Font name="Bodoni MT Bold" size="25.0" />
          </font>
-      </Text>
-      <TextField fx:id="txtUserName" layoutX="29.0" layoutY="176.0" prefHeight="31.0" prefWidth="258.0" promptText="User Id" />
-      <PasswordField fx:id="txtPassword" layoutX="29.0" layoutY="271.0" prefHeight="31.0" prefWidth="258.0" />
-      <Text layoutX="29.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password :">
+      </Label>
+      <Label fx:id="lblButton3" layoutX="114.0" layoutY="149.0" text="USING" textFill="WHITE">
          <font>
-            <Font name="System Italic" size="15.0" />
+            <Font name="Bodoni MT Bold" size="25.0" />
          </font>
-      </Text>
-      <JFXButton fx:id="btnLogin" layoutX="118.0" layoutY="399.0" onAction="#btnLoginOnAction" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: B7C9F2; -fx-background-radius: 10 10 10 10;" text="Login">
+      </Label>
+      <Label fx:id="lblButton2" layoutX="75.0" layoutY="98.0" text=" DESING FINISH " textFill="WHITE">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="Bodoni MT Bold" size="25.0" />
          </font>
-      </JFXButton>
-      <Text layoutX="39.0" layoutY="455.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account ? ">
+      </Label>
+      <Label fx:id="lblButton4" layoutX="32.0" layoutY="196.0" text="SUPERIOR MATERIALS ." textFill="WHITE">
          <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Text>
-      <Hyperlink fx:id="linkRegister" layoutX="171.0" layoutY="438.0" onAction="#linkRegisterOnAction" text="Register on here" />
+            <Font name="Bodoni MT Bold" size="25.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

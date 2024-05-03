@@ -1,0 +1,78 @@
+/*.jbutton{*/
+/*    fx-background-color: #A370F0;*/
+/*    -fx-text-fill: black;*/
+/*    -fx-font-family: inherit;*/
+/*    -fx-padding: 0.35em;*/
+/*    -fx-padding-left: 1.2em;*/
+/*    -fx-font-size: 17px;*/
+/*    -fx-font-weight: 500;*/
+/*    -fx-background-radius: 0.9em;*/
+/*    -fx-border-radius: 0.9em;*/
+/*    -fx-border-color: transparent;*/
+/*    -fx-letter-spacing: 0.05em;*/
+/*    -fx-display: flex;*/
+/*    -fx-align-items: center;*/
+/*    -fx-overflow: hidden;*/
+/*    -fx-position: relative;*/
+/*    -fx-height: 2.8em;*/
+/*    -fx-padding-right: 3.3em;*/
+/*}*/
+/*!*.deletebtn{*!*/
+/*!*    -fx-background-color: #3e20b2;*!*/
+/*!*}*!*/
+
+/*.jbutton:hover{*/
+/*    -fx-background-color: #d51010;*/
+
+/*}*/
+
+
+/*.text{*/
+/*        -fx-background-radius: 20px;*/
+/*        -fx-box-shadow:*/
+/*                20px 20px 60px 0px rgba(13, 100, 148, 0.6),*/
+/*                -20px -20px 60px 0px rgba(17, 136, 200, 0.6);*/
+/*}*/
+
+
+/*.backdrop{
+    -fx-background: linear-gradient(to bottom, #ffffff 0%, #3d3fbf 100%);
+}*/
+
+.nav-btn{
+    -fx-background-color: transparent;
+    -fx-border-color: #fff;
+    -fx-border-width: .4px;
+    -fx-cursor: hand;
+    -fx-text-fill: #fff;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.shadow{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10,0,0,0);
+}
+
+.nav-btn:hover{
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000;
+}
+
+.logout{
+    -fx-background-color: transparent;
+    -fx-padding: 5px;
+    -fx-cursor: hand;
+    -fx-background-radius: 0px;
+}
+.backButton:hover{
+    -fx-background-color: #0174BE;
+}
+
+.transparentAnchorPane {
+    -fx-background-color: rgba(0, 0, 0, 0); /* Fully transparent background */
+}
+
+.background{
+    -fx-background-color: #272829;
+}
+

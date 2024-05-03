@@ -1,13 +1,18 @@
 package lk.ijse.controller;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import lk.ijse.db.DbConnection;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -35,12 +40,36 @@ public class DashBordFormController {
 
     private int employeeCount;
 
+
     @FXML
-    void btnBackOnAction(ActionEvent event) {
+    private Label lblWelcome;
+
+    private String welcomeText = "WELCOME CRESCENT BUTTON MANUFACTORY.....!";
+    private int currentIndex = 0;
+
+
+
+    @FXML
+    void btnBackOnAction(ActionEvent event) throws IOException {
+        AnchorPane dashboardPane = FXMLLoader.load(this.getClass().getResource("/view/DashBordForm.fxml"));
+
+
+        anpDashbord.getChildren().clear();
+        anpDashbord.getChildren().add(dashboardPane);
 
     }
 
     public void initialize() {
+        // Create a Timeline to update the label text gradually
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(70), event -> {
+            if (currentIndex <= welcomeText.length()) {
+                lblWelcome.setText(welcomeText.substring(0, currentIndex));
+                currentIndex++;
+            }
+        }));
+        timeline.setCycleCount(welcomeText.length() + 1); // Execute animation for the length of welcomeText
+        timeline.play();
+
         try {
             customerCount = getCustomerCount();
         } catch (SQLException e) {

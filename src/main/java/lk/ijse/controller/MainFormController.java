@@ -1,10 +1,14 @@
 package lk.ijse.controller;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -15,6 +19,9 @@ public class MainFormController {
 
     @FXML
     private AnchorPane anp2;
+
+    @FXML
+    private AnchorPane anpWelcome;
 
     @FXML
     private AnchorPane anpMain;
@@ -49,11 +56,9 @@ public class MainFormController {
     @FXML
     private JFXButton btnPlaceOrder;
 
-
     public void initialize() throws IOException {
         loadDashboardForm();
     }
-
     private void loadDashboardForm() throws IOException {
         AnchorPane dashboardPane = FXMLLoader.load(this.getClass().getResource("/view/DashBordForm.fxml"));
 
@@ -62,7 +67,7 @@ public class MainFormController {
         anpMain.getChildren().add(dashboardPane);
     }
 
-    @FXML
+   @FXML
     void btnBatchOnAction(ActionEvent event) throws IOException {
         AnchorPane batchPane = FXMLLoader.load(this.getClass().getResource("/view/BatchForm.fxml"));
 
@@ -156,6 +161,5 @@ public class MainFormController {
         anpMain.getChildren().add(supplierPane);
 
     }
-
 
 }

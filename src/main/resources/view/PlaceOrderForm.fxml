@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anpPlaceOrder" prefHeight="494.0" prefWidth="693.0" style="-fx-background-color: C6EBC5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PlaceOrderFormController">
+<AnchorPane fx:id="anpPlaceOrder" prefHeight="658.0" prefWidth="860.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PlaceOrderFormController">
    <children>
       <Label layoutX="294.0" layoutY="14.0" text="Place Orders">
          <font>
@@ -88,7 +88,7 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="21.0">
                <image>
-                  <Image url="@../images/icons8-back-50.png" />
+                  <Image url="@../icon/icons8-back-50.png" />
                </image>
             </ImageView>
          </graphic>
@@ -97,7 +97,7 @@
          <graphic>
             <ImageView fitHeight="21.0" fitWidth="17.0">
                <image>
-                  <Image url="@../images/icons8-add-properties-100.png" />
+                  <Image url="@../icon/icons8-add-properties-100.png" />
                </image>
             </ImageView>
          </graphic>
@@ -116,7 +116,7 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="21.0">
                <image>
-                  <Image url="@../images/icons8-new-contact-48.png" />
+                  <Image url="@../icon/icons8-new-contact-48.png" />
                </image>
             </ImageView>
          </graphic>
@@ -128,7 +128,7 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="21.0">
                <image>
-                  <Image url="@../images/icons8-add-to-cart-64.png" />
+                  <Image url="@../icon/icons8-add-to-cart-64.png" />
                </image>
             </ImageView>
          </graphic>

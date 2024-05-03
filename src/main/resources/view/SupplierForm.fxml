@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anpSupplierManage" prefHeight="494.0" prefWidth="693.0" style="-fx-background-color: C6EBC5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SupplierFormController">
+<AnchorPane fx:id="anpSupplierManage" prefHeight="658.0" prefWidth="860.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SupplierFormController">
    <children>
       <Label layoutX="275.0" layoutY="14.0" text="Supplier Manage">
          <font>
@@ -47,7 +47,7 @@
       <TextField fx:id="txtSupName" layoutX="299.0" layoutY="74.0" />
       <TextField fx:id="txtSupDate" layoutX="503.0" layoutY="74.0" />
       <TextField fx:id="txtSupTel" layoutX="63.0" layoutY="124.0" />
-      <TableView fx:id="tblSupplier" layoutX="10.0" layoutY="155.0" prefHeight="330.0" prefWidth="579.0">
+      <TableView fx:id="tblSupplier" layoutX="9.0" layoutY="161.0" prefHeight="444.0" prefWidth="579.0">
         <columns>
           <TableColumn fx:id="colSupId" prefWidth="75.0" text="Supplier Id" />
           <TableColumn fx:id="colSupName" prefWidth="136.7999496459961" text="Supplier Name" />
@@ -63,7 +63,7 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="21.0">
                <image>
-                  <Image url="@../images/icons8-back-50.png" />
+                  <Image url="@../icon/icons8-back-50.png" />
                </image>
             </ImageView>
          </graphic>
@@ -75,7 +75,7 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="21.0">
                <image>
-                  <Image url="@../images/icons8-add-bookmark-64.png" />
+                  <Image url="@../icon/icons8-add-bookmark-64.png" />
                </image>
             </ImageView>
          </graphic>
@@ -87,7 +87,7 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="21.0">
                <image>
-                  <Image url="@../images/icons8-delete-24.png" />
+                  <Image url="@../icon/icons8-delete-24.png" />
                </image>
             </ImageView>
          </graphic>
@@ -99,7 +99,7 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="21.0">
                <image>
-                  <Image url="@../images/icons8-update-64.png" />
+                  <Image url="@../icon/icons8-update-64.png" />
                </image>
             </ImageView>
          </graphic>
@@ -111,7 +111,7 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="21.0">
                <image>
-                  <Image url="@../images/icons8-clear-50.png" />
+                  <Image url="@../icon/icons8-clear-50.png" />
                </image>
             </ImageView>
          </graphic>

@@ -1,137 +1,182 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anp1" prefHeight="518.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MainFormController">
+<AnchorPane fx:id="anp1" prefHeight="679.0" prefWidth="968.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MainFormController">
    <children>
-      <AnchorPane fx:id="anp2" layoutX="-3.0" prefHeight="518.0" prefWidth="158.0" style="-fx-background-color: EED3D9;">
+      <AnchorPane fx:id="anp2" layoutX="-3.0" prefHeight="679.0" prefWidth="234.0" styleClass="background2" stylesheets="@../css/MainForm.css">
          <children>
-            <JFXButton fx:id="btnDashbord" layoutX="14.0" layoutY="24.0" onAction="#btnDashbordOnAction" prefHeight="26.0" prefWidth="137.0" style="-fx-background-color: B7C9F2;" text="DashBord">
+            <JFXButton fx:id="btnDashbord" layoutX="3.0" layoutY="-1.0" onAction="#btnDashbordOnAction" prefHeight="68.0" prefWidth="248.0" styleClass="backButton" stylesheets="@../css/MainForm.css" text="DashBord" textFill="#efe7e7">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Calibri Bold" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                <graphic>
-                  <ImageView fitHeight="17.0" fitWidth="21.0">
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/icons8-dashboard-24.png" />
+                        <Image url="@../icon/icons8-dashboard-24.png" />
                      </image>
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnCustomer" layoutX="11.0" layoutY="73.0" onAction="#btnCustomerOnAction" prefHeight="26.0" prefWidth="137.0" style="-fx-background-color: B7C9F2;" text="Customer">
+            <JFXButton fx:id="btnCustomer" layoutX="3.0" layoutY="67.0" onAction="#btnCustomerOnAction" prefHeight="68.0" prefWidth="248.0" styleClass="backButton" stylesheets="@../css/MainForm.css" text="Customer" textFill="#efe7e7">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Calibri Bold" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                <graphic>
-                  <ImageView fitHeight="17.0" fitWidth="21.0">
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/icons8-customer-50.png" />
+                        <Image url="@../icon/icons8-customer-50.png" />
                      </image>
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnOrders" layoutX="11.0" layoutY="118.0" onAction="#btnOrdersOnAction" prefHeight="26.0" prefWidth="137.0" style="-fx-background-color: B7C9F2;" text="Orders">
+            <JFXButton fx:id="btnOrders" layoutX="3.0" layoutY="135.0" onAction="#btnOrdersOnAction" prefHeight="68.0" prefWidth="248.0" styleClass="backButton" stylesheets="@../css/MainForm.css" text="Orders" textFill="#efe7e7">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Calibri Bold" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                <graphic>
-                  <ImageView fitHeight="17.0" fitWidth="21.0">
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/icons8-order-64.png" />
+                        <Image url="@../icon/icons8-add-to-cart-64.png" />
                      </image>
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnEmployee" layoutX="10.0" layoutY="165.0" onAction="#btnEmployeeOnAction" prefHeight="26.0" prefWidth="137.0" style="-fx-background-color: B7C9F2;" text="Employee">
+            <JFXButton fx:id="btnEmployee" layoutX="3.0" layoutY="203.0" onAction="#btnEmployeeOnAction" prefHeight="68.0" prefWidth="248.0" styleClass="backButton" stylesheets="@../css/MainForm.css" text="Employee" textFill="#efe7e7">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Calibri Bold" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                <graphic>
-                  <ImageView fitHeight="17.0" fitWidth="21.0">
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/icons8-employee-50.png" />
+                        <Image url="@../icon/icons8-employee-50.png" />
                      </image>
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnMachine" layoutX="11.0" layoutY="214.0" onAction="#btnMachineOnAction" prefHeight="26.0" prefWidth="137.0" style="-fx-background-color: B7C9F2;" text="Machine">
+            <JFXButton fx:id="btnMachine" layoutX="3.0" layoutY="271.0" onAction="#btnMachineOnAction" prefHeight="68.0" prefWidth="248.0" styleClass="backButton" stylesheets="@../css/MainForm.css" text="Machine" textFill="#efe7e7">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Calibri Bold" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                <graphic>
-                  <ImageView fitHeight="17.0" fitWidth="21.0">
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/icons8-machine-50.png" />
+                        <Image url="@../icon/icons8-machine-50.png" />
                      </image>
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnMaterials" layoutX="11.0" layoutY="262.0" onAction="#btnMaterialsOnAction" prefHeight="26.0" prefWidth="137.0" style="-fx-background-color: B7C9F2;" text="Materials">
+            <JFXButton fx:id="btnMaterials" layoutX="3.0" layoutY="339.0" onAction="#btnMaterialsOnAction" prefHeight="68.0" prefWidth="248.0" styleClass="backButton" stylesheets="@../css/MainForm.css" text="Materials" textFill="#efe7e7">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Calibri Bold" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                <graphic>
-                  <ImageView fitHeight="17.0" fitWidth="21.0">
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/icons8-commodity-50.png" />
+                        <Image url="@../icon/icons8-commodity-50.png" />
                      </image>
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnPayment" layoutX="11.0" layoutY="311.0" onAction="#btnPaymentOnAction" prefHeight="26.0" prefWidth="137.0" style="-fx-background-color: B7C9F2;" text="Payment">
+            <JFXButton fx:id="btnPayment" layoutX="3.0" layoutY="407.0" onAction="#btnPaymentOnAction" prefHeight="68.0" prefWidth="248.0" styleClass="backButton" stylesheets="@../css/MainForm.css" text="Payment" textFill="#efe7e7">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Calibri Bold" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                <graphic>
-                  <ImageView fitHeight="17.0" fitWidth="21.0">
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/icons8-payment-64.png" />
+                        <Image url="@../icon/icons8-payment-64.png" />
                      </image>
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnSupplier" layoutX="14.0" layoutY="362.0" onAction="#btnSupplierOnAction" prefHeight="26.0" prefWidth="137.0" style="-fx-background-color: B7C9F2;" text="Supplier">
+            <JFXButton fx:id="btnSupplier" layoutX="3.0" layoutY="475.0" onAction="#btnSupplierOnAction" prefHeight="68.0" prefWidth="248.0" styleClass="backButton" stylesheets="@../css/MainForm.css" text="Supplier" textFill="#efe7e7">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Calibri Bold" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                <graphic>
-                  <ImageView fitHeight="17.0" fitWidth="21.0">
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/icons8-supplier-64.png" />
+                        <Image url="@../icon/icons8-supplier-64.png" />
                      </image>
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnPlaceOrder" layoutX="14.0" layoutY="413.0" onAction="#btnPlaceOrderOnAction" prefHeight="26.0" prefWidth="137.0" style="-fx-background-color: B7C9F2;" text="Place Oreder">
+            <JFXButton fx:id="btnPlaceOrder" layoutX="3.0" layoutY="543.0" onAction="#btnPlaceOrderOnAction" prefHeight="68.0" prefWidth="248.0" styleClass="backButton" stylesheets="@../css/MainForm.css" text="Place Oreder" textFill="#efe7e7">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Calibri Bold" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                <graphic>
-                  <ImageView fitHeight="17.0" fitWidth="21.0">
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/icons8-add-to-cart-64.png" />
+                        <Image url="@../icon/icons8-order-64.png" />
                      </image>
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnBatch" layoutX="14.0" layoutY="464.0" onAction="#btnBatchOnAction" prefHeight="26.0" prefWidth="137.0" style="-fx-background-color: B7C9F2;" text="Batch">
+            <JFXButton fx:id="btnBatch" layoutX="3.0" layoutY="611.0" onAction="#btnBatchOnAction" prefHeight="68.0" prefWidth="248.0" styleClass="backButton" stylesheets="@../css/MainForm.css" text="Batch" textFill="#efe7e7">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Calibri Bold" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                <graphic>
-                  <ImageView fitHeight="17.0" fitWidth="21.0">
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/icons8-batch-50.png" />
+                        <Image url="@../icon/icons8-batch-50.png" />
                      </image>
                   </ImageView>
                </graphic>
             </JFXButton>
+            <Line endX="128.7999725341797" endY="7.62939453125E-6" layoutX="116.0" layoutY="67.0" startX="-113.00001525878906" startY="7.62939453125E-6" stroke="#faf8f8" />
+            <Line endX="128.7999725341797" endY="7.62939453125E-6" layoutX="117.0" layoutY="135.0" startX="-113.00001525878906" startY="7.62939453125E-6" stroke="#faf8f8" />
+            <Line endX="128.7999725341797" endY="7.62939453125E-6" layoutX="116.0" layoutY="203.0" startX="-113.00001525878906" startY="7.62939453125E-6" stroke="#faf8f8" />
+            <Line endX="128.7999725341797" endY="7.62939453125E-6" layoutX="117.0" layoutY="271.0" startX="-113.00001525878906" startY="7.62939453125E-6" stroke="#faf8f8" />
+            <Line endX="128.7999725341797" endY="7.62939453125E-6" layoutX="117.0" layoutY="339.0" startX="-113.00001525878906" startY="7.62939453125E-6" stroke="#faf8f8" />
+            <Line endX="128.7999725341797" endY="7.62939453125E-6" layoutX="117.0" layoutY="407.0" startX="-113.00001525878906" startY="7.62939453125E-6" stroke="#faf8f8" />
+            <Line endX="128.7999725341797" endY="7.62939453125E-6" layoutX="117.0" layoutY="475.0" startX="-113.00001525878906" startY="7.62939453125E-6" stroke="#faf8f8" />
+            <Line endX="128.7999725341797" endY="7.62939453125E-6" layoutX="118.0" layoutY="543.0" startX="-113.00001525878906" startY="7.62939453125E-6" stroke="#faf8f8" />
+            <Line endX="128.7999725341797" endY="7.62939453125E-6" layoutX="117.0" layoutY="611.0" startX="-113.00001525878906" startY="7.62939453125E-6" stroke="#faf8f8" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anpMain" layoutX="163.0" layoutY="12.0" prefHeight="494.0" prefWidth="693.0" />
+      <AnchorPane fx:id="anpWelcome" layoutX="249.0" layoutY="-1.0" prefHeight="679.0" prefWidth="879.0" styleClass="background2" stylesheets="@../css/MainForm.css">
+         <children>
+            <AnchorPane fx:id="anpMain" layoutX="10.0" layoutY="10.0" prefHeight="658.0" prefWidth="860.0" style="-fx-background-color: white;" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

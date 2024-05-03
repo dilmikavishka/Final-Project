@@ -7,16 +7,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.model.Customer;
 import lk.ijse.model.Tm.CustomerTm;
 import lk.ijse.repository.CustomerRepo;
+import lk.ijse.repository.OrderRepo;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -69,9 +67,13 @@ public class CustomerFormController {
     @FXML
     private TextField txtCustomerTel;
 
+    @FXML
+    private Label lblCustomer;
+
     public void initialize() {
         setCellValueFactory();
         loadAllCustomers();
+
     }
 
     private void loadAllCustomers() {

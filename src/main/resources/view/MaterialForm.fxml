@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anpMaterialManage" prefHeight="494.0" prefWidth="693.0" style="-fx-background-color: C6EBC5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MaterialFormController">
+<AnchorPane fx:id="anpMaterialManage" prefHeight="658.0" prefWidth="860.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MaterialFormController">
    <children>
       <Label layoutX="269.0" layoutY="14.0" text="Material Manage">
          <font>
@@ -54,7 +54,7 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="21.0">
                <image>
-                  <Image url="@../images/icons8-back-50.png" />
+                  <Image url="@../icon/icons8-back-50.png" />
                </image>
             </ImageView>
          </graphic>
@@ -66,7 +66,7 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="21.0">
                <image>
-                  <Image url="@../images/icons8-add-bookmark-64.png" />
+                  <Image url="@../icon/icons8-add-bookmark-64.png" />
                </image>
             </ImageView>
          </graphic>
@@ -78,7 +78,7 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="21.0">
                <image>
-                  <Image url="@../images/icons8-delete-24.png" />
+                  <Image url="@../icon/icons8-delete-24.png" />
                </image>
             </ImageView>
          </graphic>
@@ -90,7 +90,7 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="21.0">
                <image>
-                  <Image url="@../images/icons8-update-64.png" />
+                  <Image url="@../icon/icons8-update-64.png" />
                </image>
             </ImageView>
          </graphic>
@@ -102,12 +102,12 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="21.0">
                <image>
-                  <Image url="@../images/icons8-clear-50.png" />
+                  <Image url="@../icon/icons8-clear-50.png" />
                </image>
             </ImageView>
          </graphic>
       </JFXButton>
-      <TableView fx:id="tblMaterials" layoutX="9.0" layoutY="173.0" prefHeight="316.0" prefWidth="576.0">
+      <TableView fx:id="tblMaterials" layoutX="9.0" layoutY="173.0" prefHeight="429.0" prefWidth="576.0">
         <columns>
           <TableColumn fx:id="colMatid" prefWidth="83.20004463195801" text="Materials Id" />
           <TableColumn fx:id="colName" prefWidth="111.20000457763672" text="Name" />

@@ -1,5 +1,7 @@
 package lk.ijse.controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
@@ -9,9 +11,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import lk.ijse.db.DbConnection;
 
 import java.io.IOException;
@@ -21,6 +25,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class LoginFormController {
+
+    @FXML
+    private Label lblButton1;
+
+    @FXML
+    private Label lblButton2;
+
+    @FXML
+    private Label lblButton3;
+
+    @FXML
+    private Label lblButton4;
 
     @FXML
     private AnchorPane anp1;
@@ -39,6 +55,55 @@ public class LoginFormController {
 
     @FXML
     private TextField txtUserName;
+
+    @FXML
+    private AnchorPane anpWelcome;
+
+    private String Button1Text = "A BEAUTIFUL  ";
+    private String Button2Text = " DESING FINISH ";
+    private String Button3Text = "USING";
+    private String Button4Text = "SUPERIOR MATERIALS .";
+
+    private int currentIndex = 0;
+    private int currentIndex1 = 0;
+    private int currentIndex2 = 0;
+    private int currentIndex3 = 0;
+
+
+    public void initialize() throws IOException {
+
+
+        // Create a Timeline to update the label text gradually
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(100), event -> {
+            if (currentIndex <= Button1Text.length()) {
+                lblButton1.setText(Button1Text.substring(0, currentIndex));
+                currentIndex++;
+            }
+
+            if (currentIndex1 <= Button2Text.length()){
+                lblButton2.setText(Button2Text.substring(0,currentIndex1));
+                currentIndex1++;
+            }
+
+            if (currentIndex2 <= Button3Text.length()){
+                lblButton3.setText(Button3Text.substring(0,currentIndex2));
+                currentIndex2++;
+            }
+
+            if (currentIndex3 <= Button4Text.length()){
+                lblButton4.setText(Button4Text.substring(0,currentIndex3));
+                currentIndex3++;
+            }
+
+        }));
+        timeline.setCycleCount(Button1Text.length() + 1);
+        timeline.setCycleCount(Button2Text.length() + 2);
+        timeline.setCycleCount(Button3Text.length() + 3);
+        timeline.setCycleCount(Button4Text.length() + 4);
+        timeline.play();
+
+    }
+
 
 
     @FXML

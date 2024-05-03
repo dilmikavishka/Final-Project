@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anpCustomerManage" prefHeight="494.0" prefWidth="693.0" style="-fx-background-color: C6EBC5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CustomerFormController">
+<AnchorPane fx:id="anpCustomerManage" prefHeight="658.0" prefWidth="860.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CustomerFormController">
    <children>
       <Label layoutX="254.0" layoutY="14.0" text="Customer Manage">
          <font>
@@ -37,7 +37,6 @@
             <Font name="Calibri Bold Italic" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCustomerId" layoutX="89.0" layoutY="64.0" onAction="#txtSearchOnAction" />
       <TextField fx:id="txtCustomerName" layoutX="486.0" layoutY="64.0" />
       <TextField fx:id="txtCustomerTel" layoutX="89.0" layoutY="127.0" />
       <TextField fx:id="txtCustomerAddress" layoutX="486.0" layoutY="127.0" />
@@ -48,7 +47,7 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="21.0">
                <image>
-                  <Image url="@../images/icons8-add-bookmark-64.png" />
+                  <Image url="@../icon/icons8-add-bookmark-64.png" />
                </image>
             </ImageView>
          </graphic>
@@ -60,7 +59,7 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="21.0">
                <image>
-                  <Image url="@../images/icons8-delete-24.png" />
+                  <Image url="@../icon/icons8-delete-24.png" />
                </image>
             </ImageView>
          </graphic>
@@ -72,7 +71,7 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="21.0">
                <image>
-                  <Image url="@../images/icons8-update-64.png" />
+                  <Image url="@../icon/icons8-update-64.png" />
                </image>
             </ImageView>
          </graphic>
@@ -84,12 +83,12 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="21.0">
                <image>
-                  <Image url="@../images/icons8-clear-50.png" />
+                  <Image url="@../icon/icons8-clear-50.png" />
                </image>
             </ImageView>
          </graphic>
       </JFXButton>
-      <TableView fx:id="tblCustomer" layoutX="14.0" layoutY="161.0" prefHeight="327.0" prefWidth="561.0">
+      <TableView fx:id="tblCustomer" layoutX="14.0" layoutY="161.0" prefHeight="442.0" prefWidth="562.0">
         <columns>
           <TableColumn fx:id="colCustomerId" prefWidth="95.19998359680176" text="Customer Id" />
           <TableColumn fx:id="colCustomerName" prefWidth="145.60002899169922" text=" Name" />
@@ -104,10 +103,12 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="21.0">
                <image>
-                  <Image url="@../images/icons8-back-50.png" />
+                  <Image url="@../icon/icons8-back-50.png" />
                </image>
             </ImageView>
          </graphic>
       </JFXButton>
+      <Label fx:id="lblCustomer" layoutX="117.0" layoutY="68.0" />
+      <TextField fx:id="txtCustomerId" layoutX="89.0" layoutY="64.0" onAction="#txtSearchOnAction" />
    </children>
 </AnchorPane>

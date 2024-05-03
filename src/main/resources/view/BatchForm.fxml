@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anpBatchManage" prefHeight="494.0" prefWidth="693.0" style="-fx-background-color: C6EBC5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.BatchFormController">
+<AnchorPane fx:id="anpBatchManage" prefHeight="658.0" prefWidth="860.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.BatchFormController">
    <children>
       <Label layoutX="283.0" layoutY="14.0" text=" Batch Manage">
          <font>
@@ -71,7 +71,7 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="21.0">
                <image>
-                  <Image url="@../images/icons8-back-50.png" />
+                  <Image url="@../icon/icons8-back-50.png" />
                </image>
             </ImageView>
          </graphic>
@@ -83,7 +83,7 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="21.0">
                <image>
-                  <Image url="@../images/icons8-add-bookmark-64.png" />
+                  <Image url="@../icon/icons8-add-bookmark-64.png" />
                </image>
             </ImageView>
          </graphic>
@@ -95,7 +95,7 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="21.0">
                <image>
-                  <Image url="@../images/icons8-delete-24.png" />
+                  <Image url="@../icon/icons8-delete-24.png" />
                </image>
             </ImageView>
          </graphic>
@@ -107,7 +107,7 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="21.0">
                <image>
-                  <Image url="@../images/icons8-update-64.png" />
+                  <Image url="@../icon/icons8-update-64.png" />
                </image>
             </ImageView>
          </graphic>
@@ -119,12 +119,12 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="21.0">
                <image>
-                  <Image url="@../images/icons8-clear-50.png" />
+                  <Image url="@../icon/icons8-clear-50.png" />
                </image>
             </ImageView>
          </graphic>
       </JFXButton>
-      <TableView fx:id="tblBatchManage" layoutX="1.0" layoutY="293.0" prefHeight="200.0" prefWidth="598.0">
+      <TableView fx:id="tblBatchManage" layoutX="1.0" layoutY="293.0" prefHeight="315.0" prefWidth="598.0">
         <columns>
           <TableColumn fx:id="colBatchId" prefWidth="56.000001549720764" text="Batch Id" />
           <TableColumn fx:id="colDescription" prefWidth="100.80001068115234" text=" Description" />
