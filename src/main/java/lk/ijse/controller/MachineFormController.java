@@ -16,6 +16,7 @@ import lk.ijse.model.Customer;
 import lk.ijse.model.Machine;
 import lk.ijse.model.Tm.MachineTm;
 import lk.ijse.repository.CustomerRepo;
+import lk.ijse.repository.EmployeeRepo;
 import lk.ijse.repository.MachineRepo;
 
 import java.io.IOException;
@@ -63,14 +64,6 @@ public class MachineFormController {
     @FXML
     private TextField txtStatus;
 
-    @FXML
-    void btnBackOnAction(ActionEvent event) throws IOException {
-        AnchorPane dashboardPane = FXMLLoader.load(this.getClass().getResource("/view/DashBordForm.fxml"));
-
-
-        apnMachineManage.getChildren().clear();
-        apnMachineManage.getChildren().add(dashboardPane);
-    }
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
@@ -100,7 +93,8 @@ public class MachineFormController {
 
     public void initialize() {
        setCellValueFactory();
-        loadAllMachine();
+       loadAllMachine();
+       getCurrentMachineIds();
     }
 
     private void setCellValueFactory() {
@@ -184,4 +178,24 @@ public class MachineFormController {
         }
     }
 
+    private void getCurrentMachineIds() {
+        try {
+            String currentId = MachineRepo.getCurrentId();
+
+            String nextMachineId = generateNextMachineId(currentId);
+            txtMachineId.setText(nextMachineId);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private String generateNextMachineId(String currentId) {
+        if(currentId != null) {
+            String[] split = currentId.split("M");  //" ", "2"
+            int idNum = Integer.parseInt(split[1]);
+            return "M" + String.format("%03d", ++idNum);
+        }
+        return"M001";
+    }
 }

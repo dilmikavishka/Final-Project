@@ -135,17 +135,31 @@ public class CustomerRepo {
 
         ResultSet resultSet = pstm.executeQuery();
         if (resultSet.next()) {
-            String cus_id = resultSet.getString(1);
+            String id = resultSet.getString(1);
             String tel = resultSet.getString(3);
             String address = resultSet.getString(4);
 
-            Customer customer = new Customer(cus_id, name, tel, address);
+            Customer customer = new Customer(id, name, tel, address);
 
             return customer;
         }
 
         return null;
     }
+
+    public static String getCurrentId() throws SQLException {
+        String sql = "SELECT customerId FROM customer ORDER BY customerId DESC LIMIT 1";
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+        if(resultSet.next()) {
+            String id = resultSet.getString(1);
+            return id;
+        }
+        return null;
+    }
+
 
 }
 

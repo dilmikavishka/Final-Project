@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -17,6 +18,7 @@ import lk.ijse.repository.CustomerRepo;
 import lk.ijse.repository.OrderRepo;
 import lk.ijse.repository.PlaceOrderRepo;
 
+import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -235,13 +237,12 @@ public class PlaceOrderFormController {
     }
 
     @FXML
-    void btnBackOnAction(ActionEvent event) {
+    void btnNewCustomerOnAction(ActionEvent event) throws IOException {
+        AnchorPane customerPane = FXMLLoader.load(this.getClass().getResource("/view/CustomerForm.fxml"));
 
-    }
 
-    @FXML
-    void btnNewCustomerOnAction(ActionEvent event) {
-
+        anpPlaceOrder.getChildren().clear();
+        anpPlaceOrder.getChildren().add(customerPane);
     }
 
     @FXML

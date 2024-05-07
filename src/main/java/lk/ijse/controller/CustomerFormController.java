@@ -26,9 +26,6 @@ public class CustomerFormController {
     private AnchorPane anpCustomerManage;
 
     @FXML
-    private JFXButton btnBack;
-
-    @FXML
     private JFXButton btnClear;
 
     @FXML
@@ -73,6 +70,7 @@ public class CustomerFormController {
     public void initialize() {
         setCellValueFactory();
         loadAllCustomers();
+        getCurrentCusIds();
 
     }
 
@@ -101,15 +99,6 @@ public class CustomerFormController {
         this.colCustomerName.setCellValueFactory(new PropertyValueFactory<>("name"));
         this.colCustomerAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         this.colCustomerTel.setCellValueFactory(new PropertyValueFactory<>("tel"));
-    }
-
-    @FXML
-    void btnBackOnAction(ActionEvent event) throws IOException {
-        AnchorPane dashboardPane = FXMLLoader.load(this.getClass().getResource("/view/DashBordForm.fxml"));
-
-
-        anpCustomerManage.getChildren().clear();
-        anpCustomerManage.getChildren().add(dashboardPane);
     }
 
     @FXML
@@ -196,4 +185,25 @@ public class CustomerFormController {
         }
     }
 
+
+    private void getCurrentCusIds() {
+        try {
+            String currentId = CustomerRepo.getCurrentId();
+
+            String nextCusId = generateNexrCusId(currentId);
+            txtCustomerId.setText(nextCusId);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private String generateNexrCusId(String currentId) {
+        if(currentId != null) {
+            String[] split = currentId.split("C");  //" ", "2"
+            int idNum = Integer.parseInt(split[1]);
+            return "C" + String.format("%03d", ++idNum);
+        }
+        return"C001";
+    }
 }

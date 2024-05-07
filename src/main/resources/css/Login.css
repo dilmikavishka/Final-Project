@@ -1,3 +1,7 @@
 .backButton:hover{
-    -fx-background-color: #3D3B40;
+    -fx-background-color: #3876BF;
+}
+
+.background{
+    -fx-background-color: #FEFAF6;
 }

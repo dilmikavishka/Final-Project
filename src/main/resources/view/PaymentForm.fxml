@@ -2,120 +2,190 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="apnPayment" prefHeight="658.0" prefWidth="860.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PaymentFormController">
+<AnchorPane fx:id="apnPayment" prefHeight="764.0" prefWidth="910.0" style="-fx-background-radius: 10;" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PaymentFormController">
    <children>
-      <Label layoutX="272.0" layoutY="14.0" text="Payment Manage">
-         <font>
-            <Font name="Calibri Bold Italic" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="59.0" layoutY="54.0" text="Payment Id :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="59.0" layoutY="109.0" text="Amount  :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="434.0" layoutY="109.0" text="Type  :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtPaymentID" layoutX="58.0" layoutY="72.0" onAction="#txtPaymentSarchOnAction" />
-      <TextField fx:id="txtPaymentDate" layoutX="434.0" layoutY="72.0" />
-      <TextField fx:id="txtAmount" layoutX="59.0" layoutY="127.0" />
-      <TableView fx:id="tblPayment" layoutX="14.0" layoutY="216.0" prefHeight="388.0" prefWidth="554.0">
+      <TextField fx:id="txtPaymentID" layoutX="50.0" layoutY="112.0" onAction="#txtPaymentSarchOnAction" prefHeight="30.0" prefWidth="170.0" promptText="Payment Id ">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
+               </color></DropShadow>
+         </effect></TextField>
+      <TextField fx:id="txtPaymentDate" layoutX="293.0" layoutY="110.0" prefHeight="30.0" prefWidth="170.0" promptText="Payment Date">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
+               </color></DropShadow>
+         </effect></TextField>
+      <TextField fx:id="txtAmount" layoutX="485.0" layoutY="107.0" prefHeight="30.0" prefWidth="170.0" promptText="Amount">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
+               </color></DropShadow>
+         </effect></TextField>
+      <TableView fx:id="tblPayment" layoutX="14.0" layoutY="277.0" prefHeight="474.0" prefWidth="693.0">
         <columns>
-          <TableColumn fx:id="colPaymentId" prefWidth="81.60000801086426" text="Payment Id" />
-          <TableColumn fx:id="colPaymentDate" prefWidth="147.99999237060547" text="Paymeny Date" />
-            <TableColumn fx:id="colAmount" prefWidth="115.20001220703125" text="Amount" />
-            <TableColumn fx:id="colType" prefWidth="94.4000244140625" text="Type" />
-            <TableColumn fx:id="colOrderId" prefWidth="112.0000061035156" text="Order Id" />
+          <TableColumn fx:id="colPaymentId" prefWidth="96.26663494110107" text="Payment Id" />
+          <TableColumn fx:id="colPaymentDate" prefWidth="166.93335723876953" text="Paymeny Date" />
+            <TableColumn fx:id="colAmount" prefWidth="137.59994506835938" text="Amount" />
+            <TableColumn fx:id="colType" prefWidth="121.60006713867188" text="Type" />
+            <TableColumn fx:id="colOrderId" prefWidth="173.5999755859375" text="Order Id" />
         </columns>
       </TableView>
-      <Label layoutX="434.0" layoutY="54.0" text="Payment Date  :">
+      <ChoiceBox fx:id="choiseType" layoutX="286.0" layoutY="195.0" prefHeight="30.0" prefWidth="170.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
+               </color></DropShadow>
+         </effect></ChoiceBox>
+      <JFXComboBox fx:id="comOrderId" layoutX="48.0" layoutY="195.0" onAction="#comOrderIdOnAction" prefHeight="30.0" prefWidth="170.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
+               </color></DropShadow>
+         </effect></JFXComboBox>
+      <VBox layoutX="723.0" layoutY="501.0" prefHeight="214.0" prefWidth="172.0" spacing="10.0" style="-fx-background-radius: 20;">
+         <children>
+            <JFXButton fx:id="btnSave" onAction="#btnSaveOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Save">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/icons8-save-24.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnDelete" layoutX="10.0" layoutY="10.0" onAction="#btnDeleteOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Delete">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/icons8-delete-50.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnUpdate" layoutX="10.0" layoutY="82.0" onAction="#btnUpdateOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Update">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/icons8-update-50.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnClear" layoutX="10.0" layoutY="154.0" onAction="#btnClearOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Clear">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/icons8-clear-50.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+      </VBox>
+      <ImageView fitHeight="249.0" fitWidth="256.0" layoutX="642.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/144643089_10075627-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="321.0" layoutY="13.0" prefHeight="35.0" prefWidth="226.0" style="-fx-background-radius: 5;" styleClass="anchorpanetop2" stylesheets="@../css/MainForm.css" text="Payment Manage" underline="true">
          <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
+            <Font name="Calibri Bold" size="30.0" />
          </font>
       </Label>
-      <JFXButton fx:id="btnClear" layoutX="598.0" layoutY="268.0" onAction="#btnClearOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Clear">
+      <Label layoutX="300.0" layoutY="72.0" text="Payment Date">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Calibri Bold" size="17.0" />
          </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
-               <image>
-                  <Image url="@../icon/icons8-clear-50.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="btnUpdate" layoutX="598.0" layoutY="310.0" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Update">
+      </Label>
+      <Label layoutX="512.0" layoutY="72.0" text="Amount :">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Calibri Bold" size="17.0" />
          </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
-               <image>
-                  <Image url="@../icon/icons8-update-64.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="btnDelete" layoutX="598.0" layoutY="352.0" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Delete">
+      </Label>
+      <Label layoutX="59.0" layoutY="73.0" text="Payment Id :">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Calibri Bold" size="17.0" />
          </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
-               <image>
-                  <Image url="@../icon/icons8-delete-24.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="btnSave" layoutX="598.0" layoutY="392.0" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Save">
+      </Label>
+      <Label layoutX="297.0" layoutY="160.0" text="Type :">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Calibri Bold" size="17.0" />
          </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
-               <image>
-                  <Image url="@../icon/icons8-add-bookmark-64.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="btnBack" layoutX="598.0" layoutY="457.0" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: DD5746;" text="Back">
+      </Label>
+      <Label layoutX="56.0" layoutY="162.0" text="Order Id :">
          <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
-               <image>
-                  <Image url="@../icon/icons8-back-50.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <ChoiceBox fx:id="choiseType" layoutX="433.0" layoutY="127.0" prefWidth="150.0" />
-      <JFXComboBox fx:id="comOrderId" layoutX="60.0" layoutY="177.0" onAction="#comOrderIdOnAction" prefHeight="26.0" prefWidth="142.0" />
-      <Label layoutX="59.0" layoutY="159.0" text="Oder Id  :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
+            <Font name="Calibri Bold" size="17.0" />
          </font>
       </Label>
    </children>

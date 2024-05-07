@@ -95,5 +95,18 @@ public class MaterialRepo {
         }
         return materialList;
     }
+
+    public static String getCurrentId() throws SQLException {
+        String sql = "SELECT materialId FROM material ORDER BY materialId DESC LIMIT 1";
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+        if(resultSet.next()) {
+            String id = resultSet.getString(1);
+            return id;
+        }
+        return null;
+    }
 }
 

@@ -1,96 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.QuadCurve?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anp1" prefHeight="556.0" prefWidth="787.0" styleClass="background2" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
+<AnchorPane fx:id="anp1" prefHeight="556.0" prefWidth="787.0" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
    <children>
-      <AnchorPane fx:id="anp2" layoutX="319.0" layoutY="14.0" prefHeight="514.0" prefWidth="458.0" style="-fx-background-color: white;">
+      <AnchorPane fx:id="anp2" layoutX="14.0" layoutY="13.0" prefHeight="530.0" prefWidth="758.0" style="-fx-background-color: white;">
          <children>
-            <ImageView fitHeight="60.0" fitWidth="298.0" layoutX="86.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <Text layoutX="206.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User id :">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtUserName" layoutX="120.0" layoutY="152.0" prefHeight="38.0" prefWidth="258.0" promptText="User Id" style="-fx-background-radius: 10;">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect></TextField>
+            <Text layoutX="195.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password :">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+            </Text>
+            <PasswordField fx:id="txtPassword" layoutX="120.0" layoutY="258.0" prefHeight="38.0" prefWidth="258.0" promptText="Password" style="-fx-background-radius: 10;">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect></PasswordField>
+            <JFXButton fx:id="btnLogin" layoutX="171.0" layoutY="369.0" onAction="#btnLoginOnAction" prefHeight="38.0" prefWidth="138.0" style="-fx-background-radius: 20;" styleClass="backButton" stylesheets="@../css/Login.css" text="Login">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/icons8-login.gif" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </JFXButton>
+            <Text layoutX="94.0" layoutY="436.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account ? ">
+               <font>
+                  <Font name="Calibri Bold" size="15.0" />
+               </font>
+            </Text>
+            <Hyperlink fx:id="linkRegister" layoutX="250.0" layoutY="420.0" onAction="#linkRegisterOnAction" text="Register on here">
+               <font>
+                  <Font name="Calibri Bold" size="15.0" />
+               </font></Hyperlink>
+            <ImageView fitHeight="97.0" fitWidth="307.0" layoutX="191.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/470-X-104.png" />
                </image>
             </ImageView>
-            <QuadCurve controlX="418.800048828125" controlY="236.0" endX="-241.0" endY="229.199951171875" layoutX="241.0" layoutY="300.0" startX="-241.0" startY="-298.0" stroke="BLACK" strokeType="INSIDE" />
-            <Text layoutX="203.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User id :">
-               <font>
-                  <Font name="Calibri Bold" size="15.0" />
-               </font>
-            </Text>
-            <TextField fx:id="txtUserName" layoutX="105.0" layoutY="110.0" prefHeight="38.0" prefWidth="258.0" promptText="User Id" style="-fx-background-radius: 10;" />
-            <Text layoutX="200.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password :">
-               <font>
-                  <Font name="Calibri Bold" size="15.0" />
-               </font>
-            </Text>
-            <PasswordField fx:id="txtPassword" layoutX="105.0" layoutY="196.0" prefHeight="38.0" prefWidth="258.0" promptText="Password" style="-fx-background-radius: 10;" />
-            <JFXButton fx:id="btnLogin" layoutX="191.0" layoutY="331.0" onAction="#btnLoginOnAction" prefHeight="38.0" prefWidth="106.0" style="-fx-background-radius: 10 10 10 10;" styleClass="backButton" stylesheets="@../css/Login.css" text="Login" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </JFXButton>
-            <Text fill="WHITE" layoutX="95.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account ? ">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Text>
-            <Hyperlink fx:id="linkRegister" layoutX="234.0" layoutY="385.0" onAction="#linkRegisterOnAction" text="Register on here" />
-            <ImageView fitHeight="110.0" fitWidth="286.0" layoutX="244.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true">
+            <QuadCurve controlX="-229.99996948242188" controlY="-289.79998779296875" endX="290.4000244140625" endY="-236.1999969482422" fill="#1f93ff34" layoutX="468.0" layoutY="240.0" startX="290.4000244140625" startY="290.39996337890625" stroke="WHITE" strokeType="INSIDE" />
+            <QuadCurve controlX="-277.6000061035156" controlY="280.39996337890625" endX="280.4000244140625" endY="-249.78750610351562" fill="#1f93ff34" layoutX="478.0" layoutY="250.0" startX="280.4000244140625" startY="280.39996337890625" stroke="WHITE" strokeType="INSIDE" />
+            <ImageView fitHeight="252.0" fitWidth="286.0" layoutX="411.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/10-106966_hello-kitty-clipart-hello-kitty-name-plate-background%20(1).png" />
+                  <Image url="@../images/login1.png" />
                </image>
             </ImageView>
-            <Label layoutX="334.0" layoutY="473.0" text="Hellooo.......!">
-               <font>
-                  <Font name="System Bold" size="10.0" />
-               </font>
-            </Label>
-            <Label layoutX="340.0" layoutY="489.0" text="Crescent Button">
-               <font>
-                  <Font name="System Bold" size="10.0" />
-               </font>
-            </Label>
          </children>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
       </AnchorPane>
-      <ImageView fitHeight="130.0" fitWidth="267.0" layoutX="10.0" layoutY="287.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/collection-of-different-multi-colored-buttons-photo.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="141.0" fitWidth="286.0" layoutX="80.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/slider2.jpg" />
-         </image>
-      </ImageView>
-      <Label fx:id="lblButton1" layoutX="81.0" layoutY="51.0" text="A BEAUTIFUL  " textFill="WHITE">
-         <font>
-            <Font name="Bodoni MT Bold" size="25.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblButton3" layoutX="114.0" layoutY="149.0" text="USING" textFill="WHITE">
-         <font>
-            <Font name="Bodoni MT Bold" size="25.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblButton2" layoutX="75.0" layoutY="98.0" text=" DESING FINISH " textFill="WHITE">
-         <font>
-            <Font name="Bodoni MT Bold" size="25.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblButton4" layoutX="32.0" layoutY="196.0" text="SUPERIOR MATERIALS ." textFill="WHITE">
-         <font>
-            <Font name="Bodoni MT Bold" size="25.0" />
-         </font>
-      </Label>
    </children>
+   <effect>
+      <InnerShadow />
+   </effect>
 </AnchorPane>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anpDash" prefHeight="764.0" prefWidth="910.0" style="-fx-background-radius: 10;" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashboardFormController">
+   <children>
+      <HBox layoutX="7.0" layoutY="59.0" prefHeight="335.0" prefWidth="898.0" spacing="10.0">
+         <children>
+            <BarChart fx:id="barChart" styleClass="anchorpanetop2" stylesheets="@../css/MainForm.css">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </BarChart>
+            <LineChart fx:id="lineChart" legendVisible="false" prefHeight="450.0" prefWidth="455.0" styleClass="anchorpanetop2" stylesheets="@../css/MainForm.css">
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis side="LEFT" />
+               </yAxis>
+            </LineChart>
+            <PieChart fx:id="pieChart" prefHeight="346.0" prefWidth="410.0" styleClass="anchorpanetop2" stylesheets="@../css/MainForm.css" />
+         </children>
+      </HBox>
+      <HBox layoutX="118.0" layoutY="445.0" prefHeight="181.0" prefWidth="671.0" spacing="10.0" stylesheets="@../css/MainForm.css">
+         <children>
+            <AnchorPane prefHeight="135.0" prefWidth="216.0" style="-fx-background-radius: 20;" styleClass="anchorpanetop2" stylesheets="@../css/MainForm.css">
+               <children>
+                  <Label layoutX="5.0" layoutY="12.0" text="Order Count :">
+                     <font>
+                        <Font name="Bodoni MT Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblOrderCount" layoutX="148.0" layoutY="13.0" prefHeight="30.0" prefWidth="3.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="93.0" fitWidth="128.0" layoutX="50.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/4433338_2319936-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+            <AnchorPane cache="true" prefHeight="135.0" prefWidth="216.0" style="-fx-background-radius: 20;" styleClass="anchorpanetop2" stylesheets="@../css/MainForm.css">
+               <children>
+                  <Label layoutX="3.0" layoutY="27.0" text="Customer Count :">
+                     <font>
+                        <Font name="Bodoni MT Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblCusCount" layoutX="160.0" layoutY="24.0" prefHeight="30.0" prefWidth="4.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="101.0" fitWidth="128.0" layoutX="42.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/4950336_19923-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+            <AnchorPane prefHeight="135.0" prefWidth="216.0" style="-fx-background-radius: 20;" styleClass="anchorpanetop2" stylesheets="@../css/MainForm.css">
+               <children>
+                  <Label layoutX="5.0" layoutY="19.0" prefHeight="36.0" prefWidth="171.0" text="Employee Count :">
+                     <font>
+                        <Font name="Bodoni MT Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblEmpCount" layoutX="164.0" layoutY="22.0" prefHeight="30.0" prefWidth="4.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="94.0" fitWidth="150.0" layoutX="29.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/7424126_3623862-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <JFXButton fx:id="btnLogout" layoutX="769.0" layoutY="694.0" onAction="#btnLogoutOnAction" prefHeight="19.0" prefWidth="128.0" style="-fx-background-radius: 20;" styleClass="logoutButton" stylesheets="@../css/MainForm.css" text="Logout">
+         <font>
+            <Font name="Calibri Bold" size="20.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/21logout.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label layoutX="416.0" layoutY="37.0" text="BUSINESS INCOME">
+         <font>
+            <Font name="Bodoni MT Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="674.0" layoutY="37.0" text="MATERIAL AMOUNT">
+         <font>
+            <Font name="Bodoni MT Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="91.0" layoutY="37.0" text="BUSINESS INCOME">
+         <font>
+            <Font name="Bodoni MT Bold" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

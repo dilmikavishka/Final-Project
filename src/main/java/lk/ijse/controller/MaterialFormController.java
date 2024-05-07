@@ -85,6 +85,7 @@ public class MaterialFormController {
         setCellValueFactory();
         loadAllMaterial();
         getSupId();
+        getCurrentMaterialIds();
 
     }
 
@@ -243,4 +244,24 @@ public class MaterialFormController {
         }
     }
 
+    private void getCurrentMaterialIds() {
+        try {
+            String currentId = MaterialRepo.getCurrentId();
+
+            String nextMaterialId = generateNextMaterialId(currentId);
+            txtMatId.setText(nextMaterialId);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private String generateNextMaterialId(String currentId) {
+        if(currentId != null) {
+            String[] split = currentId.split("M");  //" ", "2"
+            int idNum = Integer.parseInt(split[1]);
+            return "M" + String.format("%03d", ++idNum);
+        }
+        return"M001";
+    }
 }

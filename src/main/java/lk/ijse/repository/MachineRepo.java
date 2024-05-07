@@ -91,4 +91,17 @@ public class MachineRepo {
 
         return null;
     }
+
+    public static String getCurrentId() throws SQLException {
+        String sql = "SELECT machineId FROM Machine ORDER BY machineId DESC LIMIT 1";
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+        if(resultSet.next()) {
+            String MaId = resultSet.getString(1);
+            return MaId;
+        }
+        return null;
+    }
 }

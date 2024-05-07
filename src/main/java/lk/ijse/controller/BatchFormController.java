@@ -134,6 +134,7 @@ public class BatchFormController {
         setCellValueFactoryMachine();
         loadAllMaterialDetail();
         setCellValueFactoryMaterial();
+        getCurrentBatchIds();
 
 
         ObservableList<String> descriptionType = FXCollections.observableArrayList("POLISH","UNPOLISH");
@@ -476,4 +477,29 @@ public class BatchFormController {
 
     }
 
+
+    private void getCurrentBatchIds() {
+        try {
+            String currentId = BatchRepo.getCurrentId();
+
+            String nextBatchId = generateNextBatchId(currentId);
+            txtBatchId.setText(nextBatchId);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private String generateNextBatchId(String currentId) {
+        if(currentId != null) {
+            String[] split = currentId.split("B");  //" ", "2"
+            int idNum = Integer.parseInt(split[1]);
+            return "B" + String.format("%03d", ++idNum);
+        }
+        return"B001";
+    }
+
+
+
 }
+

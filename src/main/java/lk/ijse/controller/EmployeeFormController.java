@@ -15,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.model.Employee;
 import lk.ijse.model.Payment;
 import lk.ijse.model.Tm.EmployeeTm;
+import lk.ijse.repository.BatchRepo;
 import lk.ijse.repository.EmployeeRepo;
 import lk.ijse.repository.PaymentRepo;
 
@@ -79,7 +80,7 @@ public class EmployeeFormController {
     public void initialize() {
         setCellValueFactory();
         loadAllEmployee();
-
+        getCurrentEmployeeIds();
 
     }
 
@@ -218,6 +219,27 @@ public class EmployeeFormController {
             new Alert(Alert.AlertType.INFORMATION,"payment is not found").show();
         }
 
+    }
+
+    private void getCurrentEmployeeIds() {
+        try {
+            String currentId = EmployeeRepo.getCurrentId();
+
+            String nextEmpId = generateNextEmployeeId(currentId);
+            txtEmployeeId.setText(nextEmpId);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private String generateNextEmployeeId(String currentId) {
+        if(currentId != null) {
+            String[] split = currentId.split("E");  //" ", "2"
+            int idNum = Integer.parseInt(split[1]);
+            return "E" + String.format("%03d", ++idNum);
+        }
+        return"E001";
     }
 
 }

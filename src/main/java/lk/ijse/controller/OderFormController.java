@@ -79,6 +79,7 @@ public class OderFormController {
         setCellValueFactory();
         loadAllOrders();
         getCustmoreIds();
+        getCurrentOrderIds();
 
     }
 
@@ -230,4 +231,24 @@ public class OderFormController {
         }
     }
 
+    private void getCurrentOrderIds() {
+        try {
+            String currentId = OrderRepo.getCurrentId();
+
+            String nextOrderId = generateNextOrderId(currentId);
+            txtOrderId.setText(nextOrderId);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private String generateNextOrderId(String currentId) {
+        if(currentId != null) {
+            String[] split = currentId.split("O");  //" ", "2"
+            int idNum = Integer.parseInt(split[1]);
+            return "O" + String.format("%03d", ++idNum);
+        }
+        return"O001";
+    }
 }

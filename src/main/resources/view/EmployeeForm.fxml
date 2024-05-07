@@ -1,122 +1,195 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anpEmplloyeeManage" prefHeight="658.0" prefWidth="860.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.EmployeeFormController">
-   <children>
-      <Label layoutX="269.0" layoutY="14.0" text="Employee Manage">
-         <font>
-            <Font name="Calibri Bold Italic" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="78.0" layoutY="47.0" text="Employee Id :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="473.0" layoutY="47.0" text=" Employee Name :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="80.0" layoutY="104.0" text=" Address  :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="473.0" layoutY="104.0" text=" Tel  :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="78.0" layoutY="155.0" text="Salary  :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtEmployeeId" layoutX="78.0" layoutY="63.0" onAction="#txtSearchOnAction" />
-      <TextField fx:id="txtEmpName" layoutX="473.0" layoutY="63.0" />
-      <TextField fx:id="txtAddress" layoutX="81.0" layoutY="120.0" />
-      <TextField fx:id="txtTel" layoutX="473.0" layoutY="120.0" />
-      <TextField fx:id="txtSalary" layoutX="78.0" layoutY="173.0" />
+<AnchorPane fx:id="anpEmplloyeeManage" prefHeight="764.0" prefWidth="910.0" style="-fx-background-radius: 10;" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.EmployeeFormController">
+   <TextField fx:id="txtEmployeeId" layoutX="95.0" layoutY="99.0" onAction="#txtSearchOnAction" prefHeight="30.0" prefWidth="170.0" promptText="Employee Id">
+      <cursor>
+         <Cursor fx:constant="TEXT" />
+      </cursor>
+      <effect>
+         <DropShadow>
+            <color>
+               <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
+            </color>
+         </DropShadow>
+      </effect></TextField>
+   <TextField fx:id="txtEmpName" layoutX="366.0" layoutY="99.0" prefHeight="30.0" prefWidth="170.0" promptText="Name">
+      <effect>
+         <DropShadow>
+            <color>
+               <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
+            </color>
+         </DropShadow>
+      </effect>
+      <cursor>
+         <Cursor fx:constant="TEXT" />
+      </cursor></TextField>
+   <TextField fx:id="txtAddress" layoutX="92.0" layoutY="163.0" prefHeight="30.0" prefWidth="170.0" promptText="Address">
+      <cursor>
+         <Cursor fx:constant="TEXT" />
+      </cursor>
+      <effect>
+         <DropShadow>
+            <color>
+               <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
+            </color>
+         </DropShadow>
+      </effect></TextField>
+   <TextField fx:id="txtTel" layoutX="368.0" layoutY="173.0" prefHeight="30.0" prefWidth="170.0" promptText="Tel">
+      <cursor>
+         <Cursor fx:constant="TEXT" />
+      </cursor>
+      <effect>
+         <DropShadow>
+            <color>
+               <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
+            </color>
+         </DropShadow>
+      </effect></TextField>
+   <TextField fx:id="txtSalary" layoutX="91.0" layoutY="233.0" prefHeight="30.0" prefWidth="170.0" promptText="Salary">
+      <cursor>
+         <Cursor fx:constant="TEXT" />
+      </cursor>
+      <effect>
+         <DropShadow>
+            <color>
+               <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
+            </color>
+         </DropShadow>
+      </effect></TextField>
 
 
-      <TableView fx:id="tblEmployeeManage" layoutX="9.0" layoutY="202.0" prefHeight="402.0" prefWidth="587.0">
-        <columns>
-          <TableColumn fx:id="colEmpId" prefWidth="75.0" text="Employee Id" />
-          <TableColumn fx:id="colEmpName" prefWidth="128.80001068115234" text="Emmployee Name" />
-            <TableColumn fx:id="colAddress" prefWidth="119.199951171875" text="Address" />
-            <TableColumn fx:id="colTel" prefWidth="135.20001220703125" text="Tel" />
-            <TableColumn fx:id="colSalary" prefWidth="128.80001831054688" text="Salary" />
-        </columns>
-      </TableView>
-      <JFXButton fx:id="btnBack" layoutX="605.0" layoutY="461.0" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: DD5746;" text="Back">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
-               <image>
-                  <Image url="@../icon/icons8-back-50.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="btnSave" layoutX="608.0" layoutY="402.0" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Save">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
-               <image>
-                  <Image url="@../icon/icons8-add-bookmark-64.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="btnDelete" layoutX="608.0" layoutY="362.0" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Delete">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
-               <image>
-                  <Image url="@../icon/icons8-delete-24.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="btnUpdate" layoutX="608.0" layoutY="320.0" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Update">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
-               <image>
-                  <Image url="@../icon/icons8-update-64.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="btnClear" layoutX="608.0" layoutY="279.0" onAction="#btnClearOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Clear">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
-               <image>
-                  <Image url="@../icon/icons8-clear-50.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-   </children>
+   <TableView fx:id="tblEmployeeManage" layoutX="9.0" layoutY="279.0" prefHeight="474.0" prefWidth="700.0">
+      <columns>
+         <TableColumn fx:id="colEmpId" prefWidth="75.0" text="Employee Id" />
+         <TableColumn fx:id="colEmpName" prefWidth="128.5333709716797" text="Emmployee Name" />
+         <TableColumn fx:id="colAddress" prefWidth="148.2666015625" text="Address" />
+         <TableColumn fx:id="colTel" prefWidth="165.06671142578125" text="Tel" />
+         <TableColumn fx:id="colSalary" prefWidth="183.46670532226562" text="Salary" />
+      </columns>
+   </TableView>
+   <VBox layoutX="724.0" layoutY="503.0" prefHeight="214.0" prefWidth="172.0" spacing="10.0" style="-fx-background-radius: 20;">
+      <children>
+         <JFXButton fx:id="btnSave" onAction="#btnSaveOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Save">
+            <font>
+               <Font name="Calibri Bold" size="20.0" />
+            </font>
+            <graphic>
+               <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../icon/icons8-save-24.png" />
+                  </image>
+                  <effect>
+                     <DropShadow />
+                  </effect>
+               </ImageView>
+            </graphic>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </JFXButton>
+         <JFXButton fx:id="btnDelete" layoutX="10.0" layoutY="10.0" onAction="#btnDeleteOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Delete">
+            <font>
+               <Font name="Calibri Bold" size="20.0" />
+            </font>
+            <graphic>
+               <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../icon/icons8-delete-50.png" />
+                  </image>
+                  <effect>
+                     <DropShadow />
+                  </effect>
+               </ImageView>
+            </graphic>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </JFXButton>
+         <JFXButton fx:id="btnUpdate" layoutX="10.0" layoutY="82.0" onAction="#btnUpdateOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Update">
+            <font>
+               <Font name="Calibri Bold" size="20.0" />
+            </font>
+            <graphic>
+               <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../icon/icons8-update-50.png" />
+                  </image>
+                  <effect>
+                     <DropShadow />
+                  </effect>
+               </ImageView>
+            </graphic>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </JFXButton>
+         <JFXButton fx:id="btnClear" layoutX="10.0" layoutY="154.0" onAction="#btnClearOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Clear">
+            <font>
+               <Font name="Calibri Bold" size="20.0" />
+            </font>
+            <graphic>
+               <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../icon/icons8-clear-50.png" />
+                  </image>
+                  <effect>
+                     <DropShadow />
+                  </effect>
+               </ImageView>
+            </graphic>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </JFXButton>
+      </children>
+   </VBox>
+   <Label layoutX="327.0" layoutY="15.0" prefHeight="35.0" prefWidth="236.0" style="-fx-background-radius: 5;" styleClass="anchorpanetop2" stylesheets="@../css/MainForm.css" text="Employee Manage" underline="true">
+      <font>
+         <Font name="Calibri Bold" size="30.0" />
+      </font>
+   </Label>
+   <ImageView fitHeight="249.0" fitWidth="289.0" layoutX="648.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../images/14064667_5401770-removebg-preview.png" />
+      </image>
+   </ImageView>
+   <Label layoutX="94.0" layoutY="67.0" text="Employee Id :">
+      <font>
+         <Font name="Calibri Bold" size="17.0" />
+      </font>
+   </Label>
+   <Label layoutX="93.0" layoutY="136.0" text="Address :">
+      <font>
+         <Font name="Calibri Bold" size="17.0" />
+      </font>
+   </Label>
+   <Label layoutX="93.0" layoutY="199.0" text="Salary :">
+      <font>
+         <Font name="Calibri Bold" size="17.0" />
+      </font>
+   </Label>
+   <Label layoutX="365.0" layoutY="69.0" text="Name :">
+      <font>
+         <Font name="Calibri Bold" size="17.0" />
+      </font>
+   </Label>
+   <Label layoutX="368.0" layoutY="143.0" text="Tel :">
+      <font>
+         <Font name="Calibri Bold" size="17.0" />
+      </font>
+   </Label>
 </AnchorPane>

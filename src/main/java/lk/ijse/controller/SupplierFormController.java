@@ -17,6 +17,7 @@ import lk.ijse.model.Order;
 import lk.ijse.model.Payment;
 import lk.ijse.model.Supplier;
 import lk.ijse.model.Tm.SupplierTm;
+import lk.ijse.repository.MaterialRepo;
 import lk.ijse.repository.OrderRepo;
 import lk.ijse.repository.SupplierRepo;
 import lk.ijse.repository.PaymentRepo;
@@ -84,6 +85,7 @@ public class SupplierFormController {
         setCellValueFactory();
         loadAllSupplier();
         getPayIds();
+        getCurrentSupplierIds();
     }
 
     private void setCellValueFactory() {
@@ -245,4 +247,24 @@ public class SupplierFormController {
 
     }
 
+    private void getCurrentSupplierIds() {
+        try {
+            String currentId = SupplierRepo.getCurrentId();
+
+            String nextSupplierId = generateNextSupplierId(currentId);
+            txtSupId.setText(nextSupplierId);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private String generateNextSupplierId(String currentId) {
+        if(currentId != null) {
+            String[] split = currentId.split("S");  //" ", "2"
+            int idNum = Integer.parseInt(split[1]);
+            return "S" + String.format("%03d", ++idNum);
+        }
+        return"S001";
+    }
 }

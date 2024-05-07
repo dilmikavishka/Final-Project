@@ -16,6 +16,7 @@ import lk.ijse.model.Tm.PaymentTm;
 import lk.ijse.repository.CustomerRepo;
 import lk.ijse.repository.OrderRepo;
 import lk.ijse.repository.PaymentRepo;
+import lk.ijse.repository.SupplierRepo;
 
 import java.io.IOException;
 import java.sql.Date;
@@ -97,6 +98,7 @@ public class PaymentFormController {
         setCellValueFactory();
         loadAllPayments();
         getOId();
+        getCurrentPaymentIds();
 
         ObservableList<String> paymentTypes = FXCollections.observableArrayList("Cash","Card");
         choiseType.setItems(paymentTypes);
@@ -249,5 +251,26 @@ public class PaymentFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.INFORMATION,"payment is not found").show();
         }
+    }
+
+    private void getCurrentPaymentIds() {
+        try {
+            String currentId = PaymentRepo.getCurrentId();
+
+            String nextPaymentId = generateNextPaymentId(currentId);
+            txtPaymentID.setText(nextPaymentId);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private String generateNextPaymentId(String currentId) {
+        if(currentId != null) {
+            String[] split = currentId.split("P");  //" ", "2"
+            int idNum = Integer.parseInt(split[1]);
+            return "P" + String.format("%03d", ++idNum);
+        }
+        return"P001";
     }
 }

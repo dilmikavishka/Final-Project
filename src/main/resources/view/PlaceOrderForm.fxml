@@ -2,136 +2,180 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anpPlaceOrder" prefHeight="658.0" prefWidth="860.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PlaceOrderFormController">
+<AnchorPane fx:id="anpPlaceOrder" prefHeight="764.0" prefWidth="910.0" style="-fx-background-radius: 10;" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PlaceOrderFormController">
    <children>
-      <Label layoutX="294.0" layoutY="14.0" text="Place Orders">
-         <font>
-            <Font name="Calibri Bold Italic" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="53.0" layoutY="49.0" text="Order Id :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="467.0" layoutY="49.0" text="Order Date :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblOrderId" layoutX="117.0" layoutY="49.0" />
-      <Label fx:id="lblOrderDate" layoutX="547.0" layoutY="49.0" />
-      <Label layoutX="39.0" layoutY="93.0" text="Customer Name :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="464.0" layoutY="93.0" text="Customer Id :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <JFXComboBox fx:id="comCustomerName" layoutX="145.0" layoutY="88.0" onAction="#comCustomerNameOnAction" prefHeight="26.0" prefWidth="137.0" />
-      <Label fx:id="lblCustomerId" layoutX="575.0" layoutY="93.0" />
-      <Label layoutX="53.0" layoutY="134.0" text="Batch Id :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <JFXComboBox fx:id="comBatchId" layoutX="50.0" layoutY="150.0" onAction="#comBatchIdOnAction" prefHeight="26.0" prefWidth="137.0" />
-      <Label layoutX="265.0" layoutY="134.0" text="Description :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblDescription" layoutX="280.0" layoutY="154.0" />
-      <Label layoutX="399.0" layoutY="134.0" text="Unit Price :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblUnitPrice" layoutX="417.0" layoutY="154.0" />
-      <Label layoutX="506.0" layoutY="134.0" text="Qty On Hand :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblQtyOnHand" layoutX="533.0" layoutY="154.0" />
-      <Label layoutX="628.0" layoutY="134.0" text="Qty  :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <TableView fx:id="tblPlaceOrder" layoutX="12.0" layoutY="226.0" prefHeight="224.0" prefWidth="670.0">
+      <Label fx:id="lblOrderId" layoutX="126.0" layoutY="65.0" prefHeight="18.0" prefWidth="87.0" />
+      <Label fx:id="lblOrderDate" layoutX="152.0" layoutY="101.0" prefHeight="18.0" prefWidth="87.0" />
+      <JFXComboBox fx:id="comCustomerName" layoutX="448.0" layoutY="52.0" onAction="#comCustomerNameOnAction" prefHeight="30.0" prefWidth="170.0">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></JFXComboBox>
+      <Label fx:id="lblCustomerId" layoutX="421.0" layoutY="100.0" prefHeight="18.0" prefWidth="90.0" />
+      <JFXComboBox fx:id="comBatchId" layoutX="11.0" layoutY="232.0" onAction="#comBatchIdOnAction" prefHeight="30.0" prefWidth="170.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect></JFXComboBox>
+      <Label fx:id="lblDescription" layoutX="214.0" layoutY="238.0" prefHeight="18.0" prefWidth="78.0" />
+      <Label fx:id="lblUnitPrice" layoutX="328.0" layoutY="238.0" prefHeight="18.0" prefWidth="74.0" />
+      <Label fx:id="lblQtyOnHand" layoutX="444.0" layoutY="238.0" prefHeight="18.0" prefWidth="78.0" />
+      <TableView fx:id="tblPlaceOrder" layoutX="14.0" layoutY="290.0" prefHeight="468.0" prefWidth="706.0">
         <columns>
           <TableColumn fx:id="colCode" prefWidth="75.0" text="Batch Id" />
           <TableColumn fx:id="colDescription" prefWidth="159.99999237060547" text="Description" />
             <TableColumn fx:id="colQty" prefWidth="108.800048828125" text="Qty" />
-            <TableColumn fx:id="colUnitPrice" prefWidth="88.79998779296875" text="Unit Price" />
-            <TableColumn fx:id="colTotal" prefWidth="112.80001831054688" text="Total" />
-            <TableColumn fx:id="colAction" prefWidth="116.79998779296875" text="Action" />
+            <TableColumn fx:id="colUnitPrice" prefWidth="141.5999755859375" text="Unit Price" />
+            <TableColumn fx:id="colTotal" prefWidth="99.20001220703125" text="Total" />
+            <TableColumn fx:id="colAction" prefWidth="119.19998779296873" text="Action" />
         </columns>
       </TableView>
-      <JFXButton fx:id="btnBack" layoutX="475.0" layoutY="458.0" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: DD5746;" text="Back">
+      <Label fx:id="lblNetTotal" layoutX="788.0" layoutY="674.0" prefHeight="18.0" prefWidth="74.0" />
+      <TextField fx:id="txtQty" layoutX="568.0" layoutY="238.0" onAction="#txtQtyOnAction" prefHeight="30.0" prefWidth="100.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect></TextField>
+      <Label layoutX="355.0" layoutY="10.0" prefHeight="35.0" prefWidth="150.0" style="-fx-background-radius: 5;" styleClass="anchorpanetop2" stylesheets="@../css/MainForm.css" text="Place Order" underline="true">
          <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
-               <image>
-                  <Image url="@../icon/icons8-back-50.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="btnPlaceOrder" layoutX="574.0" layoutY="457.0" onAction="#btnPlaceOrderOnAction" prefHeight="26.0" prefWidth="114.0" style="-fx-background-color: B7C9F2;" text="Place Order">
-         <graphic>
-            <ImageView fitHeight="21.0" fitWidth="17.0">
-               <image>
-                  <Image url="@../icon/icons8-add-properties-100.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <Label layoutX="29.0" layoutY="459.0" text="Net Total :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
+            <Font name="Calibri Bold" size="30.0" />
          </font>
       </Label>
-      <Label fx:id="lblNetTotal" layoutX="105.0" layoutY="459.0" />
-      <TextField fx:id="txtQty" layoutX="612.0" layoutY="149.0" onAction="#txtQtyOnAction" prefHeight="26.0" prefWidth="64.0" />
-      <JFXButton fx:id="btnNewCustomer" layoutX="313.0" layoutY="89.0" onAction="#btnNewCustomerOnAction" prefHeight="26.0" prefWidth="72.0" style="-fx-background-color: FFB534;" text="New">
+      <JFXButton fx:id="btnPlaceOrder" layoutX="726.0" layoutY="397.0" onAction="#btnPlaceOrderOnAction" prefHeight="50.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Place Order">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Calibri Bold" size="20.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
+            <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../icon/icons8-new-contact-48.png" />
+                  <Image url="@../icon/icons8-order-502.png" />
                </image>
+               <effect>
+                  <DropShadow />
+               </effect>
             </ImageView>
          </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
-      <JFXButton fx:id="btnAddToCart" layoutX="568.0" layoutY="184.0" onAction="#btnAddToCartOnAction" prefHeight="26.0" prefWidth="114.0" style="-fx-background-color: C21292;" text="Add To Cart">
+      <JFXButton fx:id="btnAddToCart" layoutX="726.0" layoutY="311.0" onAction="#btnAddToCartOnAction" prefHeight="50.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Add To Cart">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Calibri Bold" size="20.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
+            <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../icon/icons8-add-to-cart-64.png" />
                </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <ImageView fitHeight="231.0" fitWidth="232.0" layoutX="669.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/20059403_6228114-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="58.0" layoutY="64.0" text="Order Id :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="58.0" layoutY="100.0" text="Order Date :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="311.0" layoutY="63.0" text="Customer Name :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="313.0" layoutY="99.0" text="Customer Id :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnNewCustomer" layoutX="315.0" layoutY="136.0" onAction="#btnNewCustomerOnAction" prefHeight="54.0" prefWidth="100.0" style="-fx-background-radius: 20;" text="New">
+         <font>
+            <Font name="Calibri Bold" size="20.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/icons8-plus-64.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
             </ImageView>
          </graphic>
       </JFXButton>
+      <Label layoutX="59.0" layoutY="206.0" text="Batch Id :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="209.0" layoutY="206.0" text="Description :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="328.0" layoutY="206.0" text="Unit Price :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="433.0" layoutY="206.0" text="Qty On Hand :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="601.0" layoutY="206.0" text="Qty :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="788.0" layoutY="646.0" text="Net Total :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

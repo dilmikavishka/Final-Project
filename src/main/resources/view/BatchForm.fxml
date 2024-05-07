@@ -2,165 +2,269 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anpBatchManage" prefHeight="658.0" prefWidth="860.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.BatchFormController">
+<AnchorPane fx:id="anpBatchManage" prefHeight="764.0" prefWidth="910.0" style="-fx-background-radius: 10;" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.BatchFormController">
    <children>
-      <Label layoutX="283.0" layoutY="14.0" text=" Batch Manage">
-         <font>
-            <Font name="Calibri Bold Italic" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="32.0" layoutY="46.0" text="Batch Id :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="154.0" layoutY="46.0" text="Batch Color :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="265.0" layoutY="46.0" text="Desing Description :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="523.0" layoutY="46.0" text="Batch QtyOnHand :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="81.0" layoutY="104.0" text="Date :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="214.0" layoutY="104.0" text="Employee Id :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="369.0" layoutY="104.0" text="Order Id :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="534.0" layoutY="104.0" text="Price :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtBatchId" layoutX="17.0" layoutY="64.0" onAction="#txtSearchOnAction" prefHeight="26.0" prefWidth="86.0" />
-      <TextField fx:id="txtBatchColor" layoutX="144.0" layoutY="64.0" prefHeight="26.0" prefWidth="94.0" />
-      <TextField fx:id="txtBatchQty" layoutX="542.0" layoutY="63.0" prefHeight="26.0" prefWidth="74.0" />
-      <TextField fx:id="txtDate" layoutX="25.0" layoutY="122.0" prefHeight="26.0" prefWidth="147.0" />
-      <TextField fx:id="txtPrice" layoutX="509.0" layoutY="122.0" prefHeight="26.0" prefWidth="86.0" />
-      <JFXButton fx:id="btnBack" layoutX="607.0" layoutY="463.0" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: DD5746;" text="Back">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
-               <image>
-                  <Image url="@../icon/icons8-back-50.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="btnSave" layoutX="604.0" layoutY="412.0" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Save">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
-               <image>
-                  <Image url="@../icon/icons8-add-bookmark-64.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="btnDelete" layoutX="603.0" layoutY="374.0" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Delete">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
-               <image>
-                  <Image url="@../icon/icons8-delete-24.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="btnUpdate" layoutX="601.0" layoutY="335.0" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Update">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
-               <image>
-                  <Image url="@../icon/icons8-update-64.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="btnClear" layoutX="601.0" layoutY="296.0" onAction="#btnClearOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Clear">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
-               <image>
-                  <Image url="@../icon/icons8-clear-50.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <TableView fx:id="tblBatchManage" layoutX="1.0" layoutY="293.0" prefHeight="315.0" prefWidth="598.0">
+      <TextField fx:id="txtBatchId" layoutX="16.0" layoutY="101.0" onAction="#txtSearchOnAction" prefHeight="30.0" prefWidth="170.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect></TextField>
+      <TextField fx:id="txtBatchColor" layoutX="201.0" layoutY="102.0" prefHeight="30.0" prefWidth="170.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect></TextField>
+      <TextField fx:id="txtBatchQty" layoutX="572.0" layoutY="102.0" prefHeight="30.0" prefWidth="100.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect></TextField>
+      <TextField fx:id="txtDate" layoutX="17.0" layoutY="212.0" prefHeight="30.0" prefWidth="170.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect></TextField>
+      <TextField fx:id="txtPrice" layoutX="574.0" layoutY="210.0" prefHeight="30.0" prefWidth="170.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect></TextField>
+      <TableView fx:id="tblBatchManage" layoutX="8.0" layoutY="430.0" prefHeight="328.0" prefWidth="705.0">
         <columns>
-          <TableColumn fx:id="colBatchId" prefWidth="56.000001549720764" text="Batch Id" />
-          <TableColumn fx:id="colDescription" prefWidth="100.80001068115234" text=" Description" />
-            <TableColumn fx:id="colQtyOnHand" prefWidth="83.20001220703125" text="QtyOnHand" />
-            <TableColumn fx:id="colDate" prefWidth="86.4000244140625" text="Date" />
-            <TableColumn fx:id="colEmployeeId" prefWidth="74.39996337890625" text="EmployeeId" />
-            <TableColumn fx:id="colOrderId" prefWidth="77.60003662109375" text="OrderId" />
-            <TableColumn fx:id="colPrice" prefWidth="115.99996948242188" text="price" />
+          <TableColumn fx:id="colBatchId" prefWidth="67.19997882843018" text="Batch Id" />
+          <TableColumn fx:id="colDescription" prefWidth="97.60000610351562" text=" Description" />
+            <TableColumn fx:id="colQtyOnHand" prefWidth="85.60005187988281" text="QtyOnHand" />
+            <TableColumn fx:id="colDate" prefWidth="143.99993896484375" text="Date" />
+            <TableColumn fx:id="colEmployeeId" prefWidth="95.20001220703125" text="EmployeeId" />
+            <TableColumn fx:id="colOrderId" prefWidth="103.199951171875" text="OrderId" />
+            <TableColumn fx:id="colPrice" prefWidth="119.2000732421875" text="price" />
         </columns>
       </TableView>
-      <TableView fx:id="tblMachineDetail" layoutX="114.0" layoutY="161.0" prefHeight="118.0" prefWidth="226.0">
+      <TableView fx:id="tblMachineDetail" layoutX="146.0" layoutY="284.0" prefHeight="118.0" prefWidth="226.0">
         <columns>
           <TableColumn fx:id="colMachineId" prefWidth="75.0" text="Machine Id" />
           <TableColumn fx:id="colAction1" prefWidth="75.0" text="Action" />
             <TableColumn fx:id="colAction2" prefWidth="75.0" text="Action" />
         </columns>
       </TableView>
-      <TableView fx:id="tblMaterialDetail" layoutX="444.0" layoutY="161.0" prefHeight="118.0" prefWidth="226.0">
+      <TableView fx:id="tblMaterialDetail" layoutX="524.0" layoutY="283.0" prefHeight="118.0" prefWidth="226.0">
          <columns>
             <TableColumn fx:id="colMaterialId" prefWidth="75.0" text="Material Id" />
             <TableColumn fx:id="colMatAction" prefWidth="75.0" text="Action" />
             <TableColumn prefWidth="75.0" text="Action" />
          </columns>
       </TableView>
-      <Label layoutX="15.0" layoutY="161.0" text="Machine detail :">
+      <ChoiceBox fx:id="choiceDescription" layoutX="386.0" layoutY="102.0" prefHeight="30.0" prefWidth="170.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect></ChoiceBox>
+      <JFXComboBox fx:id="comEmployeeId" layoutX="201.0" layoutY="207.0" onAction="#comEmployeeIdOnAction" prefHeight="30.0" prefWidth="170.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect></JFXComboBox>
+      <JFXComboBox fx:id="comOrderId" layoutX="386.0" layoutY="206.0" onAction="#comOrderIdOnAction" prefHeight="30.0" prefWidth="170.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect></JFXComboBox>
+      <VBox layoutX="727.0" layoutY="505.0" prefHeight="214.0" prefWidth="172.0" spacing="10.0" style="-fx-background-radius: 20;">
+         <children>
+            <JFXButton fx:id="btnSave" onAction="#btnSaveOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Save">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/icons8-save-24.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnDelete" layoutX="10.0" layoutY="10.0" onAction="#btnDeleteOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Delete">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/icons8-delete-50.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnUpdate" layoutX="10.0" layoutY="82.0" onAction="#btnUpdateOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Update">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/icons8-update-50.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnClear" layoutX="10.0" layoutY="154.0" onAction="#btnClearOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Clear">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/icons8-clear-50.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+      </VBox>
+      <Label layoutX="328.0" layoutY="8.0" prefHeight="35.0" prefWidth="181.0" style="-fx-background-radius: 5;" styleClass="anchorpanetop2" stylesheets="@../css/MainForm.css" text="Batch Manage" underline="true">
          <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
+            <Font name="Calibri Bold" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="346.0" layoutY="161.0" text="Material detail :">
+      <Label layoutX="22.0" layoutY="66.0" text="Batch Id :">
          <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
+            <Font name="Calibri Bold" size="17.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="choiceDescription" layoutX="256.0" layoutY="64.0" prefWidth="150.0" />
-      <JFXComboBox fx:id="comEmployeeId" layoutX="216.0" layoutY="122.0" onAction="#comEmployeeIdOnAction" prefHeight="26.0" prefWidth="74.0" />
-      <JFXComboBox fx:id="comOrderId" layoutX="359.0" layoutY="122.0" onAction="#comOrderIdOnAction" prefHeight="26.0" prefWidth="74.0" />
+      <Label layoutX="202.0" layoutY="173.0" text="Employee Id :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="27.0" layoutY="174.0" text="Date :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="577.0" layoutY="67.0" text="Qty On Handn :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="391.0" layoutY="67.0" text="Desing Description :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="208.0" layoutY="66.0" text="Batch Color :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="391.0" layoutY="172.0" text="Order Id  :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="583.0" layoutY="171.0" text="Price :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="203.0" fitWidth="209.0" layoutX="698.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/10117692_4334841-removebg-preview.png" />
+         </image></ImageView>
+      <Label layoutX="396.0" layoutY="285.0" text="Material Details :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="17.0" layoutY="285.0" text="Machine Details :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
