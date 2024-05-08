@@ -8,7 +8,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PaymentRepo {
     public static boolean save(Payment payment) throws SQLException {
@@ -129,4 +131,25 @@ public class PaymentRepo {
         }
         return null;
     }
-}
+
+    public static Map<String, Double> getPaymentsByDay() {
+        Map<String, Double> paymentsByDay = new HashMap<>();
+
+        String sql = "SELECT paymentDate, SUM(amount) AS total_amount FROM payment GROUP BY paymentDate";
+
+        try (PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement(sql);
+             ResultSet resultSet = pstm.executeQuery()) {
+
+            while (resultSet.next()) {
+                String date = resultSet.getString("paymentDate");
+                double totalAmount = resultSet.getDouble("total_amount");
+                paymentsByDay.put(date, totalAmount);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return paymentsByDay;
+    }
+    }
+

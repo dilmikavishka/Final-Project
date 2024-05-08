@@ -11,14 +11,18 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.Util.Regex;
 import lk.ijse.model.Customer;
 import lk.ijse.model.Tm.CustomerTm;
 import lk.ijse.repository.CustomerRepo;
 import lk.ijse.repository.OrderRepo;
 
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+
+import static com.jfoenix.svg.SVGGlyphLoader.clear;
 
 public class CustomerFormController {
 
@@ -82,9 +86,9 @@ public class CustomerFormController {
                 CustomerTm tm = new CustomerTm(
                         customer.getId(),
                         customer.getName(),
-                        customer.getAddress(),
-                        customer.getTel()
-                );
+                        customer.getTel(),
+                        customer.getAddress()
+                        );
                 obList.add(tm);
             }
 
@@ -95,10 +99,10 @@ public class CustomerFormController {
     }
 
     private void setCellValueFactory() {
-        this.colCustomerId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        this.colCustomerName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        this.colCustomerAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
-        this.colCustomerTel.setCellValueFactory(new PropertyValueFactory<>("tel"));
+        colCustomerId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colCustomerName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colCustomerAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colCustomerTel.setCellValueFactory(new PropertyValueFactory<>("tel"));
     }
 
     @FXML
@@ -109,10 +113,20 @@ public class CustomerFormController {
     private void clearFields() {
         txtCustomerId.setText("");
         txtCustomerName.setText("");
-        txtCustomerAddress.setText("");
         txtCustomerTel.setText("");
+        txtCustomerAddress.setText("");
     }
 
+
+    @FXML
+    void txtCustomerNameOnKeyReleased(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.Util.TextField.NAME,txtCustomerName);
+    }
+
+    public boolean isValied(){
+        if (!Regex.setTextColor(lk.ijse.Util.TextField.NAME,txtCustomerName)) return false;
+        return true;
+    }
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
         String id = txtCustomerId.getText();
@@ -129,21 +143,21 @@ public class CustomerFormController {
     }
 
     @FXML
-    void btnSaveOnAction(ActionEvent event) {
+    void btnSaveOnAction(ActionEvent event) throws SQLException {
         String id = txtCustomerId.getText();
         String name = txtCustomerName.getText();
         String tel = txtCustomerTel.getText();
         String address = txtCustomerAddress.getText();
 
-        Customer customer = new Customer(id,name,tel,address);
+       // Customer customer = new Customer(id,name,tel,address);
 
-        try {
-            boolean isSaved = CustomerRepo.save(customer);
-            if (isSaved){
-                new Alert(Alert.AlertType.CONFIRMATION,"Customer is saved").show();
+        if (isValied()) {
+            boolean isSaved = CustomerRepo.save(new Customer(id,name,tel,address));
+
+            if (isSaved) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Saved!").show();
+                clear();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
         loadAllCustomers();
     }

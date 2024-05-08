@@ -11,20 +11,23 @@ import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.db.DbConnection;
 import lk.ijse.model.*;
 import lk.ijse.model.Tm.PlaceOrderTm;
 import lk.ijse.repository.BatchRepo;
 import lk.ijse.repository.CustomerRepo;
 import lk.ijse.repository.OrderRepo;
 import lk.ijse.repository.PlaceOrderRepo;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class PlaceOrderFormController {
 
@@ -96,12 +99,15 @@ public class PlaceOrderFormController {
 
     @FXML
     private TextField txtQty;
+
+    @FXML
+    private JFXComboBox<String> comCustomerTel;
     private ObservableList<PlaceOrderTm> obList = FXCollections.observableArrayList();
 
 
     public void initialize() {
         getCurrentOrderIds();
-        getCustomerNames();
+        getCustomerTel();
         getBatchIds();
         setDate();
         setCellValueFactory();
@@ -136,16 +142,16 @@ public class PlaceOrderFormController {
         }
     }
 
-    private void getCustomerNames() {
+    private void getCustomerTel() {
         ObservableList<String> obList = FXCollections.observableArrayList();
         try {
-            List<String> nameList = CustomerRepo.getNames();
+            List<String> telList = CustomerRepo.geTel();
 
-            for (String name : nameList) {
-                obList.add(name);
+            for (String tel : telList) {
+                obList.add(tel);
             }
 
-            comCustomerName.setItems(obList);
+            comCustomerTel.setItems(obList);
 
         } catch(SQLException e){
             throw new RuntimeException(e);
@@ -281,6 +287,7 @@ public class PlaceOrderFormController {
                 tblPlaceOrder.setItems(obList);
                 calculateNetTotal();
                 getCurrentOrderIds();
+                generateBill(orderId);
 
             }else{
                 new Alert(Alert.AlertType.WARNING, "Order Placed Unsuccessfully!").show();
@@ -332,4 +339,38 @@ public class PlaceOrderFormController {
 
     }
 
+    @FXML
+    void comCustomerTelOnAction(ActionEvent event) {
+        String tel = comCustomerTel.getValue();
+        try {
+            Customer customer = CustomerRepo.searchByTel(tel);
+
+            lblCustomerId.setText(customer.getId());
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void generateBill(String orderId) {
+        try {
+            String netTotal = calculateNetTotal(orderId);
+
+            JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/Report/PlaceOrder.jrxml");
+            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+
+            Map<String, Object> parameters = new HashMap<>();
+            parameters.put("orderId", orderId);
+            parameters.put("total", netTotal);
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, DbConnection.getInstance().getConnection());
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (JRException | SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private String calculateNetTotal(String orderId) throws SQLException {
+        return PlaceOrderRepo.calculateNetTotal(orderId);
+    }
 }

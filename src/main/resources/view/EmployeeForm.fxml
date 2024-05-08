@@ -26,7 +26,7 @@
             </color>
          </DropShadow>
       </effect></TextField>
-   <TextField fx:id="txtEmpName" layoutX="366.0" layoutY="99.0" prefHeight="30.0" prefWidth="170.0" promptText="Name">
+   <TextField fx:id="txtEmpName" layoutX="366.0" layoutY="99.0" onKeyReleased="#txtEmpNameOnKeyReleased" prefHeight="30.0" prefWidth="170.0" promptText="Name">
       <effect>
          <DropShadow>
             <color>
@@ -37,7 +37,7 @@
       <cursor>
          <Cursor fx:constant="TEXT" />
       </cursor></TextField>
-   <TextField fx:id="txtAddress" layoutX="92.0" layoutY="163.0" prefHeight="30.0" prefWidth="170.0" promptText="Address">
+   <TextField fx:id="txtAddress" layoutX="92.0" layoutY="163.0" onKeyReleased="#txtAddressOnKeyReased" prefHeight="30.0" prefWidth="170.0" promptText="Address">
       <cursor>
          <Cursor fx:constant="TEXT" />
       </cursor>
@@ -48,7 +48,7 @@
             </color>
          </DropShadow>
       </effect></TextField>
-   <TextField fx:id="txtTel" layoutX="368.0" layoutY="173.0" prefHeight="30.0" prefWidth="170.0" promptText="Tel">
+   <TextField fx:id="txtTel" layoutX="368.0" layoutY="173.0" onKeyReleased="#txtTelOnKeyReleased" prefHeight="30.0" prefWidth="170.0" promptText="Tel">
       <cursor>
          <Cursor fx:constant="TEXT" />
       </cursor>
@@ -59,7 +59,7 @@
             </color>
          </DropShadow>
       </effect></TextField>
-   <TextField fx:id="txtSalary" layoutX="91.0" layoutY="233.0" prefHeight="30.0" prefWidth="170.0" promptText="Salary">
+   <TextField fx:id="txtSalary" layoutX="91.0" layoutY="233.0" onKeyReleased="#txtSalaryOnKeyReleased" prefHeight="30.0" prefWidth="170.0" promptText="Salary">
       <cursor>
          <Cursor fx:constant="TEXT" />
       </cursor>

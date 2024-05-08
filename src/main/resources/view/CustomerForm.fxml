@@ -41,7 +41,7 @@
             <Font name="Calibri Bold" size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCustomerId" layoutX="89.0" layoutY="113.0" onAction="#txtSearchOnAction" prefHeight="30.0" prefWidth="170.0" promptText="Customer Id">
+      <TextField fx:id="txtCustomerId" layoutX="87.0" layoutY="113.0" onAction="#txtSearchOnAction" prefHeight="30.0" prefWidth="170.0" promptText="Customer Id" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -52,7 +52,7 @@
                </color>
             </DropShadow>
          </effect></TextField>
-      <TextField fx:id="txtCustomerName" layoutX="396.0" layoutY="116.0" prefHeight="30.0" prefWidth="170.0" promptText="Customer Name">
+      <TextField fx:id="txtCustomerName" layoutX="396.0" layoutY="116.0" onKeyReleased="#txtCustomerNameOnKeyReleased" prefHeight="30.0" prefWidth="170.0" promptText="Customer Name">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -63,7 +63,7 @@
                </color>
             </DropShadow>
          </effect></TextField>
-      <TextField fx:id="txtCustomerTel" layoutX="84.0" layoutY="191.0" prefHeight="30.0" prefWidth="170.0" promptText="Customer Tel">
+      <TextField fx:id="txtCustomerTel" layoutX="84.0" layoutY="191.0" onKeyReleased="#txtCustomerTelOnKeyReleased" prefHeight="30.0" prefWidth="170.0" promptText="Customer Tel">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -74,7 +74,7 @@
                </color>
             </DropShadow>
          </effect></TextField>
-      <TextField fx:id="txtCustomerAddress" layoutX="396.0" layoutY="191.0" prefHeight="30.0" prefWidth="170.0" promptText="Customer Address">
+      <TextField fx:id="txtCustomerAddress" layoutX="396.0" layoutY="191.0" onKeyReleased="#txtCustomerAddressOnKeyReleased" prefHeight="30.0" prefWidth="170.0" promptText="Customer Address">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -89,8 +89,9 @@
         <columns>
           <TableColumn fx:id="colCustomerId" prefWidth="95.19998359680176" text="Customer Id" />
           <TableColumn fx:id="colCustomerName" prefWidth="174.13336944580078" text=" Name" />
-            <TableColumn fx:id="colCustomerAddress" prefWidth="217.33334350585938" text="Address" />
+           <TableColumn fx:id="colCustomerAddress" prefWidth="217.33334350585938" text="Address" />
             <TableColumn fx:id="colCustomerTel" prefWidth="272.2666931152344" text="Customer Tel" />
+
         </columns>
       </TableView>
       <Label fx:id="lblCustomer" layoutX="117.0" layoutY="68.0" />

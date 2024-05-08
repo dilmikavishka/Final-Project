@@ -42,7 +42,7 @@ public class CustomerRepo {
             String tel = resultSet.getString(3);
             String address = resultSet.getString(4);
 
-            Customer customer = new Customer(id, name, address, tel);
+            Customer customer = new Customer(id, name, tel, address);
             cusList.add(customer);
         }
         return cusList;
@@ -161,6 +161,41 @@ public class CustomerRepo {
     }
 
 
+    public static List<String> geTel() throws SQLException {
+        String sql = "SELECT customerCon_Number FROM customer";
+        PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement(sql);
+
+        List<String> telList = new ArrayList<>();
+
+        ResultSet resultSet = pstm.executeQuery();
+        while (resultSet.next()) {
+            String tel = resultSet.getString("customerCon_Number");
+            telList.add(tel);
+        }
+        return telList;
+    }
+
+    public static Customer searchByTel(String tel) throws SQLException {
+        String sql = "SELECT * FROM customer WHERE customerCon_Number = ?";
+
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setObject(1, tel);
+
+        ResultSet resultSet = pstm.executeQuery();
+        if (resultSet.next()) {
+            String id = resultSet.getString(1);
+            String name = resultSet.getString(2);
+            String address = resultSet.getString(4);
+
+            Customer customer = new Customer(id, name, tel, address);
+
+            return customer;
+        }
+
+        return null;
+
+    }
 }
 
 

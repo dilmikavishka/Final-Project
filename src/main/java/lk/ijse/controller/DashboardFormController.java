@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.db.DbConnection;
+import lk.ijse.repository.PaymentRepo;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,6 +25,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class DashboardFormController implements Initializable {
@@ -58,34 +61,6 @@ public class DashboardFormController implements Initializable {
     @FXML
     private BarChart<?, ?> barChart;
 
-    public void initialize() throws IOException {
-
-        try {
-            customerCount = getActiveCustomerCount();
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        }
-        setCustomerCount(customerCount);
-
-
-        try {
-            orderCount = getOrderCount();
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        }
-        setOrderCount(orderCount);
-
-
-
-        try {
-            employeeCount = getEmployeeCount();
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        }
-        setEmployeeCount(employeeCount);
-
-
-    }
 
     private int getActiveCustomerCount() throws SQLException {
         String sql = "SELECT COUNT(*) AS active_customer_count FROM customer WHERE status = 'ACTIVE'";
@@ -170,10 +145,28 @@ public class DashboardFormController implements Initializable {
         iniBarChart();
 
         try {
-            initialize();
-        } catch (IOException e) {
-            e.printStackTrace();
+            customerCount = getActiveCustomerCount();
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+        setCustomerCount(customerCount);
+
+
+        try {
+            orderCount = getOrderCount();
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+        setOrderCount(orderCount);
+
+
+
+        try {
+            employeeCount = getEmployeeCount();
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+        setEmployeeCount(employeeCount);
     }
 
     private void iniBarChart() {
@@ -190,20 +183,18 @@ public class DashboardFormController implements Initializable {
     }
 
     private void iniLineChart() {
-        XYChart.Series series = new XYChart.Series<>();
-        series.getData().add(new XYChart.Data<>("January",20));
-        series.getData().add(new XYChart.Data<>("Fabruary",60));
-        series.getData().add(new XYChart.Data<>("March",10));
-        series.getData().add(new XYChart.Data<>("April",75));
-        series.getData().add(new XYChart.Data<>("May",90));
-        series.getData().add(new XYChart.Data<>("June",20));
-        series.getData().add(new XYChart.Data<>("July",25));
-        series.getData().add(new XYChart.Data<>("August",50));
-        series.getData().add(new XYChart.Data<>("September",87));
-        series.getData().add(new XYChart.Data<>("October",88));
-        series.getData().add(new XYChart.Data<>("November",90));
-        series.getData().add(new XYChart.Data<>("December",100));
-        lineChart.getData().addAll(series);
+        XYChart.Series series = new XYChart.Series();
+
+        // Assuming you have a method in PaymentRepo to get the sum of payments for each day
+        Map<String, Double> paymentsByDay = PaymentRepo.getPaymentsByDay();
+
+        // Loop through each day and add it to the series
+        for (Map.Entry<String, Double> entry : paymentsByDay.entrySet()) {
+            series.getData().add(new XYChart.Data(entry.getKey(), entry.getValue()));
+        }
+
+        // Set the series to the LineChart
+        lineChart.getData().add(series);
         lineChart.lookup(".chart-plot-background").setStyle("-fx-background-color: transparent;");
     }
 

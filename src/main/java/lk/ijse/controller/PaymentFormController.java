@@ -21,6 +21,7 @@ import lk.ijse.repository.SupplierRepo;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 public class PaymentFormController {
@@ -102,6 +103,8 @@ public class PaymentFormController {
 
         ObservableList<String> paymentTypes = FXCollections.observableArrayList("Cash","Card");
         choiseType.setItems(paymentTypes);
+
+        txtPaymentDate.setText(String.valueOf(LocalDate.now()));
     }
 
     private void getOId() {

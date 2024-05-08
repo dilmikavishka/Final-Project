@@ -27,7 +27,7 @@
                </color>
             </DropShadow>
          </effect></TextField>
-      <TextField fx:id="txtMachineName" layoutX="364.0" layoutY="85.0" prefHeight="30.0" prefWidth="170.0">
+      <TextField fx:id="txtMachineName" layoutX="364.0" layoutY="85.0" onKeyReleased="#txtMachineNameOnKeyReleased" prefHeight="30.0" prefWidth="170.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
