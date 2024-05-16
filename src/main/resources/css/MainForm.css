@@ -20,7 +20,7 @@
 }
 
 .anchorpanetop {
-    -fx-background-color: linear-gradient(to bottom, #33ccff 0%, #c3e2e5 80%);
+    -fx-background-color: linear-gradient(to bottom, rgba(123, 148, 241, 0.47) 0%, #c3e2e5 80%);
     /* -fx-effect: dropshadow(gaussian, #35a644, 24, 0, 24, 24), */
     /* dropshadow(gaussian, #45d858, -24, 0, 24, -24); */
     /* -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0, 0, 0); */
@@ -31,8 +31,8 @@
 }
 
 .anchorpane-sec {
-    -fx-background-color: #eaecee;
-    -fx-effect: dropshadow(gaussian, grey, 10, 0.5, 0, 0);
+   -fx-background-color: #eaecee;
+   -fx-effect: dropshadow(gaussian, grey, 10, 0.5, 0, 0);
 }
 
 .anchorpane-th {
@@ -40,20 +40,22 @@
     -fx-effect: dropshadow(gaussian, grey, 10, 0.5, 0, 0);
 }
 
+
 .button {
     -fx-background-color: linear-gradient(to bottom, #99cae7 0%, rgb(153, 202, 231) 80%);
-    /*-fx-background-color: rgb(153, 202, 231);*/
-    -fx-padding: 0.7em; /* You can adjust this value according to your preference */
-    -fx-animation: button-shimmer 2s infinite; /* Assuming you have defined the animation separately */
+    -fx-background-color: rgba(8, 98, 147, 0.78);
+    -fx-padding: 0.7em;
+    -fx-animation: button-shimmer 2s infinite;
     -fx-transition: all 0.3s ease-in-out;
     -fx-text-fill: rgb(255, 255, 255);
 }
 
+
 .button:hover {
     -fx-animation: button-particles 1s ease infinite;
     -fx-translate-y: -2px;
-    -fx-text-fill: rgba(141, 32, 196, 0.83);
-    -fx-background-color: transparent;
+    -fx-text-fill: rgb(0, 0, 0);
+    -fx-background-color: rgba(123, 148, 241, 0.47);
 }
 
 @keyframes button-particles {
@@ -72,14 +74,14 @@
 
 .anchorpanetop2 {
     -fx-background-color: linear-gradient(to bottom, rgba(3, 123, 168, 0.85) 0%, rgb(255, 255, 255) 90%);
-    /* -fx-effect: dropshadow(gaussian, #35a644, 24, 0, 24, 24), */
-    /* dropshadow(gaussian, #45d858, -24, 0, 24, -24); */
-    /* -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0, 0, 0); */
-}
+    /*    !* -fx-effect: dropshadow(gaussian, #35a644, 24, 0, 24, 24), *!*/
+    /*    !* dropshadow(gaussian, #45d858, -24, 0, 24, -24); *!*/
+    /*    !* -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0, 0, 0); *!*/
+    }
 
-.line {
-    -fx-background-color: linear-gradient(to bottom, rgba(3, 123, 168, 0.85) 0%, #dae5e7 80%);
-    /* -fx-effect: dropshadow(gaussian, #35a644, 24, 0, 24, 24), */
+    .line {
+        -fx-background-color: linear-gradient(to bottom, rgba(3, 123, 168, 0.85) 0%, #dae5e7 80%);
+        /* -fx-effect: dropshadow(gaussian, #35a644, 24, 0, 24, 24), */
     /* dropshadow(gaussian, #45d858, -24, 0, 24, -24); */
     /* -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0, 0, 0); */
 }
@@ -92,11 +94,6 @@
 /*-fx-background-color: rgb(153, 202, 231);///wediya weda danna epa .........copy krla danekak danna
 krn ew methnt copy krl rknn
 panditha weda krl arwa mewa kiynn eddi thama mala painne
-
-
-
-
-
 
 .backButton:hover {
     -fx-background-color: #CDE8E5;
@@ -188,3 +185,12 @@ panditha weda krl arwa mewa kiynn eddi thama mala painne
 /*    -fx-background-color: #D24545;*/
 /*}*/
 
+
+/*.button {*/
+/*    -fx-background-color: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 80%);*/
+/*    -fx-background-color: rgb(49, 54, 63);*/
+/*    -fx-padding: 0.7em; !* You can adjust this value according to your preference *!*!*/
+/*    -fx-animation: button-shimmer 2s infinite; !* Assuming you have defined the animation separately *!*!*/
+/*    -fx-transition: all 0.3s ease-in-out;*/
+/*    -fx-text-fill: rgb(255, 255, 255);*/
+/*}*/

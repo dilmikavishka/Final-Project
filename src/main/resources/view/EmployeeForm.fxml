@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import java.net.URL?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -11,77 +13,85 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anpEmplloyeeManage" prefHeight="764.0" prefWidth="910.0" style="-fx-background-radius: 10;" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.EmployeeFormController">
-   <TextField fx:id="txtEmployeeId" layoutX="95.0" layoutY="99.0" onAction="#txtSearchOnAction" prefHeight="30.0" prefWidth="170.0" promptText="Employee Id">
-      <cursor>
-         <Cursor fx:constant="TEXT" />
-      </cursor>
-      <effect>
-         <DropShadow>
-            <color>
-               <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
-            </color>
-         </DropShadow>
-      </effect></TextField>
-   <TextField fx:id="txtEmpName" layoutX="366.0" layoutY="99.0" onKeyReleased="#txtEmpNameOnKeyReleased" prefHeight="30.0" prefWidth="170.0" promptText="Name">
-      <effect>
-         <DropShadow>
-            <color>
-               <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
-            </color>
-         </DropShadow>
-      </effect>
-      <cursor>
-         <Cursor fx:constant="TEXT" />
-      </cursor></TextField>
-   <TextField fx:id="txtAddress" layoutX="92.0" layoutY="163.0" onKeyReleased="#txtAddressOnKeyReased" prefHeight="30.0" prefWidth="170.0" promptText="Address">
-      <cursor>
-         <Cursor fx:constant="TEXT" />
-      </cursor>
-      <effect>
-         <DropShadow>
-            <color>
-               <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
-            </color>
-         </DropShadow>
-      </effect></TextField>
-   <TextField fx:id="txtTel" layoutX="368.0" layoutY="173.0" onKeyReleased="#txtTelOnKeyReleased" prefHeight="30.0" prefWidth="170.0" promptText="Tel">
-      <cursor>
-         <Cursor fx:constant="TEXT" />
-      </cursor>
-      <effect>
-         <DropShadow>
-            <color>
-               <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
-            </color>
-         </DropShadow>
-      </effect></TextField>
-   <TextField fx:id="txtSalary" layoutX="91.0" layoutY="233.0" onKeyReleased="#txtSalaryOnKeyReleased" prefHeight="30.0" prefWidth="170.0" promptText="Salary">
-      <cursor>
-         <Cursor fx:constant="TEXT" />
-      </cursor>
-      <effect>
-         <DropShadow>
-            <color>
-               <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
-            </color>
-         </DropShadow>
-      </effect></TextField>
+<AnchorPane fx:id="anpEmplloyeeManage" prefHeight="750.0" prefWidth="1222.0" style="-fx-background-radius: 10;" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.EmployeeFormController">
 
+   <TextField fx:id="txtEmployeeId" layoutX="75.0" layoutY="94.0" onAction="#txtSearchOnAction" onKeyReleased="#txtEmployeeIdOnActionReleased" prefHeight="30.0" prefWidth="200.0" promptText="Employee Id" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black;">
+      <cursor>
+         <Cursor fx:constant="TEXT" />
+      </cursor>
+   </TextField>
 
-   <TableView fx:id="tblEmployeeManage" layoutX="9.0" layoutY="279.0" prefHeight="474.0" prefWidth="700.0">
+   <TextField fx:id="txtEmpName" layoutX="347.0" layoutY="93.0" onKeyReleased="#txtEmpNameOnKeyReleased" prefHeight="30.0" prefWidth="200.0" promptText="Name" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black;">
+      <cursor>
+         <Cursor fx:constant="TEXT" />
+      </cursor>
+   </TextField>
+
+   <TextField fx:id="txtAddress" layoutX="626.0" layoutY="93.0" onKeyReleased="#txtAddressOnKeyReleased" prefHeight="30.0" prefWidth="200.0" promptText="Address" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black;">
+      <cursor>
+         <Cursor fx:constant="TEXT" />
+      </cursor>
+   </TextField>
+
+   <TextField fx:id="txtTel" layoutX="73.0" layoutY="182.0" onKeyReleased="#txtTelOnKeyReleased" prefHeight="30.0" prefWidth="200.0" promptText="Tel" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black;">
+      <cursor>
+         <Cursor fx:constant="TEXT" />
+      </cursor>
+   </TextField>
+
+   <TextField fx:id="txtSalary" layoutX="348.0" layoutY="184.0" onKeyReleased="#txtSalaryOnKeyReleased" prefHeight="30.0" prefWidth="200.0" promptText="Salary" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black;">
+      <cursor>
+         <Cursor fx:constant="TEXT" />
+      </cursor>
+   </TextField>
+
+   <TableView fx:id="tblEmployeeManage" layoutX="25.0" layoutY="267.0" prefHeight="474.0" prefWidth="901.0">
       <columns>
-         <TableColumn fx:id="colEmpId" prefWidth="75.0" text="Employee Id" />
-         <TableColumn fx:id="colEmpName" prefWidth="128.5333709716797" text="Emmployee Name" />
-         <TableColumn fx:id="colAddress" prefWidth="148.2666015625" text="Address" />
-         <TableColumn fx:id="colTel" prefWidth="165.06671142578125" text="Tel" />
-         <TableColumn fx:id="colSalary" prefWidth="183.46670532226562" text="Salary" />
+         <TableColumn fx:id="colEmpId" prefWidth="125.06668472290039" text="Employee Id" />
+         <TableColumn fx:id="colEmpName" prefWidth="209.3332977294922" text="Emmployee Name" />
+         <TableColumn fx:id="colAddress" prefWidth="154.66659545898438" text="Address" />
+         <TableColumn fx:id="colTel" prefWidth="196.26678466796875" text="Tel" />
+         <TableColumn fx:id="colSalary" prefWidth="250.1331787109375" text="Salary" />
       </columns>
    </TableView>
-   <VBox layoutX="724.0" layoutY="503.0" prefHeight="214.0" prefWidth="172.0" spacing="10.0" style="-fx-background-radius: 20;">
+   <Label layoutX="512.0" layoutY="16.0" prefHeight="35.0" prefWidth="236.0" text="Employee Manage">
+      <font>
+         <Font name="Calibri Bold" size="30.0" />
+      </font>
+   </Label>
+   <ImageView fitHeight="270.0" fitWidth="276.0" layoutX="932.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../images/14064667_5401770-removebg-preview.png" />
+      </image>
+   </ImageView>
+   <Label layoutX="80.0" layoutY="65.0" text="Employee Id :">
+      <font>
+         <Font name="Calibri Bold" size="17.0" />
+      </font>
+   </Label>
+   <Label layoutX="631.0" layoutY="63.0" text="Address :">
+      <font>
+         <Font name="Calibri Bold" size="17.0" />
+      </font>
+   </Label>
+   <Label layoutX="352.0" layoutY="157.0" text="Salary :">
+      <font>
+         <Font name="Calibri Bold" size="17.0" />
+      </font>
+   </Label>
+   <Label layoutX="354.0" layoutY="64.0" text="Name :">
+      <font>
+         <Font name="Calibri Bold" size="17.0" />
+      </font>
+   </Label>
+   <Label layoutX="78.0" layoutY="160.0" text="Tel :">
+      <font>
+         <Font name="Calibri Bold" size="17.0" />
+      </font>
+   </Label>
+   <VBox layoutX="1033.0" layoutY="484.0" prefHeight="214.0" prefWidth="172.0" spacing="10.0" style="-fx-background-radius: 20;">
       <children>
          <JFXButton fx:id="btnSave" onAction="#btnSaveOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Save">
             <font>
@@ -100,6 +110,14 @@
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor>
+            <stylesheets>
+               <URL value="@../css/Dashboard.css" />
+               <URL value="@../css/buttonForm.css" />
+            </stylesheets>
+            <styleClass>
+               <String fx:value="anchorpanetop2" />
+               <String fx:value="saveButton" />
+            </styleClass>
          </JFXButton>
          <JFXButton fx:id="btnDelete" layoutX="10.0" layoutY="10.0" onAction="#btnDeleteOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Delete">
             <font>
@@ -118,6 +136,14 @@
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor>
+            <stylesheets>
+               <URL value="@../css/Dashboard.css" />
+               <URL value="@../css/buttonForm.css" />
+            </stylesheets>
+            <styleClass>
+               <String fx:value="anchorpanetop2" />
+               <String fx:value="deleteButton" />
+            </styleClass>
          </JFXButton>
          <JFXButton fx:id="btnUpdate" layoutX="10.0" layoutY="82.0" onAction="#btnUpdateOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Update">
             <font>
@@ -136,6 +162,14 @@
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor>
+            <stylesheets>
+               <URL value="@../css/Dashboard.css" />
+               <URL value="@../css/buttonForm.css" />
+            </stylesheets>
+            <styleClass>
+               <String fx:value="anchorpanetop2" />
+               <String fx:value="updateButton" />
+            </styleClass>
          </JFXButton>
          <JFXButton fx:id="btnClear" layoutX="10.0" layoutY="154.0" onAction="#btnClearOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Clear">
             <font>
@@ -154,42 +188,42 @@
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor>
+            <stylesheets>
+               <URL value="@../css/Dashboard.css" />
+               <URL value="@../css/buttonForm.css" />
+            </stylesheets>
+            <styleClass>
+               <String fx:value="anchorpanetop2" />
+               <String fx:value="clearButton" />
+            </styleClass>
          </JFXButton>
       </children>
    </VBox>
-   <Label layoutX="327.0" layoutY="15.0" prefHeight="35.0" prefWidth="236.0" style="-fx-background-radius: 5;" styleClass="anchorpanetop2" stylesheets="@../css/MainForm.css" text="Employee Manage" underline="true">
+   <JFXButton fx:id="btnEmpList" layoutX="1001.0" layoutY="333.0" onAction="#btnEmpListOnAction" prefHeight="68.0" prefWidth="203.0" style="-fx-background-radius: 20;" text="Employee List">
       <font>
-         <Font name="Calibri Bold" size="30.0" />
+         <Font name="Calibri Bold" size="20.0" />
       </font>
-   </Label>
-   <ImageView fitHeight="249.0" fitWidth="289.0" layoutX="648.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../images/14064667_5401770-removebg-preview.png" />
-      </image>
-   </ImageView>
-   <Label layoutX="94.0" layoutY="67.0" text="Employee Id :">
-      <font>
-         <Font name="Calibri Bold" size="17.0" />
-      </font>
-   </Label>
-   <Label layoutX="93.0" layoutY="136.0" text="Address :">
-      <font>
-         <Font name="Calibri Bold" size="17.0" />
-      </font>
-   </Label>
-   <Label layoutX="93.0" layoutY="199.0" text="Salary :">
-      <font>
-         <Font name="Calibri Bold" size="17.0" />
-      </font>
-   </Label>
-   <Label layoutX="365.0" layoutY="69.0" text="Name :">
-      <font>
-         <Font name="Calibri Bold" size="17.0" />
-      </font>
-   </Label>
-   <Label layoutX="368.0" layoutY="143.0" text="Tel :">
-      <font>
-         <Font name="Calibri Bold" size="17.0" />
-      </font>
-   </Label>
+      <graphic>
+         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../icon/icons8-list-50.png" />
+            </image>
+            <effect>
+               <DropShadow />
+            </effect>
+         </ImageView>
+      </graphic>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+      <stylesheets>
+         <URL value="@../css/Dashboard.css" />
+         <URL value="@../css/buttonForm.css" />
+      </stylesheets>
+      <styleClass>
+         <String fx:value="anchorpanetop2" />
+         <String fx:value="ListButton" />
+      </styleClass>
+   </JFXButton>
+
 </AnchorPane>

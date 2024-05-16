@@ -6,16 +6,18 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.Util.Regex;
+import lk.ijse.Util.TextFeild;
+import lk.ijse.model.Customer;
 import lk.ijse.model.Employee;
 import lk.ijse.model.Payment;
 import lk.ijse.model.Tm.EmployeeTm;
 import lk.ijse.repository.BatchRepo;
+import lk.ijse.repository.CustomerRepo;
 import lk.ijse.repository.EmployeeRepo;
 import lk.ijse.repository.PaymentRepo;
 
@@ -76,6 +78,9 @@ public class EmployeeFormController {
     @FXML
     private TextField txtTel;
 
+    @FXML
+    private JFXButton btnEmpList;
+
 
     public void initialize() {
         setCellValueFactory();
@@ -90,15 +95,6 @@ public class EmployeeFormController {
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colTel.setCellValueFactory(new PropertyValueFactory<>("tel"));
         colSalary.setCellValueFactory(new PropertyValueFactory<>("salary"));
-    }
-
-    @FXML
-    void btnBackOnAction(ActionEvent event) throws IOException {
-        AnchorPane dashboardPane = FXMLLoader.load(this.getClass().getResource("/view/DashBordForm.fxml"));
-
-
-        anpEmplloyeeManage.getChildren().clear();
-        anpEmplloyeeManage.getChildren().add(dashboardPane);
     }
 
     @FXML
@@ -119,7 +115,12 @@ public class EmployeeFormController {
         String id = txtEmployeeId.getText();
 
         try {
-            boolean isDeleted = EmployeeRepo.delete(id);
+            boolean isDeleted = false;
+            if (isValied()) {
+                isDeleted = EmployeeRepo.delete(id);
+            }else {
+                new Alert(Alert.AlertType.ERROR,"check fiels", ButtonType.OK).show();
+            }
             if (isDeleted){
                 new Alert(Alert.AlertType.CONFIRMATION,"Employee is deleted").show();
             }
@@ -143,9 +144,14 @@ public class EmployeeFormController {
         Employee employee = new Employee(id,name,address,tel,salary);
 
         try {
-            boolean isSaved = EmployeeRepo.save(employee);
-            if (isSaved){
-                new Alert(Alert.AlertType.CONFIRMATION,"Employee is saved").show();
+            boolean isSave = false;
+            if (isValied()) {
+                isSave = EmployeeRepo.save(employee);
+            }else {
+                new Alert(Alert.AlertType.ERROR,"check fiels", ButtonType.OK).show();
+            }
+            if (isSave){
+                new Alert(Alert.AlertType.CONFIRMATION,"Employee is Save").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -153,8 +159,14 @@ public class EmployeeFormController {
         loadAllEmployee();
 
 
+    }
 
-
+    private boolean isValied() {
+        if (!Regex.setTextColor(TextFeild.NAME,txtEmpName)) return false;
+        if (!Regex.setTextColor(TextFeild.ID,txtEmployeeId)) return false;
+        if (!Regex.setTextColor(TextFeild.ADDRESS,txtAddress)) return false;
+        if (!Regex.setTextColor(TextFeild.CONTACT,txtTel)) return false;
+        return true;
     }
 
     private void loadAllEmployee() {
@@ -191,9 +203,15 @@ public class EmployeeFormController {
         }
 
         Employee employee = new Employee(id,name,address,tel,salary);
+
         try {
-            boolean isSaved = EmployeeRepo.update(employee);
-            if (isSaved){
+            boolean isUpdate = false;
+            if (isValied()) {
+                isUpdate = EmployeeRepo.update(employee);
+            }else {
+                new Alert(Alert.AlertType.ERROR,"check fiels", ButtonType.OK).show();
+            }
+            if (isUpdate){
                 new Alert(Alert.AlertType.CONFIRMATION,"Employee is update").show();
             }
         } catch (SQLException e) {
@@ -242,4 +260,30 @@ public class EmployeeFormController {
         return"E001";
     }
 
+
+    @FXML
+    void btnEmpListOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void txtEmployeeIdOnActionReleased(KeyEvent event) {
+        Regex.setTextColor(TextFeild.ID,txtEmployeeId);
+    }
+
+    public void txtEmpNameOnKeyReleased(KeyEvent keyEvent) {
+      Regex.setTextColor(TextFeild.NAME,txtEmpName);
+    }
+
+    public void txtAddressOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFeild.ADDRESS,txtAddress);
+    }
+
+    public void txtTelOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFeild.CONTACT,txtTel);
+    }
+
+    public void txtSalaryOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFeild.SALARY,txtSalary);
+    }
 }

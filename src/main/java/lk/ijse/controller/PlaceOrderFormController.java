@@ -10,7 +10,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.Util.Regex;
+import lk.ijse.Util.TextFeild;
 import lk.ijse.db.DbConnection;
 import lk.ijse.model.*;
 import lk.ijse.model.Tm.PlaceOrderTm;
@@ -65,7 +69,7 @@ public class PlaceOrderFormController {
     private TableColumn<?, ?> colUnitPrice;
 
     @FXML
-    private JFXComboBox<?> comCode;
+    private JFXComboBox<String> comCode;
 
     @FXML
     private JFXComboBox<String> comBatchId;
@@ -111,6 +115,9 @@ public class PlaceOrderFormController {
         getBatchIds();
         setDate();
         setCellValueFactory();
+        comCustomerTel.setEditable(true);
+
+
     }
 
     private void setCellValueFactory() {
@@ -135,7 +142,7 @@ public class PlaceOrderFormController {
             for (String id : batIdList) {
                 obList.add(id);
             }
-            comBatchId.setItems(obList);
+            comCode.setItems(obList);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -182,11 +189,16 @@ public class PlaceOrderFormController {
 
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
-        String batId = comBatchId.getValue();
+        String batId = comCode.getValue();
         String description = lblDescription.getText();
         int qty = Integer.parseInt(txtQty.getText());
         double unitPrice = Double.parseDouble(lblUnitPrice.getText());
         double total = qty * unitPrice;
+
+        if (!isValied()) {
+            new Alert(Alert.AlertType.ERROR, "Please check all fields.").show();
+            return;
+        }
 
         JFXButton btnRemove = new JFXButton("remove");
         btnRemove.setCursor(Cursor.HAND);
@@ -257,7 +269,10 @@ public class PlaceOrderFormController {
         String cusId = lblCustomerId.getText();
         Date date = Date.valueOf(LocalDate.now());
 
-
+        if (!isValied()) {
+            new Alert(Alert.AlertType.ERROR, "Please check all fields.").show();
+            return;
+        }
         var order = new Order(orderId,date,cusId);
 
         List<OredrDetail> odList = new ArrayList<>();
@@ -299,6 +314,11 @@ public class PlaceOrderFormController {
 
     }
 
+    private boolean isValied() {
+        if (!Regex.setTextColor(TextFeild.QTY,txtQty)) return false;
+        return true;
+    }
+
     @FXML
     void txtQtyOnAction(ActionEvent event) {
         btnAddToCartOnAction(event);
@@ -307,7 +327,7 @@ public class PlaceOrderFormController {
 
     @FXML
     void comBatchIdOnAction(ActionEvent event) {
-        String batId = comBatchId.getValue();
+        String batId = comCode.getValue();
 
         try {
             Batch batch = BatchRepo.searchById(batId);
@@ -318,20 +338,6 @@ public class PlaceOrderFormController {
             }
 
             txtQty.requestFocus();
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
-
-    @FXML
-    void comCustomerNameOnAction(ActionEvent event) {
-        String name = comCustomerName.getValue();
-        try {
-            Customer customer = CustomerRepo.searchByName(name);
-
-            lblCustomerId.setText(customer.getId());
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -372,5 +378,34 @@ public class PlaceOrderFormController {
 
     private String calculateNetTotal(String orderId) throws SQLException {
         return PlaceOrderRepo.calculateNetTotal(orderId);
+    }
+
+    @FXML
+    void filterCustomerCon(KeyEvent event) {
+        ObservableList<String > filterCon = FXCollections.observableArrayList();
+        String enteredText = comCustomerTel.getEditor().getText();
+
+        try {
+            List<String> conList = CustomerRepo.geTel();
+
+            for (String con : conList){
+                if (con.contains(enteredText)){
+                    filterCon.add(con);
+                }
+            }
+            comCustomerTel.setItems(filterCon);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @FXML
+    void comCustomerTelOnMouseClicked(MouseEvent event) {
+        comCustomerTel.getSelectionModel().clearSelection();
+    }
+
+
+    @FXML
+    void txtQtyOnKeyReleased(KeyEvent event) {
+        Regex.setTextColor(TextFeild.QTY,txtQty);
     }
 }

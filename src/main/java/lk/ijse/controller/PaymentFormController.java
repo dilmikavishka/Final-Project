@@ -9,7 +9,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.Util.Regex;
+import lk.ijse.Util.TextFeild;
 import lk.ijse.model.Order;
 import lk.ijse.model.Payment;
 import lk.ijse.model.Tm.PaymentTm;
@@ -101,7 +104,7 @@ public class PaymentFormController {
         getOId();
         getCurrentPaymentIds();
 
-        ObservableList<String> paymentTypes = FXCollections.observableArrayList("Cash","Card");
+        ObservableList<String> paymentTypes = FXCollections.observableArrayList("CASH","CARD");
         choiseType.setItems(paymentTypes);
 
         txtPaymentDate.setText(String.valueOf(LocalDate.now()));
@@ -151,15 +154,6 @@ public class PaymentFormController {
     }
 
     @FXML
-    void btnBackOnAction(ActionEvent event) throws IOException {
-        AnchorPane dashboardPane = FXMLLoader.load(this.getClass().getResource("/view/DashBordForm.fxml"));
-
-
-        apnPayment.getChildren().clear();
-        apnPayment.getChildren().add(dashboardPane);
-    }
-
-    @FXML
     void btnClearOnAction(ActionEvent event) {
         clearFields();
     }
@@ -176,6 +170,11 @@ public class PaymentFormController {
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
         String id = txtPaymentID.getText();
+
+        if (!isValied()) {
+            new Alert(Alert.AlertType.ERROR, "Please check all fields.").show();
+            return;
+        }
 
         try {
             boolean isDeleted = PaymentRepo.delete(id);
@@ -200,6 +199,11 @@ public class PaymentFormController {
         String type =choiseType.getValue();
         String oId = comOrderId.getValue();
 
+
+        if (!isValied()) {
+            new Alert(Alert.AlertType.ERROR, "Please check all fields.").show();
+            return;
+        }
 
         Payment payment = new Payment(id,date,amount,type,oId);
 
@@ -228,6 +232,11 @@ public class PaymentFormController {
         String type = choiseType.getValue();
         String oId = comOrderId.getValue();
 
+        if (!isValied()) {
+            new Alert(Alert.AlertType.ERROR, "Please check all fields.").show();
+            return;
+        }
+
         Payment payment = new Payment(id,date,amount,type,oId);
 
         try {
@@ -240,6 +249,14 @@ public class PaymentFormController {
         }
 
     }
+
+    private boolean isValied() {
+        if (!Regex.setTextColor(TextFeild.ID,txtPaymentID)) return false;
+        if (!Regex.setTextColor(TextFeild.SALARY,txtAmount)) return false;
+        return true;
+
+    }
+
     @FXML
     public void txtPaymentSarchOnAction(ActionEvent actionEvent) {
         String id = txtPaymentID.getText();
@@ -275,5 +292,16 @@ public class PaymentFormController {
             return "P" + String.format("%03d", ++idNum);
         }
         return"P001";
+    }
+
+
+    @FXML
+    void txtAmountOnKeyReleased(KeyEvent event) {
+        Regex.setTextColor(TextFeild.SALARY,txtAmount);
+    }
+
+    @FXML
+    void txtPaymentIDOnKeyReleased(KeyEvent event) {
+        Regex.setTextColor(TextFeild.ID,txtPaymentID);
     }
 }

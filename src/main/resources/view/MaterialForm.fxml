@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import java.net.URL?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -12,78 +13,110 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anpMaterialManage" prefHeight="764.0" prefWidth="910.0" style="-fx-background-radius: 10;" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MaterialFormController">
+<AnchorPane fx:id="anpMaterialManage" prefHeight="750.0" prefWidth="1222.0" style="-fx-background-radius: 10;" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MaterialFormController">
    <children>
-      <TextField fx:id="txtMatId" layoutX="46.0" layoutY="123.0" onAction="#txtSearchOnAction" prefHeight="30.0" prefWidth="170.0">
+      <TextField fx:id="txtMatId" layoutX="19.0" layoutY="119.0" onAction="#txtSearchOnAction" onKeyReleased="#txtMatIdOnKeyReleased" prefHeight="30.0" prefWidth="200.0" promptText="Material Id" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
-               </color>
-            </DropShadow>
-         </effect></TextField>
-      <TextField fx:id="txtName" layoutX="243.0" layoutY="124.0" onKeyReleased="#txtNameOnKeyReleased" prefHeight="30.0" prefWidth="170.0">
+      </TextField>
+      <TextField fx:id="txtName" layoutX="233.0" layoutY="118.0" onKeyReleased="#txtNameOnKeyReleased" prefHeight="30.0" prefWidth="200.0" promptText="Material Name" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
-               </color>
-            </DropShadow>
-         </effect></TextField>
-      <TextField fx:id="txtDate" layoutX="435.0" layoutY="124.0" prefHeight="30.0" prefWidth="170.0">
+      </TextField>
+      <TextField fx:id="txtDate" layoutX="447.0" layoutY="117.0" prefHeight="30.0" prefWidth="200.0" promptText="Date" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
-               </color>
-            </DropShadow>
-         </effect></TextField>
-      <TextField fx:id="txtMatQty" layoutX="49.0" layoutY="222.0" prefHeight="30.0" prefWidth="170.0">
+      </TextField>
+      <TextField fx:id="txtMatQty" layoutX="661.0" layoutY="116.0" onKeyReleased="#txtMatQtyOnKeyReleased" prefHeight="30.0" prefWidth="200.0" promptText="Material Qty On Hand" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
-               </color>
-            </DropShadow>
-         </effect></TextField>
-      <TableView fx:id="tblMaterials" layoutX="9.0" layoutY="280.0" prefHeight="473.0" prefWidth="699.0">
+      </TextField>
+      <JFXComboBox fx:id="comSupId" layoutX="19.0" layoutY="191.0" onAction="#comSupIdOnAction" prefHeight="30.0" prefWidth="200.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></JFXComboBox>
+      <TableView fx:id="tblMaterials" layoutX="20.0" layoutY="263.0" prefHeight="474.0" prefWidth="890.0">
         <columns>
-          <TableColumn fx:id="colMatid" prefWidth="105.3333387374878" text="Materials Id" />
-          <TableColumn fx:id="colName" prefWidth="146.6666488647461" text="Name" />
-            <TableColumn fx:id="colDate" prefWidth="183.46664428710938" text="Date" />
-            <TableColumn fx:id="colQty" prefWidth="125.33340454101562" text="Materials Qty" />
-            <TableColumn fx:id="colSupId" prefWidth="141.8665771484375" text="Suppllier Id" />
+          <TableColumn fx:id="colMatid" prefWidth="103.46667861938477" text="Materials Id" />
+          <TableColumn fx:id="colName" prefWidth="174.9333038330078" text="Name" />
+            <TableColumn fx:id="colDate" prefWidth="194.13339233398438" text="Date" />
+            <TableColumn fx:id="colQty" prefWidth="123.2000732421875" text="QtyOnHand" />
+            <TableColumn fx:id="colSupId" prefWidth="153.3333740234375" text="Suppllier Id" />
+            <TableColumn fx:id="colPrice" prefWidth="141.86669921875" text="Price" />
         </columns>
       </TableView>
-      <JFXComboBox fx:id="comSupId" layoutX="238.0" layoutY="220.0" onAction="#comSupIdOnAction" prefHeight="30.0" prefWidth="170.0">
+      <Label layoutX="499.0" layoutY="15.0" prefHeight="35.0" prefWidth="218.0" text="Material Manage">
+         <font>
+            <Font name="Calibri Bold" size="30.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="292.0" fitWidth="320.0" layoutX="920.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/7967209_3786605-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="22.0" layoutY="91.0" text="Material Id :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="234.0" layoutY="90.0" text="Material Name :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="167.0" text="Supplier Id :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="662.0" layoutY="88.0" text="Material Qty On Hand :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="448.0" layoutY="89.0" text="Date :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="241.0" layoutY="166.0" text="Price :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtPrice" layoutX="237.0" layoutY="192.0" onKeyReleased="#txtPriceOnKeyReleased" prefHeight="30.0" prefWidth="200.0" promptText="Price" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black;">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <JFXButton fx:id="btnMaterialsDetail" layoutX="1002.0" layoutY="343.0" onAction="#btnMaterialsDetailOnAction" prefHeight="68.0" prefWidth="202.0" style="-fx-background-radius: 20;" stylesheets="@../css/Dashboard.css" text="Material Details" textFill="WHITE">
+         <font>
+            <Font name="Calibri Bold" size="20.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/icons8-commodity-50.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+         </graphic>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
-               </color>
-            </DropShadow>
-         </effect></JFXComboBox>
-      <VBox layoutX="722.0" layoutY="500.0" prefHeight="214.0" prefWidth="172.0" spacing="10.0" style="-fx-background-radius: 20;">
+      </JFXButton>
+      <VBox layoutX="1035.0" layoutY="484.0" prefHeight="214.0" prefWidth="172.0" spacing="10.0" style="-fx-background-radius: 20;">
          <children>
-            <JFXButton fx:id="btnSave" onAction="#btnSaveOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Save">
+            <JFXButton fx:id="btnSave" onAction="#btnSaveOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" styleClass="saveButton" text="Save">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
@@ -100,8 +133,12 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <stylesheets>
+                  <URL value="@../css/Dashboard.css" />
+                  <URL value="@../css/buttonForm.css" />
+               </stylesheets>
             </JFXButton>
-            <JFXButton fx:id="btnDelete" layoutX="10.0" layoutY="10.0" onAction="#btnDeleteOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Delete">
+            <JFXButton fx:id="btnDelete" layoutX="10.0" layoutY="10.0" onAction="#btnDeleteOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" styleClass="deleteButton" text="Delete">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
@@ -118,8 +155,12 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <stylesheets>
+                  <URL value="@../css/Dashboard.css" />
+                  <URL value="@../css/buttonForm.css" />
+               </stylesheets>
             </JFXButton>
-            <JFXButton fx:id="btnUpdate" layoutX="10.0" layoutY="82.0" onAction="#btnUpdateOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Update">
+            <JFXButton fx:id="btnUpdate" layoutX="10.0" layoutY="82.0" onAction="#btnUpdateOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" styleClass="updateButton" text="Update">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
@@ -136,8 +177,12 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <stylesheets>
+                  <URL value="@../css/Dashboard.css" />
+                  <URL value="@../css/buttonForm.css" />
+               </stylesheets>
             </JFXButton>
-            <JFXButton fx:id="btnClear" layoutX="10.0" layoutY="154.0" onAction="#btnClearOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Clear">
+            <JFXButton fx:id="btnClear" layoutX="10.0" layoutY="154.0" onAction="#btnClearOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" styleClass="clearButton" text="Clear">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
@@ -154,43 +199,13 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <stylesheets>
+                  <URL value="@../css/Dashboard.css" />
+                  <URL value="@../css/buttonForm.css" />
+               </stylesheets>
             </JFXButton>
          </children>
       </VBox>
-      <Label layoutX="321.0" layoutY="9.0" prefHeight="35.0" prefWidth="218.0" style="-fx-background-radius: 5;" styleClass="anchorpanetop2" stylesheets="@../css/MainForm.css" text="Material Manage" underline="true">
-         <font>
-            <Font name="Calibri Bold" size="30.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="249.0" fitWidth="276.0" layoutX="647.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/7967209_3786605-removebg-preview.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="54.0" layoutY="88.0" text="Material Id :">
-         <font>
-            <Font name="Calibri Bold" size="17.0" />
-         </font>
-      </Label>
-      <Label layoutX="249.0" layoutY="86.0" text="Material Name :">
-         <font>
-            <Font name="Calibri Bold" size="17.0" />
-         </font>
-      </Label>
-      <Label layoutX="240.0" layoutY="187.0" text="Supplier Id :">
-         <font>
-            <Font name="Calibri Bold" size="17.0" />
-         </font>
-      </Label>
-      <Label layoutX="51.0" layoutY="187.0" text="Material Qty :">
-         <font>
-            <Font name="Calibri Bold" size="17.0" />
-         </font>
-      </Label>
-      <Label layoutX="440.0" layoutY="88.0" text="Date :">
-         <font>
-            <Font name="Calibri Bold" size="17.0" />
-         </font>
-      </Label>
+
    </children>
 </AnchorPane>

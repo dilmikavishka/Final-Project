@@ -2,7 +2,9 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,56 +13,60 @@
 
 <AnchorPane prefHeight="393.0" prefWidth="541.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.RegisterFormController">
    <children>
-      <ImageView fx:id="anp1" fitHeight="518.0" fitWidth="869.0" layoutX="-2.0" layoutY="-1.0">
-         <image>
-            <Image url="@../images/20140729_flaircleaners_28749.jpg" />
-         </image>
-      </ImageView>
-      <AnchorPane fx:id="anp2" layoutX="22.0" layoutY="9.0" opacity="0.87" prefHeight="489.0" prefWidth="828.0" style="-fx-background-color: F3D7CA;">
+      <ImageView fx:id="anp1" fitHeight="518.0" fitWidth="869.0" layoutX="-2.0" layoutY="-1.0" />
+      <AnchorPane fx:id="anp2" layoutX="22.0" layoutY="9.0" prefHeight="489.0" prefWidth="828.0" style="-fx-background-radius: 10;" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css">
          <children>
             <ImageView fitHeight="52.0" fitWidth="272.0" layoutX="268.0" layoutY="14.0">
                <image>
                   <Image url="@../images/470-X-104.png" />
                </image>
             </ImageView>
-            <Text layoutX="77.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Id :">
-               <font>
-                  <Font name="System Italic" size="14.0" />
-               </font>
-            </Text>
-            <TextField fx:id="txtId" layoutX="80.0" layoutY="109.0" prefHeight="32.0" prefWidth="348.0" promptText="Input your user id">
+            <TextField fx:id="txtId" layoutX="80.0" layoutY="109.0" onKeyReleased="#txtIdOnKeyReleased" prefHeight="32.0" prefWidth="348.0" promptText="Input your user id" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black; -fx-border-color: black;">
                <font>
                   <Font size="13.0" />
                </font>
             </TextField>
-            <Text layoutX="80.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name :">
-               <font>
-                  <Font name="System Italic" size="14.0" />
-               </font>
-            </Text>
-            <TextField fx:id="txtName" layoutX="80.0" layoutY="186.0" prefHeight="32.0" prefWidth="348.0" promptText="Input your user name">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </TextField>
-            <Text layoutX="78.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password :">
-               <font>
-                  <Font name="System Italic" size="14.0" />
-               </font>
-            </Text>
-            <TextField fx:id="txtPassword" layoutX="80.0" layoutY="257.0" prefHeight="32.0" prefWidth="348.0" promptText="Input your user password">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </TextField>
-            <JFXButton fx:id="btnRegister" layoutX="400.0" layoutY="344.0" onAction="#btnRegisterOnAction" style="-fx-background-color: B7C9F2;" text="Register Now">
+            <JFXButton fx:id="btnRegister" layoutX="190.0" layoutY="329.0" onAction="#btnRegisterOnAction" styleClass="backButton" stylesheets="@../css/MainForm.css" text="Register Now">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </JFXButton>
-            <Text layoutX="343.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Now you can go to the login form." />
-            <Hyperlink fx:id="linkLog" layoutX="526.0" layoutY="384.0" onAction="#linkLogOnAction" text="Login." />
+            <Text layoutX="119.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Now you can go to the login form." />
+            <Hyperlink fx:id="linkLog" layoutX="306.0" layoutY="372.0" onAction="#linkLogOnAction" text="Login." textFill="#d90000" />
+            <ImageView fitHeight="473.0" fitWidth="348.0" layoutX="468.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/2481550_340366-PAPUKD-986-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="80.0" layoutY="78.0" text="User Id :">
+               <font>
+                  <Font name="Calibri Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="80.0" layoutY="231.0" text="Password :">
+               <font>
+                  <Font name="Calibri Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="83.0" layoutY="157.0" text="Name :">
+               <font>
+                  <Font name="Calibri Bold" size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtName" layoutX="83.0" layoutY="183.0" onKeyReleased="#txtNameOnKeyReleased" prefHeight="32.0" prefWidth="348.0" promptText="Input your user name" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black; -fx-border-color: black;">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtPassword" layoutX="82.0" layoutY="258.0" onKeyReleased="#txtPasswordOnKeyReleased" prefHeight="32.0" prefWidth="348.0" promptText="Input your user password" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black; -fx-border-color: black;">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
          </children>
+         <effect>
+            <DropShadow />
+         </effect>
       </AnchorPane>
    </children>
 </AnchorPane>

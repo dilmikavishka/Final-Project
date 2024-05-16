@@ -10,7 +10,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.QuadCurve?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -24,33 +23,19 @@
                   <Font name="Calibri Bold" size="20.0" />
                </font>
             </Text>
-            <TextField fx:id="txtUserName" layoutX="120.0" layoutY="152.0" prefHeight="38.0" prefWidth="258.0" promptText="User Id" style="-fx-background-radius: 10;">
+            <TextField fx:id="txtUserName" layoutX="120.0" layoutY="152.0" onKeyReleased="#txtUserNameOnKeyReleased" prefHeight="38.0" prefWidth="258.0" promptText="User Id" style="-fx-background-radius: 10; -fx-background-color: transpare; -fx-border-width: 0px 0px 1px 0px; -fx-border-color: black; -fx-text-fill: black;">
                <cursor>
                   <Cursor fx:constant="TEXT" />
-               </cursor>
-               <effect>
-                  <DropShadow>
-                     <color>
-                        <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
-                     </color>
-                  </DropShadow>
-               </effect></TextField>
+               </cursor></TextField>
             <Text layoutX="195.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password :">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
             </Text>
-            <PasswordField fx:id="txtPassword" layoutX="120.0" layoutY="258.0" prefHeight="38.0" prefWidth="258.0" promptText="Password" style="-fx-background-radius: 10;">
+            <PasswordField fx:id="txtPassword" layoutX="120.0" layoutY="258.0" onKeyReleased="#txtPasswordOnKeyReleased" prefHeight="38.0" prefWidth="258.0" promptText="Password" style="-fx-background-radius: 10; -fx-background-color: transpare; -fx-border-color: black; -fx-text-fill: black; -fx-border-width: 0px 0px 1px 0px;">
                <cursor>
                   <Cursor fx:constant="TEXT" />
-               </cursor>
-               <effect>
-                  <DropShadow>
-                     <color>
-                        <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
-                     </color>
-                  </DropShadow>
-               </effect></PasswordField>
+               </cursor></PasswordField>
             <JFXButton fx:id="btnLogin" layoutX="171.0" layoutY="369.0" onAction="#btnLoginOnAction" prefHeight="38.0" prefWidth="138.0" style="-fx-background-radius: 20;" styleClass="backButton" stylesheets="@../css/Login.css" text="Login">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
@@ -83,13 +68,21 @@
                   <Image url="@../images/470-X-104.png" />
                </image>
             </ImageView>
-            <QuadCurve controlX="-229.99996948242188" controlY="-289.79998779296875" endX="290.4000244140625" endY="-236.1999969482422" fill="#1f93ff34" layoutX="468.0" layoutY="240.0" startX="290.4000244140625" startY="290.39996337890625" stroke="WHITE" strokeType="INSIDE" />
-            <QuadCurve controlX="-277.6000061035156" controlY="280.39996337890625" endX="280.4000244140625" endY="-249.78750610351562" fill="#1f93ff34" layoutX="478.0" layoutY="250.0" startX="280.4000244140625" startY="280.39996337890625" stroke="WHITE" strokeType="INSIDE" />
-            <ImageView fitHeight="252.0" fitWidth="286.0" layoutX="411.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+            <QuadCurve controlX="-229.99996948242188" controlY="-289.79998779296875" endX="290.4000244140625" endY="-236.1999969482422" fill="#1e90ff33" layoutX="468.0" layoutY="240.0" opacity="0.21" startX="290.4000244140625" startY="290.39996337890625" stroke="WHITE" strokeType="INSIDE">
+               <effect>
+                  <DropShadow />
+               </effect></QuadCurve>
+            <QuadCurve controlX="-277.6000061035156" controlY="280.39996337890625" endX="280.4000244140625" endY="-249.78750610351562" fill="#1e90ff33" layoutX="478.0" layoutY="250.0" startX="280.4000244140625" startY="280.39996337890625" stroke="WHITE" strokeType="INSIDE" />
+            <ImageView fitHeight="305.0" fitWidth="350.0" layoutX="395.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/login1.png" />
                </image>
             </ImageView>
+            <Hyperlink fx:id="linkFrogetPassword" layoutX="124.0" layoutY="303.0" onAction="#linkFrogetPasswordOnAction" text="Froget Password">
+               <font>
+                  <Font name="Calibri Bold" size="15.0" />
+               </font>
+            </Hyperlink>
          </children>
          <effect>
             <InnerShadow />

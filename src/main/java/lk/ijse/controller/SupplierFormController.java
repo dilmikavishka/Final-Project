@@ -6,26 +6,29 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.model.Order;
+import lk.ijse.Util.Regex;
+import lk.ijse.Util.TextFeild;
+import lk.ijse.db.DbConnection;
 import lk.ijse.model.Payment;
 import lk.ijse.model.Supplier;
 import lk.ijse.model.Tm.SupplierTm;
-import lk.ijse.repository.MaterialRepo;
-import lk.ijse.repository.OrderRepo;
 import lk.ijse.repository.SupplierRepo;
 import lk.ijse.repository.PaymentRepo;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
-import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class SupplierFormController {
 
@@ -80,12 +83,16 @@ public class SupplierFormController {
     @FXML
     private TextField txtSupTel;
 
+    @FXML
+    private JFXButton btnSupList;
+
 
     public void initialize() {
         setCellValueFactory();
         loadAllSupplier();
         getPayIds();
         getCurrentSupplierIds();
+        txtSupDate.setText(String.valueOf(LocalDate.now()));
     }
 
     private void setCellValueFactory() {
@@ -110,15 +117,6 @@ public class SupplierFormController {
     }
 
     @FXML
-    void btnBackOnAction(ActionEvent event) throws IOException {
-        AnchorPane dashboardPane = FXMLLoader.load(this.getClass().getResource("/view/DashBordForm.fxml"));
-
-
-        anpSupplierManage.getChildren().clear();
-        anpSupplierManage.getChildren().add(dashboardPane);
-    }
-
-    @FXML
     void btnClearOnAction(ActionEvent event) {
         clearFields();
 
@@ -137,7 +135,12 @@ public class SupplierFormController {
         String SupId = txtSupId.getText();
 
         try {
-            boolean isDeleted = SupplierRepo.delete(SupId);
+            boolean isDeleted = false;
+            if (isValied()) {
+                isDeleted = SupplierRepo.delete(SupId);
+            }else {
+                new Alert(Alert.AlertType.ERROR,"check fiels", ButtonType.OK).show();
+            }
             if(isDeleted) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Supplier deleted!").show();
             }
@@ -148,26 +151,37 @@ public class SupplierFormController {
     }
 
     @FXML
-    void btnSaveOnAction(ActionEvent event) {
+    void btnSaveOnAction(ActionEvent event) throws SQLException {
         String SupId = txtSupId.getText();
         String name = txtSupName.getText();
         Date date = Date.valueOf(txtSupDate.getText());
         String tel = txtSupTel.getText();
         String payId = comPayId.getValue();
 
-
         Supplier supplier = new Supplier(SupId,name,date,tel,payId);
 
         try {
-            boolean isSaved = SupplierRepo.save(supplier);
-            if (isSaved){
-                new Alert(Alert.AlertType.CONFIRMATION,"Supplier is saved").show();
+            boolean isSave = false;
+            if (isValied()) {
+                isSave = SupplierRepo.save(supplier);
+            }else {
+                new Alert(Alert.AlertType.ERROR,"check fiels", ButtonType.OK).show();
+            }
+            if (isSave){
+                new Alert(Alert.AlertType.CONFIRMATION,"Supplier is Save").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
         loadAllSupplier();
 
+    }
+
+    private boolean isValied() {
+        if (!Regex.setTextColor(TextFeild.ID,txtSupId)) return false;
+        if (!Regex.setTextColor(TextFeild.NAME,txtSupName)) return false;
+        if (!Regex.setTextColor(TextFeild.CONTACT,txtSupTel)) return false;
+        return true;
     }
 
 
@@ -213,6 +227,10 @@ public class SupplierFormController {
         String tel = txtSupTel.getText();
         String payId = comPayId.getValue();
 
+        if (!isValied()) {
+            new Alert(Alert.AlertType.ERROR, "Please check all fields.").show();
+            return;
+        }
 
         Supplier supplier = new Supplier(SupId,name,date,tel,payId);
 
@@ -266,5 +284,34 @@ public class SupplierFormController {
             return "S" + String.format("%03d", ++idNum);
         }
         return"S001";
+    }
+
+
+    @FXML
+    void btnSupListOnAction(ActionEvent event) throws JRException, SQLException {
+        JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/Report/SupplierList.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+
+        Map<String,Object> data = new HashMap<>();
+        data.put("supId",txtSupId.getText());
+        JasperPrint jasperPrint =
+                JasperFillManager.fillReport(jasperReport,data, DbConnection.getInstance().getConnection());
+        JasperViewer.viewReport(jasperPrint,false);
+    }
+
+
+    @FXML
+    void txtSupIdOnKeyReleased(KeyEvent event) {
+        Regex.setTextColor(TextFeild.ID,txtSupId);
+    }
+
+    @FXML
+    void txtSupNameOnKeyReleased(KeyEvent event) {
+        Regex.setTextColor(TextFeild.NAME,txtSupName);
+    }
+
+    @FXML
+    void txtSupTelOnKeyReleased(KeyEvent event) {
+        Regex.setTextColor(TextFeild.CONTACT,txtSupTel);
     }
 }

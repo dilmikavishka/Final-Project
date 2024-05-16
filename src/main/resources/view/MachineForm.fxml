@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -11,54 +12,60 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="apnMachineManage" prefHeight="764.0" prefWidth="910.0" style="-fx-background-radius: 10;" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MachineFormController">
+<AnchorPane fx:id="apnMachineManage" prefHeight="750.0" prefWidth="1222.0" style="-fx-background-radius: 10;" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MachineFormController">
    <children>
-      <TextField fx:id="txtMachineId" layoutX="115.0" layoutY="85.0" onAction="#txtSearchOnAction" prefHeight="30.0" prefWidth="170.0">
+      <Label layoutX="501.0" layoutY="15.0" prefHeight="35.0" prefWidth="218.0" text="Machine Manage">
+         <font>
+            <Font name="Calibri Bold" size="30.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="273.0" fitWidth="395.0" layoutX="858.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/pngtree-cooperation-in-company-businessman-clockwork-action-vector-png-image_9304038-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="54.0" layoutY="84.0" text="Machine Id :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="585.0" layoutY="81.0" text="Status :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="317.0" layoutY="84.0" text="Macine Name :">
+         <font>
+            <Font name="Calibri Bold" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtMachineId" layoutX="51.0" layoutY="114.0" onAction="#txtSearchOnAction" onKeyReleased="#txtMachineIdOnKeyReleased" prefHeight="30.0" prefWidth="200.0" promptText="Machine Id" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
-               </color>
-            </DropShadow>
-         </effect></TextField>
-      <TextField fx:id="txtMachineName" layoutX="364.0" layoutY="85.0" onKeyReleased="#txtMachineNameOnKeyReleased" prefHeight="30.0" prefWidth="170.0">
+      </TextField>
+      <TextField fx:id="txtMachineName" layoutX="316.0" layoutY="116.0" onKeyReleased="#txtMachineNameOnKeyReleased" prefHeight="30.0" prefWidth="200.0" promptText="Machine Name" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
-               </color>
-            </DropShadow>
-         </effect></TextField>
-      <TextField fx:id="txtStatus" layoutX="115.0" layoutY="156.0" prefHeight="30.0" prefWidth="170.0">
+      </TextField>
+      <TextField fx:id="txtStatus" layoutX="583.0" layoutY="115.0" onKeyReleased="#txtStatusOnKeyReleased" prefHeight="30.0" prefWidth="200.0" promptText="Status" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
-               </color>
-            </DropShadow>
-         </effect></TextField>
-      <TableView fx:id="tblMachineManage" layoutX="10.0" layoutY="237.0" prefHeight="511.0" prefWidth="698.0">
-        <columns>
-          <TableColumn fx:id="colMachineId" prefWidth="121.60003089904785" text="Machine Id" />
-          <TableColumn fx:id="colMachineName" prefWidth="239.4667205810547" text="Machine Name" />
-            <TableColumn fx:id="colStatus" prefWidth="334.93328857421875" text="Status" />
-        </columns>
+      </TextField>
+      <TableView fx:id="tblMachineManage" layoutX="23.0" layoutY="223.0" prefHeight="511.0" prefWidth="822.0">
+         <columns>
+            <TableColumn fx:id="colMachineId" prefWidth="135.19995498657227" text="Machine Id" />
+            <TableColumn fx:id="colMachineName" prefWidth="264.80003356933594" text="Machine Name" />
+            <TableColumn fx:id="colStatus" prefWidth="422.66668701171875" text="Status" />
+         </columns>
       </TableView>
-      <VBox layoutX="724.0" layoutY="503.0" prefHeight="214.0" prefWidth="172.0" spacing="10.0" style="-fx-background-radius: 20;">
+      <VBox layoutX="1034.0" layoutY="483.0" prefHeight="214.0" prefWidth="172.0" spacing="10.0" style="-fx-background-radius: 20;">
          <children>
-            <JFXButton fx:id="btnSave" onAction="#btnSaveOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Save">
+            <JFXButton fx:id="btnSave" onAction="#btnSaveOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" styleClass="saveButton" text="Save">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
@@ -75,8 +82,12 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <stylesheets>
+                  <URL value="@../css/Dashboard.css" />
+                  <URL value="@../css/buttonForm.css" />
+               </stylesheets>
             </JFXButton>
-            <JFXButton fx:id="btnDelete" layoutX="10.0" layoutY="10.0" onAction="#btnDeleteOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Delete">
+            <JFXButton fx:id="btnDelete" layoutX="10.0" layoutY="10.0" onAction="#btnDeleteOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" styleClass="deleteButton" text="Delete">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
@@ -93,8 +104,12 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <stylesheets>
+                  <URL value="@../css/Dashboard.css" />
+                  <URL value="@../css/buttonForm.css" />
+               </stylesheets>
             </JFXButton>
-            <JFXButton fx:id="btnUpdate" layoutX="10.0" layoutY="82.0" onAction="#btnUpdateOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Update">
+            <JFXButton fx:id="btnUpdate" layoutX="10.0" layoutY="82.0" onAction="#btnUpdateOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" styleClass="updateButton" text="Update">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
@@ -111,8 +126,12 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <stylesheets>
+                  <URL value="@../css/Dashboard.css" />
+                  <URL value="@../css/buttonForm.css" />
+               </stylesheets>
             </JFXButton>
-            <JFXButton fx:id="btnClear" layoutX="10.0" layoutY="154.0" onAction="#btnClearOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Clear">
+            <JFXButton fx:id="btnClear" layoutX="10.0" layoutY="154.0" onAction="#btnClearOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" styleClass="clearButton" text="Clear">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
@@ -129,33 +148,12 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <stylesheets>
+                  <URL value="@../css/Dashboard.css" />
+                  <URL value="@../css/buttonForm.css" />
+               </stylesheets>
             </JFXButton>
          </children>
       </VBox>
-      <Label layoutX="309.0" layoutY="10.0" prefHeight="35.0" prefWidth="218.0" style="-fx-background-radius: 5;" styleClass="anchorpanetop2" stylesheets="@../css/MainForm.css" text="Machine Manage" underline="true">
-         <font>
-            <Font name="Calibri Bold" size="30.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="215.0" fitWidth="274.0" layoutX="622.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/pngtree-cooperation-in-company-businessman-clockwork-action-vector-png-image_9304038.jpg" />
-         </image>
-      </ImageView>
-      <Label layoutX="114.0" layoutY="58.0" text="Machine Id :">
-         <font>
-            <Font name="Calibri Bold" size="17.0" />
-         </font>
-      </Label>
-      <Label layoutX="115.0" layoutY="131.0" text="Status :">
-         <font>
-            <Font name="Calibri Bold" size="17.0" />
-         </font>
-      </Label>
-      <Label layoutX="364.0" layoutY="58.0" text="Macine Name :">
-         <font>
-            <Font name="Calibri Bold" size="17.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>

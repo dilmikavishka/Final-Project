@@ -8,12 +8,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anp1" prefHeight="804.0" prefWidth="1226.0" styleClass="anchorpane-th" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MainFormController">
+<AnchorPane fx:id="anp1" styleClass="anchorpane-th" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MainFormController">
    <children>
-      <AnchorPane fx:id="anpMain" layoutX="302.0" layoutY="17.0" prefHeight="764.0" prefWidth="910.0" style="-fx-background-radius: 10;" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css" />
-      <AnchorPane fx:id="anp2" layoutX="14.0" layoutY="16.0" prefHeight="767.0" prefWidth="264.0" style="-fx-background-radius: 10;" styleClass="anchorpane-th" stylesheets="@../css/MainForm.css">
+      <AnchorPane fx:id="anpMain" layoutX="302.0" layoutY="17.0" prefHeight="750.0" prefWidth="1222.0" style="-fx-background-radius: 10;" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css" />
+      <AnchorPane fx:id="anp2" layoutX="14.0" layoutY="9.0" prefHeight="755.0" prefWidth="264.0" style="-fx-background-radius: 10;" styleClass="anchorpane-th" stylesheets="@../css/MainForm.css">
          <children>
-            <JFXButton fx:id="btnCustomer" layoutX="13.0" layoutY="103.0" onAction="#btnCustomerOnAction" prefHeight="53.0" prefWidth="239.0" style="-fx-background-radius: 20;" styleClass="anchorpanetop" stylesheets="@../css/MainForm.css" text="Customer" textFill="WHITE">
+            <JFXButton fx:id="btnCustomer" layoutX="11.0" layoutY="88.0" onAction="#btnCustomerOnAction" prefHeight="30.0" prefWidth="239.0" style="-fx-background-radius: 20;" stylesheets="@../css/MainForm.css" text="Customer" textFill="WHITE">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
@@ -22,13 +22,16 @@
                      <image>
                         <Image url="@../icon/icons8-customer-50.png" />
                      </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </ImageView>
                </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton fx:id="btnEmployee" layoutX="13.0" layoutY="178.0" onAction="#btnEmployeeOnAction" prefHeight="53.0" prefWidth="239.0" style="-fx-background-radius: 20;" text="Employee" textFill="WHITE">
+            <JFXButton fx:id="btnEmployee" layoutX="11.0" layoutY="155.0" onAction="#btnEmployeeOnAction" prefHeight="30.0" prefWidth="239.0" style="-fx-background-radius: 20;" text="Employee" textFill="WHITE">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
@@ -37,13 +40,16 @@
                      <image>
                         <Image url="@../icon/icons8-employee-50.png" />
                      </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </ImageView>
                </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton fx:id="btnPayment" layoutX="12.0" layoutY="255.0" onAction="#btnPaymentOnAction" prefHeight="53.0" prefWidth="239.0" style="-fx-background-radius: 20;" text="Payment" textFill="WHITE">
+            <JFXButton fx:id="btnPayment" layoutX="13.0" layoutY="224.0" onAction="#btnPaymentOnAction" prefHeight="30.0" prefWidth="239.0" style="-fx-background-radius: 20;" text="Payment" textFill="WHITE">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
@@ -52,13 +58,16 @@
                      <image>
                         <Image url="@../icon/icons8-payment-50.png" />
                      </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </ImageView>
                </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton fx:id="btnSupplier" layoutX="13.0" layoutY="329.0" onAction="#btnSupplierOnAction" prefHeight="53.0" prefWidth="239.0" style="-fx-background-radius: 20;" text="Supplier" textFill="WHITE">
+            <JFXButton fx:id="btnSupplier" layoutX="13.0" layoutY="293.0" onAction="#btnSupplierOnAction" prefHeight="30.0" prefWidth="239.0" style="-fx-background-radius: 20;" text="Supplier" textFill="WHITE">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
@@ -67,13 +76,16 @@
                      <image>
                         <Image url="@../icon/icons8-supplier-64.png" />
                      </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </ImageView>
                </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton fx:id="btnMachine" layoutX="12.0" layoutY="402.0" onAction="#btnMachineOnAction" prefHeight="53.0" prefWidth="239.0" style="-fx-background-radius: 20;" text="Machine" textFill="WHITE">
+            <JFXButton fx:id="btnMachine" layoutX="12.0" layoutY="361.0" onAction="#btnMachineOnAction" prefHeight="30.0" prefWidth="239.0" style="-fx-background-radius: 20;" text="Machine" textFill="WHITE">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
@@ -82,13 +94,16 @@
                      <image>
                         <Image url="@../icon/icons8-machine-64.png" />
                      </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </ImageView>
                </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton fx:id="btnMaterials" layoutX="12.0" layoutY="478.0" onAction="#btnMaterialsOnAction" prefHeight="53.0" prefWidth="239.0" style="-fx-background-radius: 20;" text="Material" textFill="WHITE">
+            <JFXButton fx:id="btnMaterials" layoutX="11.0" layoutY="426.0" onAction="#btnMaterialsOnAction" prefHeight="30.0" prefWidth="239.0" style="-fx-background-radius: 20;" text="Material" textFill="WHITE">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
@@ -96,13 +111,16 @@
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icon/icons8-commodity-50.png" />
-                     </image></ImageView>
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect></ImageView>
                </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton fx:id="btnBatch" layoutX="12.0" layoutY="554.0" onAction="#btnBatchOnAction" prefHeight="53.0" prefWidth="239.0" style="-fx-background-radius: 20;" text="Batch" textFill="WHITE">
+            <JFXButton fx:id="btnBatch" layoutX="14.0" layoutY="491.0" onAction="#btnBatchOnAction" prefHeight="30.0" prefWidth="239.0" style="-fx-background-radius: 20;" text="Batch" textFill="WHITE">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
@@ -111,13 +129,16 @@
                      <image>
                         <Image url="@../icon/icons8-sell-stock-50.png" />
                      </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </ImageView>
                </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton fx:id="btnOrders" layoutX="11.0" layoutY="625.0" onAction="#btnOrdersOnAction" prefHeight="53.0" prefWidth="239.0" style="-fx-background-radius: 20;" text="Orders" textFill="WHITE">
+            <JFXButton fx:id="btnOrders" layoutX="12.0" layoutY="558.0" onAction="#btnOrdersOnAction" prefHeight="30.0" prefWidth="239.0" style="-fx-background-radius: 20;" text="Orders" textFill="WHITE">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
@@ -126,13 +147,16 @@
                      <image>
                         <Image url="@../icon/icons8-order-502.png" />
                      </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </ImageView>
                </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton fx:id="btnPlaceOrder" layoutX="11.0" layoutY="696.0" onAction="#btnPlaceOrderOnAction" prefHeight="53.0" prefWidth="239.0" style="-fx-background-radius: 20;" text="Places Order" textFill="WHITE">
+            <JFXButton fx:id="btnPlaceOrder" layoutX="13.0" layoutY="625.0" onAction="#btnPlaceOrderOnAction" prefHeight="30.0" prefWidth="239.0" style="-fx-background-radius: 20;" text="Places Order" textFill="WHITE">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
@@ -141,13 +165,16 @@
                      <image>
                         <Image url="@../icon/icons8-order-50.png" />
                      </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </ImageView>
                </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton fx:id="btnDash" layoutX="13.0" layoutY="18.0" onAction="#btnDashOnAction" prefHeight="53.0" prefWidth="239.0" style="-fx-background-radius: 20;" stylesheets="@../css/MainForm.css" text="Dashboard" textFill="WHITE">
+            <JFXButton fx:id="btnDash" layoutX="11.0" layoutY="11.0" onAction="#btnDashOnAction" prefHeight="34.0" prefWidth="239.0" style="-fx-background-radius: 20;" stylesheets="@../css/MainForm.css" text="Dashboard" textFill="WHITE">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
@@ -159,8 +186,29 @@
                      <image>
                         <Image url="@../icon/icons8-dashboard-layout-24.png" />
                      </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </ImageView>
                </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnCost" layoutX="11.0" layoutY="690.0" onAction="#btnCostOnAction" prefHeight="30.0" prefWidth="239.0" style="-fx-background-radius: 20;" text="Batch Cost" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/icons8-order-50.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </JFXButton>
          </children>
          <effect>

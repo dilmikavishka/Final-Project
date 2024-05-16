@@ -1,0 +1,19 @@
+.saveButton:hover{
+    -fx-background-color: #41b06e;
+}
+
+.deleteButton:hover{
+    -fx-background-color: #c40c0c;
+}
+
+.updateButton:hover{
+    -fx-background-color: #fcdc2a;
+}
+
+.clearButton:hover{
+    -fx-background-color: #bde3a2;
+}
+
+.ListButton:hover{
+    -fx-background-color: #ca8787;
+}

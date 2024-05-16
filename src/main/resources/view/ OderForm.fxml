@@ -2,6 +2,8 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import java.lang.String?>
+<?import java.net.URL?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -12,56 +14,57 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anpOrderManage" prefHeight="764.0" prefWidth="910.0" style="-fx-background-radius: 10;" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.OderFormController">
-   <TextField fx:id="txtOrderId" layoutX="136.0" layoutY="98.0" onAction="#txtSearchOnAction" prefHeight="30.0" prefWidth="170.0" promptText="Order Id">
+<AnchorPane fx:id="anpOrderManage" prefHeight="750.0" prefWidth="1222.0" style="-fx-background-radius: 10;" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.OderFormController">
+   <TextField fx:id="txtOrderId" layoutX="79.0" layoutY="126.0" onAction="#txtSearchOnAction" onKeyReleased="#txtOrderIdOnKeyReleased" prefHeight="30.0" prefWidth="200.0" promptText="Order Id" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black;">
       <cursor>
          <Cursor fx:constant="TEXT" />
       </cursor>
-      <effect>
-         <DropShadow>
-            <color>
-               <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
-            </color>
-         </DropShadow>
-      </effect></TextField>
-   <TextField fx:id="txtOrderDate" layoutX="431.0" layoutY="97.0" prefHeight="30.0" prefWidth="170.0" promptText="Order Date">
+   </TextField>
+   <TextField fx:id="txtOrderDate" layoutX="350.0" layoutY="123.0" prefHeight="30.0" prefWidth="200.0" promptText="Order Date" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black;">
       <cursor>
          <Cursor fx:constant="TEXT" />
       </cursor>
-      <effect>
-         <DropShadow>
-            <color>
-               <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
-            </color>
-         </DropShadow>
-      </effect></TextField>
-   <TableView fx:id="tblOrderManage" layoutX="13.0" layoutY="254.0" prefHeight="495.0" prefWidth="697.0">
-      <columns>
-         <TableColumn fx:id="colOrderId" prefWidth="171.46668529510498" text="Order Id" />
-         <TableColumn fx:id="colOrderDate" prefWidth="296.26670837402344" text="Order Date" />
-         <TableColumn fx:id="colCustomerId" prefWidth="230.93331909179688" text="Customer Id" />
-      </columns>
-   </TableView>
-   <JFXComboBox fx:id="comCustId" layoutX="141.0" layoutY="181.0" onAction="#comCustIdOnAction" prefHeight="30.0" prefWidth="170.0">
+   </TextField>
+   <JFXComboBox fx:id="comCustId" layoutX="612.0" layoutY="124.0" onAction="#comCustIdOnAction" prefHeight="30.0" prefWidth="200.0">
       <cursor>
          <Cursor fx:constant="HAND" />
-      </cursor>
-      <effect>
-         <DropShadow>
-            <color>
-               <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
-            </color>
-         </DropShadow>
-      </effect></JFXComboBox>
-   <Label layoutX="361.0" layoutY="10.0" prefHeight="35.0" prefWidth="187.0" style="-fx-background-radius: 5;" styleClass="anchorpanetop2" stylesheets="@../css/MainForm.css" text="Order Manage" underline="true">
+      </cursor></JFXComboBox>
+   <TableView fx:id="tblOrderManage" layoutX="26.0" layoutY="237.0" prefHeight="495.0" prefWidth="803.0">
+      <columns>
+         <TableColumn fx:id="colOrderId" prefWidth="191.20000076293945" text="Order Id" />
+         <TableColumn fx:id="colOrderDate" prefWidth="340.79998779296875" text="Order Date" />
+         <TableColumn fx:id="colCustomerId" prefWidth="271.466796875" text="Customer Id" />
+      </columns>
+   </TableView>
+   <Label layoutX="515.0" layoutY="18.0" prefHeight="35.0" prefWidth="187.0" text="Order Manage">
       <font>
          <Font name="Calibri Bold" size="30.0" />
       </font>
    </Label>
-   <VBox layoutX="724.0" layoutY="504.0" prefHeight="214.0" prefWidth="172.0" spacing="10.0" style="-fx-background-radius: 20;">
+   <ImageView fitHeight="360.0" fitWidth="368.0" layoutX="838.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../images/3425156_59858-removebg-preview.png" />
+      </image>
+   </ImageView>
+   <Label layoutX="615.0" layoutY="93.0" text="Customer Id :">
+      <font>
+         <Font name="Calibri Bold" size="17.0" />
+      </font>
+   </Label>
+   <Label layoutX="353.0" layoutY="93.0" text="Order Date :">
+      <font>
+         <Font name="Calibri Bold" size="17.0" />
+      </font>
+   </Label>
+   <Label layoutX="82.0" layoutY="96.0" text="Order Id :">
+      <font>
+         <Font name="Calibri Bold" size="17.0" />
+      </font>
+   </Label>
+
+   <VBox layoutX="1034.0" layoutY="484.0" prefHeight="214.0" prefWidth="172.0" spacing="10.0" style="-fx-background-radius: 20;">
       <children>
          <JFXButton fx:id="btnSave" onAction="#btnSaveOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Save">
             <font>
@@ -80,6 +83,14 @@
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor>
+            <stylesheets>
+               <URL value="@../css/Dashboard.css" />
+               <URL value="@../css/buttonForm.css" />
+            </stylesheets>
+            <styleClass>
+               <String fx:value="anchorpanetop2" />
+               <String fx:value="saveButton" />
+            </styleClass>
          </JFXButton>
          <JFXButton fx:id="btnDelete" layoutX="10.0" layoutY="10.0" onAction="#btnDeleteOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Delete">
             <font>
@@ -98,6 +109,14 @@
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor>
+            <stylesheets>
+               <URL value="@../css/Dashboard.css" />
+               <URL value="@../css/buttonForm.css" />
+            </stylesheets>
+            <styleClass>
+               <String fx:value="anchorpanetop2" />
+               <String fx:value="deleteButton" />
+            </styleClass>
          </JFXButton>
          <JFXButton fx:id="btnUpdate" layoutX="10.0" layoutY="82.0" onAction="#btnUpdateOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Update">
             <font>
@@ -116,6 +135,14 @@
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor>
+            <stylesheets>
+               <URL value="@../css/Dashboard.css" />
+               <URL value="@../css/buttonForm.css" />
+            </stylesheets>
+            <styleClass>
+               <String fx:value="anchorpanetop2" />
+               <String fx:value="updateButton" />
+            </styleClass>
          </JFXButton>
          <JFXButton fx:id="btnClear" layoutX="10.0" layoutY="154.0" onAction="#btnClearOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Clear">
             <font>
@@ -134,27 +161,16 @@
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor>
+            <stylesheets>
+               <URL value="@../css/Dashboard.css" />
+               <URL value="@../css/buttonForm.css" />
+            </stylesheets>
+            <styleClass>
+               <String fx:value="anchorpanetop2" />
+               <String fx:value="clearButton" />
+            </styleClass>
          </JFXButton>
       </children>
    </VBox>
-   <ImageView fitHeight="237.0" fitWidth="282.0" layoutX="620.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../images/3425156_59858-removebg-preview.png" />
-      </image>
-   </ImageView>
-   <Label layoutX="140.0" layoutY="151.0" text="Customer Id :">
-      <font>
-         <Font name="Calibri Bold" size="17.0" />
-      </font>
-   </Label>
-   <Label layoutX="431.0" layoutY="67.0" text="Order Date :">
-      <font>
-         <Font name="Calibri Bold" size="17.0" />
-      </font>
-   </Label>
-   <Label layoutX="135.0" layoutY="68.0" text="Order Id :">
-      <font>
-         <Font name="Calibri Bold" size="17.0" />
-      </font>
-   </Label>
+
 </AnchorPane>

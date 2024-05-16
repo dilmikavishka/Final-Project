@@ -5,3 +5,10 @@
 .background{
     -fx-background-color: #FEFAF6;
 }
+
+.anchorpanetop2 {
+    -fx-background-color: linear-gradient(to bottom, rgb(49, 54, 63) 0%, rgb(118, 171, 174) 90%);
+    /*    !* -fx-effect: dropshadow(gaussian, #35a644, 24, 0, 24, 24), *!*/
+    /*    !* dropshadow(gaussian, #45d858, -24, 0, 24, -24); *!*/
+    /*    !* -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0, 0, 0); *!*/
+}

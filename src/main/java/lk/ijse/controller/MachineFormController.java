@@ -6,12 +6,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.Util.Regex;
+import lk.ijse.Util.TextFeild;
 import lk.ijse.model.Customer;
 import lk.ijse.model.Machine;
 import lk.ijse.model.Tm.MachineTm;
@@ -81,7 +81,12 @@ public class MachineFormController {
         String MaId = txtMachineId.getText();
 
         try {
-            boolean isDeleted = MachineRepo.delete(MaId);
+            boolean isDeleted = false;
+            if (isValied()) {
+                isDeleted = MachineRepo.delete(MaId);
+            }else {
+                new Alert(Alert.AlertType.ERROR,"check fiels", ButtonType.OK).show();
+            }
             if(isDeleted) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Machine deleted!").show();
             }
@@ -104,7 +109,7 @@ public class MachineFormController {
     }
 
     @FXML
-    void btnSaveOnAction(ActionEvent event) {
+    void btnSaveOnAction(ActionEvent event) throws SQLException {
         String MaId = txtMachineId.getText();
         String name = txtMachineName.getText();
         String description = txtStatus.getText();
@@ -112,14 +117,26 @@ public class MachineFormController {
         Machine machine = new Machine(MaId,name,description);
 
         try {
-            boolean isSaved = MachineRepo.save(machine);
-            if (isSaved){
-                new Alert(Alert.AlertType.CONFIRMATION,"Machine is saved").show();
+            boolean isSave = false;
+            if (isValied()) {
+                isSave = MachineRepo.update(machine);
+            }else {
+                new Alert(Alert.AlertType.ERROR,"check fiels", ButtonType.OK).show();
+            }
+            if (isSave){
+                new Alert(Alert.AlertType.CONFIRMATION,"Machine is Save!").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
         loadAllMachine();
+    }
+
+    private boolean isValied() {
+        if (!Regex.setTextColor(TextFeild.ID,txtMachineId)) return false;
+        if (!Regex.setTextColor(TextFeild.NAME,txtMachineName)) return false;
+        if (!Regex.setTextColor(TextFeild.NAME,txtStatus)) return false;
+        return true;
     }
 
     private void loadAllMachine() {
@@ -152,7 +169,12 @@ public class MachineFormController {
         Machine machine = new Machine(MaId,name,description);
 
         try {
-            boolean isUpdate = MachineRepo.update(machine);
+            boolean isUpdate = false;
+            if (isValied()) {
+                isUpdate = MachineRepo.update(machine);
+            }else {
+                new Alert(Alert.AlertType.ERROR,"check fiels", ButtonType.OK).show();
+            }
             if (isUpdate){
                 new Alert(Alert.AlertType.CONFIRMATION,"Machine is updated!").show();
             }
@@ -197,5 +219,19 @@ public class MachineFormController {
             return "M" + String.format("%03d", ++idNum);
         }
         return"M001";
+    }
+
+    @FXML
+    void txtMachineIdOnKeyReleased(KeyEvent event) {
+        Regex.setTextColor(TextFeild.ID,txtMachineId);
+    }
+
+    @FXML
+    void txtStatusOnKeyReleased(KeyEvent event) {
+        Regex.setTextColor(TextFeild.NAME,txtStatus);
+    }
+
+    public void txtMachineNameOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFeild.NAME,txtMachineName);
     }
 }

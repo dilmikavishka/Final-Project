@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -11,95 +12,68 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anpCustomerManage" prefHeight="764.0" prefWidth="910.0" style="-fx-background-radius: 10;" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CustomerFormController">
+<AnchorPane fx:id="anpCustomerManage" prefHeight="750.0" prefWidth="1222.0" style="-fx-background-radius: 10;" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CustomerFormController">
    <children>
-      <Label layoutX="295.0" layoutY="16.0" prefHeight="35.0" prefWidth="236.0" style="-fx-background-radius: 5;" styleClass="anchorpanetop2" stylesheets="@../css/MainForm.css" text="Customer Manage" underline="true">
+      <Label layoutX="495.0" layoutY="17.0" prefHeight="35.0" prefWidth="236.0" text="Customer Manage">
          <font>
             <Font name="Calibri Bold" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="84.0" layoutY="87.0" text="Customer Id :">
+      <Label layoutX="152.0" layoutY="85.0" text="Customer Id :">
          <font>
             <Font name="Calibri Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="393.0" layoutY="87.0" text="Customer Name :">
+      <Label layoutX="546.0" layoutY="85.0" text="Customer Name :">
          <font>
             <Font name="Calibri Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="393.0" layoutY="163.0" text="Customer Address :">
+      <Label layoutX="543.0" layoutY="167.0" text="Customer Address :">
          <font>
             <Font name="Calibri Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="80.0" layoutY="163.0" text="Customer Tel :">
+      <Label layoutX="152.0" layoutY="167.0" text="Customer Tel :">
          <font>
             <Font name="Calibri Bold" size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCustomerId" layoutX="87.0" layoutY="113.0" onAction="#txtSearchOnAction" prefHeight="30.0" prefWidth="170.0" promptText="Customer Id" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black;">
+      <TextField fx:id="txtCustomerId" layoutX="150.0" layoutY="115.0" onAction="#txtSearchOnAction" onKeyReleased="#txtCustomerIdOnKeyReleased" prefHeight="30.0" prefWidth="200.0" promptText="Customer Id" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black;">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <TextField fx:id="txtCustomerName" layoutX="545.0" layoutY="115.0" onKeyReleased="#txtCustomerNameOnKeyReleased" prefHeight="30.0" prefWidth="200.0" promptText="Customer Name" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
-               </color>
-            </DropShadow>
-         </effect></TextField>
-      <TextField fx:id="txtCustomerName" layoutX="396.0" layoutY="116.0" onKeyReleased="#txtCustomerNameOnKeyReleased" prefHeight="30.0" prefWidth="170.0" promptText="Customer Name">
+      </TextField>
+      <TextField fx:id="txtCustomerTel" layoutX="148.0" layoutY="201.0" onKeyReleased="#txtCustomerTelOnKeyReleased" prefHeight="30.0" prefWidth="200.0" promptText="Customer Tel" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
-               </color>
-            </DropShadow>
-         </effect></TextField>
-      <TextField fx:id="txtCustomerTel" layoutX="84.0" layoutY="191.0" onKeyReleased="#txtCustomerTelOnKeyReleased" prefHeight="30.0" prefWidth="170.0" promptText="Customer Tel">
+      </TextField>
+
+      <TextField fx:id="txtCustomerAddress" layoutX="544.0" layoutY="203.0" onKeyReleased="#txtCustomerAddressOnKeyReleased" prefHeight="30.0" prefWidth="200.0" promptText="Customer Address" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
-               </color>
-            </DropShadow>
-         </effect></TextField>
-      <TextField fx:id="txtCustomerAddress" layoutX="396.0" layoutY="191.0" onKeyReleased="#txtCustomerAddressOnKeyReleased" prefHeight="30.0" prefWidth="170.0" promptText="Customer Address">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.003921568859368563" green="0.6352941393852234" blue="1.0" />
-               </color>
-            </DropShadow>
-         </effect></TextField>
-      <TableView fx:id="tblCustomer" layoutX="21.0" layoutY="285.0" prefHeight="470.0" prefWidth="746.0">
+      </TextField>
+      <TableView fx:id="tblCustomer" layoutX="22.0" layoutY="260.0" prefHeight="470.0" prefWidth="793.0">
         <columns>
-          <TableColumn fx:id="colCustomerId" prefWidth="95.19998359680176" text="Customer Id" />
-          <TableColumn fx:id="colCustomerName" prefWidth="174.13336944580078" text=" Name" />
-           <TableColumn fx:id="colCustomerAddress" prefWidth="217.33334350585938" text="Address" />
-            <TableColumn fx:id="colCustomerTel" prefWidth="272.2666931152344" text="Customer Tel" />
+          <TableColumn fx:id="colCustomerId" prefWidth="117.59997940063477" text="Customer Id" />
+          <TableColumn fx:id="colCustomerName" prefWidth="192.0000457763672" text=" Name" />
+           <TableColumn fx:id="colCustomerAddress" prefWidth="208.53338623046875" text="Address" />
+            <TableColumn fx:id="colCustomerTel" prefWidth="275.7332458496094" text="Customer Tel" />
 
         </columns>
       </TableView>
       <Label fx:id="lblCustomer" layoutX="117.0" layoutY="68.0" />
-      <ImageView fitHeight="171.0" fitWidth="356.0" layoutX="620.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
-      </ImageView>
-      <VBox layoutX="789.0" layoutY="503.0" prefHeight="214.0" prefWidth="172.0" spacing="10.0" style="-fx-background-radius: 20;">
+      <VBox layoutX="1030.0" layoutY="489.0" prefHeight="214.0" prefWidth="172.0" spacing="10.0" style="-fx-background-radius: 20;">
          <children>
-            <JFXButton fx:id="btnSave" onAction="#btnSaveOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Save">
+            <JFXButton fx:id="btnSave" onAction="#btnSaveOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" styleClass="saveButton" text="Save">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
@@ -116,8 +90,12 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <stylesheets>
+                  <URL value="@../css/Dashboard.css" />
+                  <URL value="@../css/buttonForm.css" />
+               </stylesheets>
             </JFXButton>
-            <JFXButton fx:id="btnDelete" layoutX="10.0" layoutY="10.0" onAction="#btnDeleteOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Delete">
+            <JFXButton fx:id="btnDelete" layoutX="10.0" layoutY="10.0" onAction="#btnDeleteOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" styleClass="deleteButton" text="Delete">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
@@ -134,8 +112,12 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <stylesheets>
+                  <URL value="@../css/Dashboard.css" />
+                  <URL value="@../css/buttonForm.css" />
+               </stylesheets>
             </JFXButton>
-            <JFXButton fx:id="btnUpdate" layoutX="10.0" layoutY="82.0" onAction="#btnUpdateOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Update">
+            <JFXButton fx:id="btnUpdate" layoutX="10.0" layoutY="82.0" onAction="#btnUpdateOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" styleClass="updateButton" text="Update">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
@@ -152,8 +134,12 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <stylesheets>
+                  <URL value="@../css/Dashboard.css" />
+                  <URL value="@../css/buttonForm.css" />
+               </stylesheets>
             </JFXButton>
-            <JFXButton fx:id="btnClear" layoutX="10.0" layoutY="154.0" onAction="#btnClearOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" text="Clear">
+            <JFXButton fx:id="btnClear" layoutX="10.0" layoutY="154.0" onAction="#btnClearOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" styleClass="clearButton" text="Clear">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
@@ -170,13 +156,40 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <stylesheets>
+                  <URL value="@../css/Dashboard.css" />
+                  <URL value="@../css/buttonForm.css" />
+               </stylesheets>
             </JFXButton>
          </children>
       </VBox>
-      <ImageView fitHeight="315.0" fitWidth="382.0" layoutX="584.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="244.0" fitWidth="370.0" layoutX="842.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/14245105_MyApril10-removebg-preview.png" />
          </image>
       </ImageView>
+      <JFXButton fx:id="btnCusList" layoutX="1029.0" layoutY="363.0" onAction="#btnCusListOnAction" prefHeight="68.0" prefWidth="172.0" style="-fx-background-radius: 20;" styleClass="ListButton" text="Customer List">
+         <font>
+            <Font name="Calibri Bold" size="20.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/icons8-list-50.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <stylesheets>
+            <URL value="@../css/Dashboard.css" />
+            <URL value="@../css/buttonForm.css" />
+         </stylesheets>
+      </JFXButton>
+
    </children>
 </AnchorPane>

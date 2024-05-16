@@ -9,7 +9,7 @@
         <![CDATA[SELECT order_details.orderId, orders.orderDate, batch.Price, order_details.batchId, batch.desingDescription, order_details.Qty
 FROM orders
 JOIN order_details ON orders.orderId = order_details.orderId
-JOIN batch ON order_details.batchId = batch.batchId WHERE order_details.orderId =  $P{orderId} ]]>
+JOIN batch ON order_details.batchId = batch.batchId WHERE order_details.orderId =  $P{orderId}]]>
     </queryString>
     <field name="orderId" class="java.lang.String">
         <property name="com.jaspersoft.studio.field.name" value="orderId"/>
@@ -185,14 +185,14 @@ JOIN batch ON order_details.batchId = batch.batchId WHERE order_details.orderId 
     <columnFooter>
         <band height="50" splitType="Stretch">
             <textField>
-                <reportElement x="453" y="10" width="100" height="30" uuid="5cc2b37d-a3a8-4a9a-ab85-10d38a43a1f4"/>
+                <reportElement x="453" y="5" width="100" height="30" uuid="5cc2b37d-a3a8-4a9a-ab85-10d38a43a1f4"/>
                 <textElement>
                     <font size="16" isBold="false"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$P{total}]]></textFieldExpression>
             </textField>
             <staticText>
-                <reportElement x="338" y="10" width="100" height="30" uuid="8246bf8b-0f1d-4660-807b-b97dc8b0e951"/>
+                <reportElement x="338" y="5" width="100" height="30" uuid="8246bf8b-0f1d-4660-807b-b97dc8b0e951"/>
                 <textElement>
                     <font size="16" isBold="false"/>
                 </textElement>

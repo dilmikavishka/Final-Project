@@ -13,8 +13,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.Util.Regex;
+import lk.ijse.Util.TextFeild;
 import lk.ijse.model.Customer;
 import lk.ijse.model.Order;
 import lk.ijse.model.Payment;
@@ -26,6 +29,7 @@ import lk.ijse.repository.PaymentRepo;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 public class OderFormController {
@@ -80,6 +84,7 @@ public class OderFormController {
         loadAllOrders();
         getCustmoreIds();
         getCurrentOrderIds();
+        txtOrderDate.setText(String.valueOf(LocalDate.now()));
 
     }
 
@@ -107,15 +112,6 @@ public class OderFormController {
 
 
     @FXML
-    void btnBackOnAction(ActionEvent event) throws IOException {
-        AnchorPane dashboardPane = FXMLLoader.load(this.getClass().getResource("/view/DashBordForm.fxml"));
-
-
-        anpOrderManage.getChildren().clear();
-        anpOrderManage.getChildren().add(dashboardPane);
-    }
-
-    @FXML
     void btnClearOnAction(ActionEvent event) {
         clearFields();
     }
@@ -130,6 +126,11 @@ public class OderFormController {
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
         String oId = txtOrderId.getText();
+
+        if (!isValied()) {
+            new Alert(Alert.AlertType.ERROR, "Please check all fields.").show();
+            return;
+        }
 
         try {
             boolean isDeleted = OrderRepo.delete(oId);
@@ -148,7 +149,10 @@ public class OderFormController {
         Date date = Date.valueOf(txtOrderDate.getText());
         String CusId = comCustId.getValue();
 
-
+        if (!isValied()) {
+            new Alert(Alert.AlertType.ERROR, "Please check all fields.").show();
+            return;
+        }
         Order order = new Order(oId,date,CusId);
 
         try {
@@ -160,6 +164,11 @@ public class OderFormController {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
         loadAllOrders();
+    }
+
+    private boolean isValied() {
+        if (!Regex.setTextColor(TextFeild.ID,txtOrderId)) return false;
+        return true;
     }
 
     private void loadAllOrders() {
@@ -189,6 +198,10 @@ public class OderFormController {
         Date date = Date.valueOf(txtOrderDate.getText());
         String CusId = comCustId.getValue();
 
+        if (!isValied()) {
+            new Alert(Alert.AlertType.ERROR, "Please check all fields.").show();
+            return;
+        }
 
         Order order = new Order(oId,date,CusId);
 
@@ -251,4 +264,10 @@ public class OderFormController {
         }
         return"O001";
     }
+
+    @FXML
+    void txtOrderIdOnKeyReleased(KeyEvent event) {
+        Regex.setTextColor(TextFeild.ID,txtOrderId);
+    }
+
 }

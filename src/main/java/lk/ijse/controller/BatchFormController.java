@@ -6,18 +6,20 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.Util.Regex;
+import lk.ijse.Util.TextFeild;
 import lk.ijse.model.*;
 import lk.ijse.model.Tm.*;
 import lk.ijse.repository.*;
 
-import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -124,6 +126,8 @@ public class BatchFormController {
 
     @FXML
     private TableColumn<?, ?> colMatAction;
+    @FXML
+    private TableColumn<?, ?> colColor;
 
     public void initialize() {
         loadAllBatch();
@@ -139,6 +143,8 @@ public class BatchFormController {
 
         ObservableList<String> descriptionType = FXCollections.observableArrayList("POLISH","UNPOLISH");
         choiceDescription.setItems(descriptionType);
+
+        txtDate.setText(String.valueOf(LocalDate.now()));
     }
 
     private void setCellValueFactoryMaterial() {
@@ -163,6 +169,7 @@ public class BatchFormController {
                         material.getDate(),
                         material.getMatQty(),
                         material.getSupId(),
+                        material.getPrice(),
                         btn
                 );
                 obList.add(tm);
@@ -264,12 +271,14 @@ public class BatchFormController {
 
     private void setCellValueFactory() {
         colBatchId.setCellValueFactory(new PropertyValueFactory<>("BatchId"));
+        colColor.setCellValueFactory(new PropertyValueFactory<>("BatchColor"));
         colDescription.setCellValueFactory(new PropertyValueFactory<>("Des"));
         colQtyOnHand.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
         colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
         colEmployeeId.setCellValueFactory(new PropertyValueFactory<>("EmployeeId"));
         colOrderId.setCellValueFactory(new PropertyValueFactory<>("OrderId"));
         colPrice.setCellValueFactory(new PropertyValueFactory<>("Price"));
+
 
     }
 
@@ -299,14 +308,6 @@ public class BatchFormController {
         }
     }
 
-    @FXML
-    void btnBackOnAction(ActionEvent event) throws IOException {
-        AnchorPane dashboardPane = FXMLLoader.load(this.getClass().getResource("/view/DashBordForm.fxml"));
-
-
-        anpBatchManage.getChildren().clear();
-        anpBatchManage.getChildren().add(dashboardPane);
-    }
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
@@ -333,7 +334,12 @@ public class BatchFormController {
         String id = txtBatchId.getText();
 
         try {
-            boolean isDeleted = BatchRepo.delete(id);
+            boolean isDeleted = false;
+            if (isValied()) {
+                isDeleted = BatchRepo.delete(id);
+            }else{
+                new Alert(Alert.AlertType.ERROR,"check fiels", ButtonType.OK).show();
+            }
             if (isDeleted){
                 new Alert(Alert.AlertType.CONFIRMATION,"Batch is deleted").show();
             }
@@ -363,7 +369,12 @@ public class BatchFormController {
         Batch batch = new Batch(BatchId,BatchColor,Des,qty,date,EmployeeId,OrderId,Price);
 
         try {
-            boolean isSaved = BatchRepo.save(batch);
+            boolean isSaved = false;
+            if (isValied()) {
+                isSaved = BatchRepo.save(batch);
+            }else {
+                new Alert(Alert.AlertType.ERROR,"check fiels", ButtonType.OK).show();
+            }
             if (isSaved){
                 new Alert(Alert.AlertType.CONFIRMATION,"Batch is saved").show();
             }
@@ -381,6 +392,7 @@ public class BatchFormController {
             for( Batch batch : batchList){
                 BatchTm tm = new BatchTm(
                         batch.getBatchId(),
+                        batch.getBatchColor(),
                         batch.getDes(),
                         batch.getQtyOnHand(),
                         batch.getDate(),
@@ -421,7 +433,12 @@ public class BatchFormController {
         Batch batch = new Batch(BatchId,BatchColor,Des,qty,date,EmployeeId,OrderId,Price);
 
         try {
-            boolean isUpdate = BatchRepo.update(batch);
+            boolean isUpdate = false;
+            if (isValied()) {
+                isUpdate = BatchRepo.update(batch);
+            }else {
+                new Alert(Alert.AlertType.ERROR,"check fiels", ButtonType.OK).show();
+            }
             if (isUpdate){
                 new Alert(Alert.AlertType.CONFIRMATION,"Batch is Update").show();
             }
@@ -430,6 +447,14 @@ public class BatchFormController {
         }
 
 
+    }
+
+    private boolean isValied() {
+        if (!Regex.setTextColor(TextFeild.ID,txtBatchId)) return false;
+        if (!Regex.setTextColor(TextFeild.NAME,txtBatchColor)) return false;
+        if (!Regex.setTextColor(TextFeild.QTY,txtBatchQty)) return false;
+        if (!Regex.setTextColor(TextFeild.SALARY,txtPrice)) return false;
+        return true;
     }
 
     @FXML
@@ -500,6 +525,20 @@ public class BatchFormController {
     }
 
 
+    public void txtBatchIdOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFeild.ID,txtBatchId);
+    }
 
+    public void txtBatchColorOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFeild.NAME,txtBatchColor);
+    }
+
+    public void txtBatchQtyOKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFeild.QTY,txtBatchQty);
+    }
+
+    public void txtPriceOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFeild.SALARY,txtPrice);
+    }
 }
 

@@ -1,8 +1,4 @@
 package lk.ijse.controller;
-
-/*import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.animation.TranslateTransition;*/
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,9 +10,12 @@ import javafx.scene.control.Hyperlink;
 //import javafx.scene.control.Label;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 //import javafx.util.Duration;
+import lk.ijse.Util.Regex;
+import lk.ijse.Util.TextFeild;
 import lk.ijse.db.DbConnection;
 
 import java.io.IOException;
@@ -54,12 +53,29 @@ public class LoginFormController {
     private Hyperlink linkRegister;
     public AnchorPane rootNode;
 
+    @FXML
+    private Hyperlink linkFrogetPassword;
+
 
     @FXML
     private TextField txtPassword;
 
     @FXML
     private TextField txtUserName;
+
+
+    @FXML
+    void linkFrogetPasswordOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/SendOtpForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+
+        stage.setTitle("Registration Form");
+
+        stage.show();
+    }
 
     @FXML
     void btnLoginOnAction(ActionEvent event) throws IOException {
@@ -82,6 +98,10 @@ public class LoginFormController {
         pstm.setObject(1, userId);
 
         ResultSet resultSet = pstm.executeQuery();
+        if (!isValied()) {
+            new Alert(Alert.AlertType.ERROR, "Please check all fields.").show();
+            return;
+        }
         if(resultSet.next()) {
             String dbPw = resultSet.getString("password");
 
@@ -94,6 +114,12 @@ public class LoginFormController {
         } else {
             new Alert(Alert.AlertType.INFORMATION, "sorry! user id can't be find!").show();
         }
+    }
+
+    private boolean isValied() {
+        if (!Regex.setTextColor(TextFeild.ID,txtUserName)) return false;
+        if (!Regex.setTextColor(TextFeild.QTY,txtPassword)) return false;
+        return true;
     }
 
     private void navigateToTheMain() throws IOException {
@@ -119,5 +145,16 @@ public class LoginFormController {
         stage.show();
 
     }
+
+    @FXML
+    void txtPasswordOnKeyReleased(KeyEvent event) {
+        Regex.setTextColor(TextFeild.ID,txtUserName);
+    }
+
+    @FXML
+    void txtUserNameOnKeyReleased(KeyEvent event) {
+        Regex.setTextColor(TextFeild.QTY,txtPassword);
+    }
+
 
 }

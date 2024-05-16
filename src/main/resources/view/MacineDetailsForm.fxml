@@ -1,108 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="apnMacchineDetails" prefHeight="494.0" prefWidth="693.0" style="-fx-background-color: C6EBC5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MacineDetailsFormController">
+<AnchorPane fx:id="apnMacchineDetails" prefHeight="750.0" prefWidth="1222.0" style="-fx-background-radius: 10;" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MacineDetailsFormController">
    <children>
-      <Label layoutX="279.0" layoutY="14.0" text="Machine Details">
-         <font>
-            <Font name="Calibri Bold Italic" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="62.0" layoutY="66.0" text="Machine Id :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <JFXComboBox fx:id="comMachineId" layoutX="62.0" layoutY="84.0" onAction="#comMachineIdOnAction" prefHeight="26.0" prefWidth="150.0" />
-      <Label layoutX="62.0" layoutY="151.0" text="Date :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="476.0" layoutY="66.0" text="Batch Id :">
-         <font>
-            <Font name="Calibri Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <JFXComboBox fx:id="comBatchId" layoutX="476.0" layoutY="84.0" onAction="#comBatchIdOnAction" prefHeight="26.0" prefWidth="150.0" />
-      <TextField fx:id="txtDate" layoutX="55.0" layoutY="169.0" />
-      <TableView fx:id="tblMachineDetails" layoutX="36.0" layoutY="204.0" prefHeight="278.0" prefWidth="471.0">
+      <JFXComboBox fx:id="comMachineId" layoutX="245.0" layoutY="118.0" onAction="#comMachineIdOnAction" prefHeight="30.0" prefWidth="200.0" />
+      <JFXComboBox fx:id="comBatchId" layoutX="595.0" layoutY="119.0" onAction="#comBatchIdOnAction" prefHeight="30.0" prefWidth="200.0" />
+      <TableView fx:id="tblMachineDetails" layoutX="128.0" layoutY="199.0" prefHeight="527.0" prefWidth="671.0">
         <columns>
-          <TableColumn fx:id="colMachineId" prefWidth="115.1999740600586" text="Machine Id" />
-          <TableColumn fx:id="colBatchId" prefWidth="124.0" text="Batch Id" />
-            <TableColumn fx:id="colDate" prefWidth="235.20001220703125" text="Date" />
+          <TableColumn fx:id="colMachineId" prefWidth="310.93336486816406" text="Machine Id" />
+          <TableColumn fx:id="colBatchId" prefWidth="360.2666931152344" text="Batch Id" />
         </columns>
       </TableView>
-      <JFXButton fx:id="btnBack" layoutX="596.0" layoutY="453.0" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: DD5746;" text="Back">
+      <Label layoutX="515.0" layoutY="17.0" prefHeight="35.0" prefWidth="205.0" text="Machine Detail">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Calibri Bold" size="30.0" />
          </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
-               <image>
-                  <Image url="@../icon/icons8-back-50.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="btnSave" layoutX="596.0" layoutY="383.0" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Save">
+      </Label>
+      <Label layoutX="600.0" layoutY="92.0" text="Batch Id :">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Calibri Bold" size="17.0" />
          </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
-               <image>
-                  <Image url="@../icon/icons8-add-bookmark-64.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="btnDelete" layoutX="596.0" layoutY="343.0" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Delete">
+      </Label>
+      <Label layoutX="253.0" layoutY="91.0" text="Machine Id :">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Calibri Bold" size="17.0" />
          </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
-               <image>
-                  <Image url="@../icon/icons8-delete-24.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="btnUpdate" layoutX="596.0" layoutY="305.0" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Update">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
-               <image>
-                  <Image url="@../icon/icons8-update-64.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="btnClear" layoutX="596.0" layoutY="266.0" onAction="#btnClearOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: F6995C;" text="Clear">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="21.0">
-               <image>
-                  <Image url="@../icon/icons8-clear-50.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
+      </Label>
    </children>
 </AnchorPane>

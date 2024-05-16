@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.QuadCurve?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anpOtp1" prefHeight="556.0" prefWidth="787.0" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.OtpFormController">
+   <children>
+      <AnchorPane fx:id="anpOtp2" layoutX="15.0" layoutY="13.0" prefHeight="530.0" prefWidth="757.0" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css">
+         <children>
+            <QuadCurve controlX="485.79998779296875" controlY="-216.0" endX="-112.00000762939453" endY="335.39996337890625" fill="DODGERBLUE" layoutX="112.0" layoutY="195.0" opacity="0.21" startX="-112.00000762939453" startY="-195.0" stroke="BLACK" strokeType="INSIDE" />
+            <QuadCurve controlX="547.0" controlY="328.5999755859375" endX="-122.00000762939453" endY="328.5999755859375" fill="DODGERBLUE" layoutX="122.0" layoutY="205.0" opacity="0.21" startX="-122.00000762939453" startY="-205.77044677734375" stroke="BLACK" strokeType="INSIDE" />
+            <Label layoutX="535.0" layoutY="14.0" prefHeight="35.0" prefWidth="108.0" text="OTP Form">
+               <font>
+                  <Font name="Calibri Bold" size="25.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="384.0" fitWidth="376.0" layoutX="11.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/20824339_6343837-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="txt1" layoutX="400.0" layoutY="137.0" prefHeight="75.0" prefWidth="75.0" style="-fx-background-color: transpare; -fx-border-color: black;" />
+            <TextField fx:id="txt2" layoutX="486.0" layoutY="137.0" prefHeight="75.0" prefWidth="75.0" style="-fx-background-color: transpare; -fx-border-color: black;" />
+            <TextField fx:id="txt3" layoutX="572.0" layoutY="137.0" prefHeight="75.0" prefWidth="75.0" style="-fx-background-color: transpare; -fx-border-color: black;" />
+            <TextField fx:id="txt4" layoutX="659.0" layoutY="137.0" prefHeight="75.0" prefWidth="75.0" style="-fx-background-color: transpare; -fx-border-color: black;" />
+            <Label fx:id="lblStatus" layoutX="470.0" layoutY="265.0" prefHeight="35.0" prefWidth="202.0">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblOtp" layoutX="420.0" layoutY="70.0" prefHeight="35.0" prefWidth="0.0">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="btnBack" layoutX="620.0" layoutY="481.0" onAction="#btnBackOnAction" prefHeight="38.0" prefWidth="138.0" style="-fx-background-radius: 20;" text="Back">
+         <font>
+            <Font name="Calibri Bold" size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnConfirm" layoutX="459.0" layoutY="481.0" onAction="#btnConfirmOnAction" prefHeight="38.0" prefWidth="138.0" style="-fx-background-radius: 20;" text="Confirm">
+         <font>
+            <Font name="Calibri Bold" size="20.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

@@ -16,4 +16,7 @@ public class Material {
     private Date date;
     private int matQty;
     private String supId;
+    private double price;
+
+
 }

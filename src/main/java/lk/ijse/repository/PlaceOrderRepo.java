@@ -39,28 +39,28 @@ public class PlaceOrderRepo {
     }
 
     public static String calculateNetTotal(String orderId) {
-            double netTotal = 0.0;
+        double netTotal = 0.0;
 
-            String sql = "SELECT SUM(b.Price * od.qty) " +
-                    "FROM batch b " +
-                    "JOIN order_details od ON b.batchId = od.batchId " +
-                    "WHERE od.orderId = ?";
-
-
-            try (PreparedStatement statement = DbConnection.getInstance().getConnection().prepareStatement(sql)) {
-                statement.setString(1, orderId);
+        String sql = "SELECT SUM(b.Price * od.qty) " +
+                "FROM batch b " +
+                "JOIN order_details od ON b.batchId = od.batchId " +
+                "WHERE od.orderId = ?";
 
 
-                try (ResultSet resultSet = statement.executeQuery()) {
+        try (PreparedStatement statement = DbConnection.getInstance().getConnection().prepareStatement(sql)) {
+            statement.setString(1, orderId);
 
-                    while (resultSet.next()) {
-                        double c = resultSet.getDouble(1);
-                        netTotal=netTotal+c;
-                    }
-                    return String.valueOf((netTotal));
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+
+                while (resultSet.next()) {
+                    double c = resultSet.getDouble(1);
+                    netTotal=netTotal+c;
                 }
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
+                return String.valueOf((netTotal));
             }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
-    }
+}

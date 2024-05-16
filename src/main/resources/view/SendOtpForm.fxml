@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.QuadCurve?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anp1" prefHeight="556.0" prefWidth="787.0" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SendOtpFormController">
+   <children>
+      <AnchorPane fx:id="anp2" layoutX="14.0" layoutY="13.0" prefHeight="530.0" prefWidth="757.0" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css">
+         <children>
+            <JFXButton fx:id="btnSendOpt" layoutX="293.0" layoutY="22.0" onAction="#btnSendOptOnAction" prefHeight="52.0" prefWidth="173.0" style="-fx-background-radius: 20;" text="Send OTP">
+               <font>
+                  <Font name="Calibri Bold" size="25.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="354.0" fitWidth="550.0" layoutX="112.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/5632205_2961352-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <QuadCurve controlX="-138.79998779296875" controlY="-97.39997100830078" endX="-96.00000762939453" endY="340.79998779296875" fill="DODGERBLUE" layoutX="96.0" layoutY="191.0" opacity="0.21" startX="661.5999755859375" startY="341.79998779296875" stroke="BLACK" strokeType="INSIDE" />
+            <QuadCurve controlX="699.7999267578125" controlY="-64.39996337890625" endX="-96.00000762939453" endY="340.79998779296875" fill="DODGERBLUE" layoutX="95.0" layoutY="190.0" opacity="0.21" startX="661.5999755859375" startY="341.79998779296875" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

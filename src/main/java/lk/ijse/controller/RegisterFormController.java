@@ -10,8 +10,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.Util.Regex;
+import lk.ijse.Util.TextFeild;
 import lk.ijse.db.DbConnection;
 
 import java.io.IOException;
@@ -48,6 +51,11 @@ public class RegisterFormController {
         String name = txtName.getText();
         String password = txtPassword.getText();
 
+        if (!isValied()) {
+            new Alert(Alert.AlertType.ERROR, "Please check all fields.").show();
+            return;
+        }
+
         try {
             boolean isSaved = saveUser(userId, name, password);
             if(isSaved) {
@@ -57,6 +65,14 @@ public class RegisterFormController {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
+
+    private boolean isValied() {
+        if (!Regex.setTextColor(TextFeild.ID,txtId)) return false;
+        if (!Regex.setTextColor(TextFeild.NAME,txtName)) return false;
+        if (!Regex.setTextColor(TextFeild.QTY,txtPassword)) return false;
+        return true;
+    }
+
     private boolean saveUser(String userId, String name, String password) throws SQLException {
         String sql = "INSERT INTO user VALUES(?, ?, ?)";
 
@@ -86,4 +102,18 @@ public class RegisterFormController {
 
     }
 
+    @FXML
+    void txtIdOnKeyReleased(KeyEvent event) {
+        Regex.setTextColor(TextFeild.ID,txtId);
+    }
+
+    @FXML
+    void txtNameOnKeyReleased(KeyEvent event) {
+        Regex.setTextColor(TextFeild.NAME,txtName);
+    }
+
+    @FXML
+    void txtPasswordOnKeyReleased(KeyEvent event) {
+        Regex.setTextColor(TextFeild.QTY,txtPassword);
+    }
 }

@@ -16,5 +16,6 @@ public class MatirialTm {
     private Date date;
     private int matQty;
     private String supId;
+    private double price;
     private JFXButton btnSave;
 }

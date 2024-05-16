@@ -5,24 +5,26 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import lk.ijse.Util.Regex;
+import lk.ijse.Util.TextFeild;
+import lk.ijse.db.DbConnection;
 import lk.ijse.model.Customer;
 import lk.ijse.model.Tm.CustomerTm;
 import lk.ijse.repository.CustomerRepo;
-import lk.ijse.repository.OrderRepo;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
-import java.awt.event.KeyEvent;
-import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import static com.jfoenix.svg.SVGGlyphLoader.clear;
 
 public class CustomerFormController {
 
@@ -71,6 +73,10 @@ public class CustomerFormController {
     @FXML
     private Label lblCustomer;
 
+
+    @FXML
+    private JFXButton btnCusList;
+
     public void initialize() {
         setCellValueFactory();
         loadAllCustomers();
@@ -117,22 +123,17 @@ public class CustomerFormController {
         txtCustomerAddress.setText("");
     }
 
-
-    @FXML
-    void txtCustomerNameOnKeyReleased(KeyEvent event) {
-        Regex.setTextColor(lk.ijse.Util.TextField.NAME,txtCustomerName);
-    }
-
-    public boolean isValied(){
-        if (!Regex.setTextColor(lk.ijse.Util.TextField.NAME,txtCustomerName)) return false;
-        return true;
-    }
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
         String id = txtCustomerId.getText();
 
         try {
-            boolean isDeleted = CustomerRepo.delete(id);
+            boolean isDeleted = false;
+            if (isValied()) {
+                isDeleted = CustomerRepo.delete(id);
+            }else {
+                new Alert(Alert.AlertType.ERROR,"please check the fields",ButtonType.OK).show();
+            }
             if(isDeleted) {
                 new Alert(Alert.AlertType.CONFIRMATION, "customer deleted!").show();
             }
@@ -143,23 +144,37 @@ public class CustomerFormController {
     }
 
     @FXML
-    void btnSaveOnAction(ActionEvent event) throws SQLException {
+    void btnSaveOnAction(ActionEvent event)  {
         String id = txtCustomerId.getText();
         String name = txtCustomerName.getText();
         String tel = txtCustomerTel.getText();
         String address = txtCustomerAddress.getText();
 
-       // Customer customer = new Customer(id,name,tel,address);
+        Customer customer = new Customer(id,name,tel,address);
+        try {
 
-        if (isValied()) {
-            boolean isSaved = CustomerRepo.save(new Customer(id,name,tel,address));
-
+            boolean isSaved = false;
+            if (isValied()) {
+                isSaved = CustomerRepo.save(customer);
+            }else {
+                new Alert(Alert.AlertType.ERROR,"please check the fields").show();
+            }
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved!").show();
-                clear();
+                clearFields();
             }
+            } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
         loadAllCustomers();
+    }
+
+    private boolean isValied() {
+        if (!Regex.setTextColor(TextFeild.NAME,txtCustomerName)) return false;
+        if (!Regex.setTextColor(TextFeild.ID,txtCustomerId)) return false;
+        if (!Regex.setTextColor(TextFeild.ADDRESS,txtCustomerAddress)) return false;
+        if (!Regex.setTextColor(TextFeild.CONTACT,txtCustomerTel)) return false;
+        return true;
     }
 
     @FXML
@@ -172,7 +187,12 @@ public class CustomerFormController {
         Customer customer = new Customer(id,name,tel,address);
 
         try {
-            boolean isUpdate = CustomerRepo.update(customer);
+            boolean isUpdate = false;
+            if (isValied()) {
+                isUpdate = CustomerRepo.update(customer);
+            }else {
+                new Alert(Alert.AlertType.ERROR,"check fiels",ButtonType.OK).show();
+            }
             if (isUpdate){
                 new Alert(Alert.AlertType.CONFIRMATION,"customer is updated!").show();
             }
@@ -214,10 +234,41 @@ public class CustomerFormController {
 
     private String generateNexrCusId(String currentId) {
         if(currentId != null) {
-            String[] split = currentId.split("C");  //" ", "2"
+            String[] split = currentId.split("C");  //" ", "2"6
             int idNum = Integer.parseInt(split[1]);
             return "C" + String.format("%03d", ++idNum);
         }
         return"C001";
+    }
+
+
+    @FXML
+    void btnCusListOnAction(ActionEvent event) throws JRException, SQLException {
+        JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/Report/CustomerList.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+
+        Map<String,Object> data = new HashMap<>();
+        data.put("cusId",txtCustomerId.getText());
+        JasperPrint jasperPrint =
+                JasperFillManager.fillReport(jasperReport,data, DbConnection.getInstance().getConnection());
+        JasperViewer.viewReport(jasperPrint,false);
+    }
+
+
+    @FXML
+    void txtCustomerIdOnKeyReleased(KeyEvent event) {
+        Regex.setTextColor(TextFeild.ID,txtCustomerId);
+    }
+
+    public void txtCustomerTelOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFeild.CONTACT,txtCustomerTel);
+    }
+
+    public void txtCustomerAddressOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFeild.ADDRESS,txtCustomerAddress);
+    }
+
+    public void txtCustomerNameOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFeild.NAME,txtCustomerName);
     }
 }

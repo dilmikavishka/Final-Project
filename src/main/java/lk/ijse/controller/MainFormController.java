@@ -73,6 +73,11 @@ public class MainFormController {
     private JFXButton btnDash;
 
 
+    @FXML
+    private JFXButton btnCost;
+
+
+
     public void initialize() throws IOException {
         loadDashboardForm();
     }
@@ -90,6 +95,17 @@ public class MainFormController {
         anpMain.getChildren().add(dashboardPane);
 
     }
+
+
+    @FXML
+    void btnCostOnAction(ActionEvent event) throws IOException {
+        AnchorPane batchPane = FXMLLoader.load(this.getClass().getResource("/view/BatchCostForm.fxml"));
+
+
+        anpMain.getChildren().clear();
+        anpMain.getChildren().add(batchPane);
+    }
+
     @FXML
     void btnBatchOnAction(ActionEvent event) throws IOException {
         AnchorPane batchPane = FXMLLoader.load(this.getClass().getResource("/view/BatchForm.fxml"));

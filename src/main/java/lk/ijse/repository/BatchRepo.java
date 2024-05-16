@@ -2,13 +2,11 @@ package lk.ijse.repository;
 
 import lk.ijse.db.DbConnection;
 import lk.ijse.model.Batch;
+import lk.ijse.model.MaterialDetail;
 import lk.ijse.model.OredrDetail;
 import lk.ijse.model.Payment;
 
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -127,7 +125,8 @@ public class BatchRepo {
         while (resultSet.next()) {
             batchList.add(resultSet.getString(1));
         }
-        return batchList;}
+        return batchList;
+    }
 
     public static boolean update(List<OredrDetail> odList) throws SQLException {
         for (OredrDetail od : odList) {
@@ -164,4 +163,5 @@ public class BatchRepo {
         }
         return null;
     }
+
 }

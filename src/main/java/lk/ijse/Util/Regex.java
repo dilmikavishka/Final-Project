@@ -1,15 +1,21 @@
 package lk.ijse.Util;
 
+import com.jfoenix.controls.JFXTextField;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Regex {
-    public static boolean isTextFielValid(TextField textField, String text) {
+    public static boolean isTextFieldValid(TextFeild textFeild,String text){
         String filed = "";
 
-        switch (textField) {
-            case NAME:
+        switch (textFeild){
+            case NAME :
                 filed = "^[A-z|\\s]{3,}$";
+                break;
+
+            case ID:
+                filed =  "^([A-Z][0-9]{3})$";
                 break;
 
             case ADDRESS:
@@ -21,14 +27,16 @@ public class Regex {
                 break;
 
             case CONTACT:
-                filed = "^([+]94{1,3}|[0])([1-9]{2})([0-9]){7}$";
-                break;
+                filed =  "^([+]94{1,3}|[0])([1-9]{2})([0-9]){7}$";
+
+            case QTY:
+                filed = "^\\d+$";
         }
 
         Pattern pattern = Pattern.compile(filed);
 
-        if (text != null) {
-            if (text.trim().isEmpty()) {
+        if (text != null){
+            if (text.trim().isEmpty()){
                 return false;
             }
         }else {
@@ -40,17 +48,20 @@ public class Regex {
         if (matcher.matches()){
             return true;
         }
-        return true;
+        return false;
     }
 
-    public static boolean setTextColor(TextField location,javafx.scene.control.TextField textField){
-        if (Regex.isTextFielValid(location,textField.getText())){
-            textField.setStyle("-fx-background-color: Green");
-            textField.setStyle("-fx-background-color: Green");
+    public static boolean setTextColor(TextFeild location,javafx.scene.control.TextField textField){
+        if (Regex.isTextFieldValid(location,textField.getText())){
+            textField.setStyle("-fx-border-color: green;");
+            textField.setStyle("-fx-border-color: green;");
+
             return true;
+
         }else {
-            textField.setStyle("-fx-background-color: Red");
-            textField.setStyle("-fx-background-color: Red");
+            textField.setStyle("-fx-border-color: red;");
+            textField.setStyle("-fx-border-color: red;");
+
             return false;
         }
     }

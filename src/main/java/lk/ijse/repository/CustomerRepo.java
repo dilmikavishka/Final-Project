@@ -184,9 +184,9 @@ public class CustomerRepo {
 
         ResultSet resultSet = pstm.executeQuery();
         if (resultSet.next()) {
-            String id = resultSet.getString(1);
-            String name = resultSet.getString(2);
-            String address = resultSet.getString(4);
+            String id = resultSet.getString("customerId");
+            String name = resultSet.getString("customerName");
+            String address = resultSet.getString("customeraddress");
 
             Customer customer = new Customer(id, name, tel, address);
 

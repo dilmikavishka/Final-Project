@@ -15,9 +15,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anpDash" prefHeight="764.0" prefWidth="910.0" style="-fx-background-radius: 10;" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashboardFormController">
+<AnchorPane fx:id="anpDash" prefHeight="750.0" prefWidth="1222.0" style="-fx-background-radius: 10;" styleClass="anchorpane-sec" stylesheets="@../css/MainForm.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashboardFormController">
    <children>
-      <HBox layoutX="7.0" layoutY="59.0" prefHeight="335.0" prefWidth="898.0" spacing="10.0">
+      <HBox layoutX="34.0" layoutY="58.0" prefHeight="335.0" prefWidth="1153.0" spacing="10.0">
          <children>
             <BarChart fx:id="barChart" styleClass="anchorpanetop2" stylesheets="@../css/MainForm.css">
               <xAxis>
@@ -38,16 +38,16 @@
             <PieChart fx:id="pieChart" prefHeight="346.0" prefWidth="410.0" styleClass="anchorpanetop2" stylesheets="@../css/MainForm.css" />
          </children>
       </HBox>
-      <HBox layoutX="118.0" layoutY="445.0" prefHeight="181.0" prefWidth="671.0" spacing="10.0" stylesheets="@../css/MainForm.css">
+      <HBox layoutX="286.0" layoutY="430.0" prefHeight="219.0" prefWidth="683.0" spacing="20.0" stylesheets="@../css/MainForm.css">
          <children>
             <AnchorPane prefHeight="135.0" prefWidth="216.0" style="-fx-background-radius: 20;" styleClass="anchorpanetop2" stylesheets="@../css/MainForm.css">
                <children>
-                  <Label layoutX="5.0" layoutY="12.0" text="Order Count :">
+                  <Label layoutX="5.0" layoutY="31.0" text="Order Count :">
                      <font>
                         <Font name="Bodoni MT Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblOrderCount" layoutX="148.0" layoutY="13.0" prefHeight="30.0" prefWidth="3.0">
+                  <Label fx:id="lblOrderCount" layoutX="135.0" layoutY="27.0" prefHeight="30.0" prefWidth="3.0">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -114,7 +114,7 @@
             </AnchorPane>
          </children>
       </HBox>
-      <JFXButton fx:id="btnLogout" layoutX="769.0" layoutY="694.0" onAction="#btnLogoutOnAction" prefHeight="19.0" prefWidth="128.0" style="-fx-background-radius: 20;" styleClass="logoutButton" stylesheets="@../css/MainForm.css" text="Logout">
+      <JFXButton fx:id="btnLogout" layoutX="1071.0" layoutY="665.0" onAction="#btnLogoutOnAction" prefHeight="19.0" prefWidth="128.0" style="-fx-background-radius: 20;" styleClass="logoutButton" stylesheets="@../css/MainForm.css" text="Logout">
          <font>
             <Font name="Calibri Bold" size="20.0" />
          </font>
@@ -129,17 +129,17 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <Label layoutX="416.0" layoutY="37.0" text="BUSINESS INCOME">
+      <Label layoutX="514.0" layoutY="17.0" text="Amount of payment received per day">
          <font>
             <Font name="Bodoni MT Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="674.0" layoutY="37.0" text="MATERIAL AMOUNT">
+      <Label layoutX="947.0" layoutY="18.0" prefHeight="26.0" prefWidth="151.0" text="Material Amount">
          <font>
             <Font name="Bodoni MT Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="91.0" layoutY="37.0" text="BUSINESS INCOME">
+      <Label layoutX="106.0" layoutY="19.0" text="Amount of order received per day">
          <font>
             <Font name="Bodoni MT Bold" size="20.0" />
          </font>
